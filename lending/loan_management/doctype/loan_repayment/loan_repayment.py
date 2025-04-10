@@ -468,6 +468,7 @@ class LoanRepayment(AccountsController):
 				flt(amount, precision),
 				paid_amount=flt(amount, precision),
 				loan_disbursement=self.loan_disbursement,
+				loan_repayment=self.name,
 			)
 
 	def process_reschedule(self):
@@ -476,7 +477,9 @@ class LoanRepayment(AccountsController):
 		loan_restructure.status = "Approved"
 		loan_restructure.submit()
 
-	def reverse_future_accruals_and_demands(self, on_settlement_or_closure=False):
+	def reverse_future_accruals_and_demands(
+		self, on_settlement_or_closure=False, loan_repayment=None
+	):
 		from lending.loan_management.doctype.loan_demand.loan_demand import reverse_demands
 		from lending.loan_management.doctype.loan_interest_accrual.loan_interest_accrual import (
 			reverse_loan_interest_accruals,
@@ -497,6 +500,7 @@ class LoanRepayment(AccountsController):
 			demand_type="EMI",
 			loan_disbursement=self.loan_disbursement,
 			on_settlement_or_closure=on_settlement_or_closure,
+			loan_repayment=loan_repayment,
 		)
 
 		return accruals
@@ -662,12 +666,15 @@ class LoanRepayment(AccountsController):
 				loan_product=self.loan_product,
 			)
 			process_daily_loan_demands(posting_date=max_demand_date, loan=self.against_loan)
-			create_process_loan_classification(
+
+			frappe.enqueue(
+				create_process_loan_classification,
 				posting_date=max_demand_date,
 				loan_product=self.loan_product,
 				loan=self.against_loan,
 				loan_disbursement=self.loan_disbursement,
 				is_backdated=1,
+				enqueue_after_commit=True,
 			)
 
 	def cancel_charge_demands(self):
@@ -884,6 +891,7 @@ class LoanRepayment(AccountsController):
 				flt(self.unbooked_interest_paid, precision),
 				paid_amount=self.unbooked_interest_paid,
 				loan_disbursement=self.loan_disbursement,
+				loan_repayment=self.name,
 			)
 
 		if flt(self.unbooked_penalty_paid, precision) > 0:
@@ -895,6 +903,7 @@ class LoanRepayment(AccountsController):
 				flt(self.unbooked_penalty_paid, precision),
 				paid_amount=self.unbooked_penalty_paid,
 				loan_disbursement=self.loan_disbursement,
+				loan_repayment=self.name,
 			)
 
 	def update_paid_amounts(self):
@@ -1028,6 +1037,7 @@ class LoanRepayment(AccountsController):
 				"EMI" if self.is_term_loan else "Normal",
 				"Interest",
 				flt(unpaid_unbooked_interest, precision),
+				loan_repayment=self.name,
 			)
 
 		if flt(self.interest_payable - self.total_interest_paid, precision) > 0:
@@ -1198,15 +1208,19 @@ class LoanRepayment(AccountsController):
 			if self.repayment_type == "Write Off Settlement":
 				query = query.set(loan.status, "Written Off")
 				self.update_repayment_schedule_status(cancel=1)
+				self.reverse_future_accruals_and_demands(loan_repayment=self.name)
 			elif self.repayment_type == "Full Settlement":
 				query = query.set(loan.status, "Disbursed")
 				self.update_repayment_schedule_status(cancel=1)
+				self.reverse_future_accruals_and_demands(loan_repayment=self.name)
 			elif loan_status == "Closed":
 				if repayment_schedule_type == "Line of Credit":
 					query = query.set(loan.status, "Active")
 				else:
 					query = query.set(loan.status, "Disbursed")
 					self.update_repayment_schedule_status(cancel=1)
+
+				self.reverse_future_accruals_and_demands(loan_repayment=self.name)
 
 			if self.repayment_schedule_type == "Line of Credit" and self.loan_disbursement:
 				self.update_repayment_schedule_status(cancel=1)
@@ -2400,6 +2414,7 @@ def process_amount_for_loan(
 	penalty_amount = 0
 	payable_principal_amount = 0
 	is_backdated = 0
+	unbooked_interest = 0
 
 	last_demand_date = get_last_demand_date(
 		loan.name, posting_date, loan_disbursement=loan_disbursement, status=status
@@ -2422,12 +2437,15 @@ def process_amount_for_loan(
 			charges += demand.outstanding_amount
 
 	pending_principal_amount = get_pending_principal_amount(loan, loan_disbursement=loan_disbursement)
-	unbooked_interest, accrued_interest = get_unbooked_interest(
-		loan.name,
-		posting_date,
-		loan_disbursement=loan_disbursement,
-		last_demand_date=last_demand_date,
-	)
+
+	if loan.status not in ("Closed", "Settled"):
+		unbooked_interest, accrued_interest = get_unbooked_interest(
+			loan.name,
+			posting_date,
+			loan_disbursement=loan_disbursement,
+			last_demand_date=last_demand_date,
+		)
+
 	if getdate(posting_date) > getdate(latest_accrual_date) or is_backdated:
 		amounts["unaccrued_interest"] = calculate_accrual_amount_for_loans(
 			loan,
