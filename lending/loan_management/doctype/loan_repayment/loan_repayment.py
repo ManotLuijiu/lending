@@ -292,7 +292,12 @@ class LoanRepayment(AccountsController):
 					on_payment_allocation=True,
 				)
 
-			reverse_demands(self.against_loan, self.posting_date, demand_type="Penalty")
+			reverse_demands(
+				self.against_loan,
+				self.posting_date,
+				demand_type="Penalty",
+				loan_disbursement=self.loan_disbursement,
+			)
 
 			if reversed_accruals:
 				create_process_loan_classification(
@@ -1198,6 +1203,8 @@ class LoanRepayment(AccountsController):
 			"Partial Settlement",
 			"Principal Adjustment",
 			"Security Deposit Adjustment",
+			"Interest Waiver",
+			"Penalty Waiver",
 		):
 			loan = frappe.qb.DocType("Loan")
 
