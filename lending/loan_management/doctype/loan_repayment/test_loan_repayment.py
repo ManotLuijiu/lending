@@ -378,3 +378,33 @@ class TestLoanRepayment(IntegrationTestCase):
 			self.assertEqual(demand_dates[idx], generated_additional_demand)
 		for idx, generated_penal_accrual in enumerate(generated_penal_accruals):
 			self.assertEqual(accrual_dates[idx], generated_penal_accrual)
+
+	def test_value_dated_loan_repayment(self):
+		loan = create_loan(
+			"_Test Customer 1",
+			"Term Loan Product 4",
+			100000,
+			"Repay Over Number of Periods",
+			22,
+			repayment_start_date="2024-04-05",
+			posting_date="2024-02-20",
+			rate_of_interest=8.5,
+			applicant_type="Customer",
+		)
+
+		loan.submit()
+
+		make_loan_disbursement_entry(
+			loan.name, loan.loan_amount, disbursement_date="2024-02-20", repayment_start_date="2024-04-05"
+		)
+
+		process_loan_interest_accrual_for_loans(
+			posting_date="2024-04-01", loan=loan.name, company="_Test Company"
+		)
+
+		repayment_entry = create_repayment_entry(
+			loan.name,
+			"2024-04-01",
+			100945.80,
+		)
+		repayment_entry.submit()
