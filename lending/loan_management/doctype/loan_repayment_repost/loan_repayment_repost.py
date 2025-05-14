@@ -74,13 +74,7 @@ class LoanRepaymentRepost(Document):
 			self.clear_demand_allocation()
 
 		self.trigger_on_cancel_events()
-		if self.recalculate_allocated_charges:
-			self.loan_demands_to_be_corrected = set()
-			self.loan_demands_to_be_corrected.update(
-				self.recalculate_allocated_demands(
-					[entry.loan_repayment for entry in self.get("repayment_entries")]
-				)
-			)
+		self.trigger_recalculation_of_allocated_charges()
 		self.cancel_demands()
 		self.trigger_on_submit_events()
 
@@ -267,14 +261,16 @@ class LoanRepaymentRepost(Document):
 			repayment_doc.run_method("before_validate")
 
 			repayment_doc.allocate_amount_against_demands(amounts, on_submit=True)
+
+			# continually correct demands until there's no demands left to be corrected
 			if self.recalculate_allocated_charges:
 				while True:
 					new_allocations = {i.loan_demand for i in repayment_doc.get("repayment_details")}
-					repayment_doc.allocate_amount_against_demands(amounts, on_submit=True)
 					if len(new_allocations.difference(self.loan_demands_to_be_corrected)):
 						self.loan_demands_to_be_corrected.update(
 							self.recalculate_allocated_demands([repayment_doc.name])
 						)
+						repayment_doc.allocate_amount_against_demands(amounts, on_submit=True)
 					else:
 						break
 
@@ -417,3 +413,12 @@ class LoanRepaymentRepost(Document):
 					"Loan Demand", loan_demand, "outstanding_amount", demand_amount - waived_amount - paid_amount
 				)
 		return loan_demands_to_be_corrected
+
+	def trigger_recalculation_of_allocated_charges(self):
+		if self.recalculate_allocated_charges:
+			self.loan_demands_to_be_corrected = set()
+			self.loan_demands_to_be_corrected.update(
+				self.recalculate_allocated_demands(
+					[entry.loan_repayment for entry in self.get("repayment_entries")]
+				)
+			)
