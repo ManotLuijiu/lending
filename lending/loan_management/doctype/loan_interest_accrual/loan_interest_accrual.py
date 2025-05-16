@@ -722,6 +722,7 @@ def make_accrual_interest_entry_for_loans(
 	limit=0,
 	company=None,
 	from_demand=False,
+	loan_disbursement=None,
 ):
 
 	loan_doc = frappe.qb.DocType("Loan")
@@ -781,6 +782,7 @@ def make_accrual_interest_entry_for_loans(
 			accrual_type,
 			accrual_date,
 			from_demand=from_demand,
+			loan_disbursement=loan_disbursement,
 		)
 	else:
 		BATCH_SIZE = 5000
@@ -793,9 +795,9 @@ def make_accrual_interest_entry_for_loans(
 				process_loan_interest=process_loan_interest,
 				accrual_type=accrual_type,
 				accrual_date=accrual_date,
-				via_background_job=True,
 				queue="long",
 				enqueue_after_commit=True,
+				loan_disbursement=loan_disbursement,
 			)
 
 
@@ -810,8 +812,8 @@ def process_interest_accrual_batch(
 	process_loan_interest,
 	accrual_type,
 	accrual_date,
-	via_background_job=False,
 	from_demand=False,
+	loan_disbursement=None,
 ):
 	for loan in loans:
 
@@ -829,6 +831,7 @@ def process_interest_accrual_batch(
 					posting_date,
 					process_loan_interest=process_loan_interest,
 					accrual_type=accrual_type,
+					loan_disbursement=loan_disbursement,
 				)
 			calculate_accrual_amount_for_loans(
 				loan,
@@ -837,6 +840,7 @@ def process_interest_accrual_batch(
 				accrual_type=accrual_type,
 				accrual_date=accrual_date,
 				loan_accrual_frequency=loan_accrual_frequency,
+				loan_disbursement=loan_disbursement,
 			)
 
 			if len(loans) > 1:
