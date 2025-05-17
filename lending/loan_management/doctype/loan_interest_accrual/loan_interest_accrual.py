@@ -83,12 +83,25 @@ class LoanInterestAccrual(AccountsController):
 			self.validate_last_accrual_date_before_current_posting_date()
 
 	def validate_last_accrual_date_before_current_posting_date(self):
-		if getdate(self.start_date) < getdate(self.last_accrual_date):
-			frappe.throw(
-				_(
-					"There are already Loan Interest Accruals made till {}. Your accrual has the starting date {}"
-				).format(getdate(self.last_accrual_date), getdate(self.start_date))
-			)
+		if self.interest_type != "Normal Interest":
+			return
+		last_accrual_date = frappe.db.get_value(
+			"Loan Interest Accrual",
+			{
+				"docstatus": 1,
+				"loan": self.loan,
+				"loan_disbursement": self.loan_disbursement,
+				"interest_type": "Normal Interest",
+			},
+			"MAX(posting_date)",
+		)
+		if last_accrual_date:
+			if getdate(self.start_date) < getdate(last_accrual_date):
+				frappe.throw(
+					_(
+						"There are already Loan Interest Accruals made till {}. Your accrual has the starting date {}"
+					).format(getdate(last_accrual_date), getdate(self.start_date))
+				)
 
 	def on_submit(self):
 		from lending.loan_management.doctype.loan.loan import make_suspense_journal_entry
@@ -520,11 +533,15 @@ def get_overlapping_dates(
 	)
 
 	accrual_frequency_breaks = get_accrual_frequency_breaks(
-		add_days(last_accrual_date, -1), posting_date, loan_accrual_frequency
+		last_accrual_date, posting_date, loan_accrual_frequency
 	)
 	# Merge accrual_frequency_breaks into repayment_schedule breaks and get all unique dates
 	for schedule_parent in parent_wise_schedules:
-		parent_wise_schedules[schedule_parent].extend(accrual_frequency_breaks)
+		# accruals only till maturity_date
+		maturity_date = maturity_map[schedule_parent]
+		accrual_frequency_breaks = [x for x in accrual_frequency_breaks if x < maturity_date]
+
+		parent_wise_schedules[schedule_parent].extend((accrual_frequency_breaks))
 		parent_wise_schedules[schedule_parent] = list(set(parent_wise_schedules[schedule_parent]))
 		parent_wise_schedules[schedule_parent].sort()
 	return parent_wise_schedules
@@ -705,6 +722,7 @@ def make_accrual_interest_entry_for_loans(
 	limit=0,
 	company=None,
 	from_demand=False,
+	loan_disbursement=None,
 ):
 
 	loan_doc = frappe.qb.DocType("Loan")
@@ -764,6 +782,7 @@ def make_accrual_interest_entry_for_loans(
 			accrual_type,
 			accrual_date,
 			from_demand=from_demand,
+			loan_disbursement=loan_disbursement,
 		)
 	else:
 		BATCH_SIZE = 5000
@@ -776,9 +795,9 @@ def make_accrual_interest_entry_for_loans(
 				process_loan_interest=process_loan_interest,
 				accrual_type=accrual_type,
 				accrual_date=accrual_date,
-				via_background_job=True,
 				queue="long",
 				enqueue_after_commit=True,
+				loan_disbursement=loan_disbursement,
 			)
 
 
@@ -793,8 +812,8 @@ def process_interest_accrual_batch(
 	process_loan_interest,
 	accrual_type,
 	accrual_date,
-	via_background_job=False,
 	from_demand=False,
+	loan_disbursement=None,
 ):
 	for loan in loans:
 
@@ -812,6 +831,7 @@ def process_interest_accrual_batch(
 					posting_date,
 					process_loan_interest=process_loan_interest,
 					accrual_type=accrual_type,
+					loan_disbursement=loan_disbursement,
 				)
 			calculate_accrual_amount_for_loans(
 				loan,
@@ -820,6 +840,7 @@ def process_interest_accrual_batch(
 				accrual_type=accrual_type,
 				accrual_date=accrual_date,
 				loan_accrual_frequency=loan_accrual_frequency,
+				loan_disbursement=loan_disbursement,
 			)
 
 			if len(loans) > 1:
@@ -1011,6 +1032,8 @@ def reverse_loan_interest_accruals(
 		write_off_suspense_entries,
 	)
 
+	# Datetimes are a pain. Reverse any accruals made that day irrespective of time
+	posting_date = get_datetime(getdate(posting_date))
 	filters = {
 		"loan": loan,
 		"posting_date": (">=", posting_date),
@@ -1042,7 +1065,6 @@ def reverse_loan_interest_accruals(
 		)
 		or []
 	)
-
 	for accrual in accruals:
 		accrual_doc = frappe.get_doc("Loan Interest Accrual", accrual.name, for_update=True)
 		if accrual_doc.docstatus == 1:
