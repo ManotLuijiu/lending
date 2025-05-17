@@ -1,6 +1,6 @@
 <div align="center">
 	<a href="https://frappe.io/lending">
-		<img src=".github/frappe-lendgin-logo.svg" height="80px" width="80px" alt="Frappe Lending Logo">
+		<img src=".github/lending-logo.png" height="80px" width="80px" alt="Frappe Lending Logo">
 	</a>
 	<h2>Frappe Lending</h2>
 	<p align="center">
