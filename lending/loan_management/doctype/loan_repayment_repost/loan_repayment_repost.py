@@ -51,21 +51,21 @@ class LoanRepaymentRepost(Document):
 		filters = {
 			"against_loan": self.loan,
 			"docstatus": 1,
-			"posting_date": (">=", self.repost_date),
+			"value_date": (">=", self.repost_date),
 		}
 
 		if self.loan_disbursement:
 			filters["loan_disbursement"] = self.loan_disbursement
 
 		entries = frappe.get_all(
-			"Loan Repayment", filters, ["name", "posting_date"], order_by="posting_date desc, creation desc"
+			"Loan Repayment", filters, ["name", "value_date"], order_by="value_date desc, creation desc"
 		)
 		for entry in entries:
 			self.append(
 				"repayment_entries",
 				{
 					"loan_repayment": entry.name,
-					"posting_date": entry.posting_date,
+					"posting_date": entry.value_date,
 				},
 			)
 
@@ -160,7 +160,7 @@ class LoanRepaymentRepost(Document):
 					# cancel GL Entries
 					repayment_doc.make_gl_entries(cancel=1)
 
-			filters = {"against_loan": self.loan, "docstatus": 1, "posting_date": ("<", self.repost_date)}
+			filters = {"against_loan": self.loan, "docstatus": 1, "value_date": ("<", self.repost_date)}
 
 			totals = frappe.db.get_value(
 				"Loan Repayment",
@@ -189,7 +189,7 @@ class LoanRepaymentRepost(Document):
 						"against_loan": self.loan,
 						"loan_disbursement": self.loan_disbursement,
 						"docstatus": 1,
-						"posting_date": ("<", self.repost_date),
+						"value_date": ("<", self.repost_date),
 					},
 					"sum(principal_amount_paid)",
 				)
@@ -256,7 +256,7 @@ class LoanRepaymentRepost(Document):
 
 			amounts = calculate_amounts(
 				repayment_doc.against_loan,
-				repayment_doc.posting_date,
+				repayment_doc.value_date,
 				payment_type=repayment_doc.repayment_type,
 				charges=charges,
 				loan_disbursement=repayment_doc.loan_disbursement,
@@ -289,7 +289,7 @@ class LoanRepaymentRepost(Document):
 			):
 				create_update_loan_reschedule(
 					repayment_doc.against_loan,
-					repayment_doc.posting_date,
+					repayment_doc.value_date,
 					repayment_doc.name,
 					repayment_doc.repayment_type,
 					repayment_doc.principal_amount_paid,
