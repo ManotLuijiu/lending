@@ -559,3 +559,17 @@ class TestLoanRepayment(IntegrationTestCase):
 			100945.80,
 		)
 		repayment_entry.submit()
+
+		self.assertEqual(repayment_entry.value_date, "2024-04-01")
+
+		dates = frappe.get_all(
+			"GL Entry",
+			{
+				"voucher_type": "Loan Repayment",
+				"voucher_no": repayment_entry.name,
+			},
+			pluck="posting_date",
+		)
+
+		for posting_date in dates:
+			self.assertEqual(posting_date, getdate())
