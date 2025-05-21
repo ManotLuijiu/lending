@@ -105,7 +105,6 @@ class LoanRepaymentRepost(Document):
 			{
 				"loan": self.loan,
 				"docstatus": 1,
-				"demand_type": "EMI",
 				"demand_date": (">=", self.repost_date),
 			},
 			["name", "demand_amount"],
@@ -117,6 +116,7 @@ class LoanRepaymentRepost(Document):
 				demand.name,
 				{
 					"paid_amount": 0,
+					"waived_amount": 0,
 					"outstanding_amount": demand.demand_amount,
 				},
 			)
