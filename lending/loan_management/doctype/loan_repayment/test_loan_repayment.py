@@ -678,14 +678,8 @@ class TestLoanRepayment(IntegrationTestCase):
 			repayment_type="Pre Payment",
 		)
 		repayment_entry.submit()
-
-		frappe.get_doc(
-			{
-				"doctype": "Loan Repayment Repost",
-				"loan": loan.name,
-				"loan_disbursement": disbursement.name,
-				"repost_date": "2024-12-02",
-				"cancel_future_emi_demands": 1,
-				"cancel_future_accruals_and_demands": 1,
-			}
-		).submit()
+		accrual_dates = frappe.get_all(
+			"Loan Interest Accrual", {"loan": loan.name, "docstatus": 1}, ["posting_date", "start_date"]
+		)
+		for accrual_date in accrual_dates:
+			self.assertEqual(accrual_date.start_date, accrual_date.posting_date)
