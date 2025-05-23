@@ -2844,8 +2844,6 @@ def get_last_demand_date(
 			loan, posting_date, loan_disbursement=loan_disbursement
 		)
 
-		last_demand_date = add_days(last_demand_date, -1)
-
 	return last_demand_date
 
 
@@ -2890,12 +2888,12 @@ def get_accrued_interest(
 	filters = [
 		["loan", "=", loan],
 		["docstatus", "=", 1],
-		["posting_date", "<=", posting_date],
+		["posting_date", "<", posting_date],
 		["interest_type", "=", interest_type],
 	]
 
 	if last_demand_date:
-		filters.append(["posting_date", ">", last_demand_date])
+		filters.append(["posting_date", ">=", last_demand_date])
 
 	if loan_disbursement:
 		filters.append(["loan_disbursement", "=", loan_disbursement])
