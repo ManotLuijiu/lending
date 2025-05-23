@@ -5,7 +5,7 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 from frappe.query_builder.functions import Sum
-from frappe.utils import cint, flt, get_datetime, getdate
+from frappe.utils import add_days, cint, flt, get_datetime, getdate
 
 from lending.loan_management.doctype.loan_repayment.loan_repayment import (
 	calculate_amounts,
@@ -219,7 +219,7 @@ class LoanRepaymentRepost(Document):
 				{
 					"doctype": "Process Loan Interest Accrual",
 					"loan": self.loan,
-					"posting_date": entry.posting_date,
+					"posting_date": add_days(entry.posting_date, -1),
 					"loan_disbursement": self.loan_disbursement,
 				}
 			).submit()
@@ -228,7 +228,7 @@ class LoanRepaymentRepost(Document):
 				{
 					"doctype": "Process Loan Demand",
 					"loan": self.loan,
-					"posting_date": entry.posting_date,
+					"posting_date": add_days(entry.posting_date, -1),
 					"loan_disbursement": self.loan_disbursement,
 				}
 			).submit()
@@ -344,7 +344,7 @@ class LoanRepaymentRepost(Document):
 			{
 				"doctype": "Process Loan Interest Accrual",
 				"loan": self.loan,
-				"posting_date": getdate(),
+				"posting_date": add_days(getdate(), -1),
 				"loan_disbursement": self.loan_disbursement,
 			}
 		).submit()
