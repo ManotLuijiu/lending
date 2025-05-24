@@ -270,9 +270,7 @@ class LoanRepaymentRepost(Document):
 			# continually correct demands until there's no demands left to be corrected
 			if self.recalculate_allocated_charges:
 				while True:
-					new_allocations = {
-						i.loan_demand for i in repayment_doc.get("repayment_details") if i.demand_type == "Charges"
-					}
+					new_allocations = {i.loan_demand for i in repayment_doc.get("repayment_details")}
 					if len(new_allocations.difference(self.loan_demands_to_be_corrected)):
 						self.loan_demands_to_be_corrected.update(
 							self.recalculate_allocated_demands([repayment_doc.name])
@@ -378,6 +376,7 @@ class LoanRepaymentRepost(Document):
 			.where(repayment_details.demand_type == "Charges")
 			.select(repayment_details.loan_demand)
 		)
+
 		loan_demands_to_be_corrected = {i[0] for i in query.run(as_list=True)}.difference(
 			self.loan_demands_to_be_corrected
 		)
