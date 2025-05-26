@@ -2016,6 +2016,56 @@ class TestLoan(IntegrationTestCase):
 		self.assertEqual(loan_repayment_detail.amount_paid, flt(auto_waiver_amount, 2))
 		self.assertEqual(loan_repayment_detail.repayment_type, "Penalty Waiver")
 
+	def test_loan_restructure_schedule_with_bpi_adjustment(self):
+		loan = create_loan(
+			"_Test Customer 1",
+			"Term Loan Product 4",
+			2000000,
+			"Repay Over Number of Periods",
+			12,
+			"Customer",
+			posting_date="2025-03-28",
+			repayment_start_date="2025-04-28",
+			rate_of_interest=31,
+		)
+		loan.submit()
+
+		make_loan_disbursement_entry(
+			loan.name, loan.loan_amount, disbursement_date="2025-03-22", repayment_start_date="2025-04-28"
+		)
+
+		repayment_entry_1 = create_repayment_entry(
+			loan.name, get_datetime("2025-03-28 00:00:00"), 77.91, repayment_type="Pre Payment"
+		)
+		repayment_entry_1.submit()
+
+		first_repay_schedule_current_principal_amount = frappe.db.get_value(
+			"Loan Repayment Schedule",
+			{"loan": loan.name, "status": "Active", "docstatus": 1},
+			"current_principal_amount",
+		)
+		first_adjustment_after_pos = flt(loan.loan_amount - repayment_entry_1.amount_paid, 2)
+
+		self.assertEqual(first_repay_schedule_current_principal_amount, first_adjustment_after_pos)
+
+		process_daily_loan_demands(posting_date="2025-03-28", loan=loan.name)
+
+		repayment_entry_2 = create_repayment_entry(
+			loan.name, get_datetime("2025-03-28 01:00:00"), 5096.00, repayment_type="Pre Payment"
+		)
+		repayment_entry_2.submit()
+
+		second_repay_schedule_current_principal_amount = frappe.db.get_value(
+			"Loan Repayment Schedule",
+			{"loan": loan.name, "status": "Active", "docstatus": 1},
+			"current_principal_amount",
+		)
+		second_adjustment_after_pos = flt(
+			first_repay_schedule_current_principal_amount - repayment_entry_2.amount_paid, 2
+		)
+
+		self.assertEqual(second_repay_schedule_current_principal_amount, second_adjustment_after_pos)
+
 	def test_dpd_calculation(self):
 		loan = create_loan(
 			"_Test Customer 1",
