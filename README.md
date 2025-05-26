@@ -35,7 +35,7 @@ Frappe Lending is a comprehensive Loan Management System (LMS) designed to strea
 - **Financial Accounting**: Ensure accurate financial tracking with automated accounting entries and real-time reporting.
 - **Billing and Taxation**: Automate billing, interest calculations, and tax compliance for seamless transactions.
 - **Risk and Compliance**: Mitigate risks with accurate credit reporting and compliance.
-- **Co-Lednding and Loan Transfers**: Facilitate partnerships, co-lending models, and efficient loan transfers.
+- **Co-Lending and Loan Transfers**: Facilitate partnerships, co-lending models, and efficient loan transfers.
 
 
 ## Under the Hood
