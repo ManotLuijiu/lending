@@ -29,13 +29,13 @@ Frappe Lending is a comprehensive Loan Management System (LMS) designed to strea
 
 ## Key Features
 
-- **Loan Products & Management**: Create and manage flexible loan products with customizable terms, interest rates, and repayment optoions.
+- **Loan Products & Management**: Create and manage flexible loan products with customizable terms, interest rates, and repayment options.
 - **Loan Operations**: Streamline the entire loan life cycle from application to disbursement and repayment.
-- **Collateral and Security**: Track and manage collaterals, guarantees and securities linked to loans.
+- **Collateral and Security**: Track and manage collaterals, guarantees, and securities linked to loans.
 - **Financial Accounting**: Ensure accurate financial tracking with automated accounting entries and real-time reporting.
-- **Billing and Taxation**: Automate billing, interest calculations and tax compliance for seamless transactions.
+- **Billing and Taxation**: Automate billing, interest calculations, and tax compliance for seamless transactions.
 - **Risk and Compliance**: Mitigate risks with accurate credit reporting and compliance.
-- **Co-Lednding and Loan Transfers**: Facilitate partnerships, co-lending models and efficient loan transfers.
+- **Co-Lednding and Loan Transfers**: Facilitate partnerships, co-lending models, and efficient loan transfers.
 
 
 ## Under the Hood
