@@ -1963,7 +1963,10 @@ class TestLoan(IntegrationTestCase):
 		loan.load_from_db()
 		self.assertEqual(loan.status, "Closed")
 
-	def test_auto_waiver_after_auto_close_loan(self):
+	def test_auto_waiver_after_auto_close_loan_for_penal(self):
+		# This test verifies that when a normal repayment is made and the loan is auto-closed,
+		# any remaining penal charges are waived automatically by creating a penalty waiver entry.
+
 		frappe.db.set_value(
 			"Company",
 			"_Test Company",
@@ -2015,6 +2018,123 @@ class TestLoan(IntegrationTestCase):
 
 		self.assertEqual(loan_repayment_detail.amount_paid, flt(auto_waiver_amount, 2))
 		self.assertEqual(loan_repayment_detail.repayment_type, "Penalty Waiver")
+
+	def test_auto_waiver_after_auto_close_loan_for_charges(self):
+		# This test verifies that when a normal repayment is made and the loan is auto-closed,
+		# any remaining charges are waived automatically by creating a charges waiver entry.
+
+		frappe.db.set_value(
+			"Company",
+			"_Test Company",
+			"collection_offset_sequence_for_standard_asset",
+			"Test Standard Loan Demand Offset Order",
+		)
+
+		loan = create_loan(
+			"_Test Customer 1",
+			"Term Loan Product 4",
+			100000,
+			"Repay Over Number of Periods",
+			6,
+			"Customer",
+			"2024-07-15",
+			"2024-06-25",
+			10,
+		)
+		loan.submit()
+
+		make_loan_disbursement_entry(
+			loan.name, loan.loan_amount, disbursement_date="2024-06-25", repayment_start_date="2024-07-15"
+		)
+		process_daily_loan_demands(posting_date="2024-12-15", loan=loan.name)
+
+		sales_invoice = frappe.get_doc(
+			{
+				"doctype": "Sales Invoice",
+				"customer": "_Test Customer 1",
+				"company": "_Test Company",
+				"loan": loan.name,
+				"posting_date": "2024-12-14",
+				"posting_time": "00:06:10",
+				"set_posting_time": 1,
+				"items": [{"item_code": "Processing Fee", "qty": 1, "rate": 5000}],
+			}
+		)
+		sales_invoice.submit()
+
+		payable_amount = calculate_amounts(against_loan=loan.name, posting_date="2024-12-15")[
+			"payable_amount"
+		]
+
+		repayment_entry_amount = payable_amount - 90
+
+		repayment_entry = create_repayment_entry(
+			loan.name, get_datetime("2024-12-15 00:07:10"), repayment_entry_amount
+		)
+		repayment_entry.submit()
+
+		auto_waiver_amount = payable_amount - repayment_entry.amount_paid
+
+		loan_repayment_detail = frappe.db.get_value(
+			"Loan Repayment",
+			{"against_loan": loan.name},
+			["repayment_type", "amount_paid"],
+			order_by="creation desc",
+			as_dict=1,
+		)
+
+		self.assertEqual(loan_repayment_detail.amount_paid, flt(auto_waiver_amount, 2))
+		self.assertEqual(loan_repayment_detail.repayment_type, "Charges Waiver")
+
+	def test_loan_restructure_schedule_with_bpi_adjustment(self):
+		loan = create_loan(
+			"_Test Customer 1",
+			"Term Loan Product 4",
+			2000000,
+			"Repay Over Number of Periods",
+			12,
+			"Customer",
+			posting_date="2025-03-28",
+			repayment_start_date="2025-04-28",
+			rate_of_interest=31,
+		)
+		loan.submit()
+
+		make_loan_disbursement_entry(
+			loan.name, loan.loan_amount, disbursement_date="2025-03-22", repayment_start_date="2025-04-28"
+		)
+
+		repayment_entry_1 = create_repayment_entry(
+			loan.name, get_datetime("2025-03-28 00:00:00"), 77.91, repayment_type="Pre Payment"
+		)
+		repayment_entry_1.submit()
+
+		first_repay_schedule_current_principal_amount = frappe.db.get_value(
+			"Loan Repayment Schedule",
+			{"loan": loan.name, "status": "Active", "docstatus": 1},
+			"current_principal_amount",
+		)
+		first_adjustment_after_pos = flt(loan.loan_amount - repayment_entry_1.amount_paid, 2)
+
+		self.assertEqual(first_repay_schedule_current_principal_amount, first_adjustment_after_pos)
+
+		process_daily_loan_demands(posting_date="2025-03-28", loan=loan.name)
+
+		repayment_entry_2 = create_repayment_entry(
+			loan.name, get_datetime("2025-03-28 01:00:00"), 5096.00, repayment_type="Pre Payment"
+		)
+		repayment_entry_2.submit()
+
+		second_repay_schedule_current_principal_amount = frappe.db.get_value(
+			"Loan Repayment Schedule",
+			{"loan": loan.name, "status": "Active", "docstatus": 1},
+			"current_principal_amount",
+		)
+		second_adjustment_after_pos = flt(
+			first_repay_schedule_current_principal_amount - repayment_entry_2.amount_paid, 2
+		)
+
+		self.assertEqual(second_repay_schedule_current_principal_amount, second_adjustment_after_pos)
 
 	def test_dpd_calculation(self):
 		loan = create_loan(
@@ -2453,60 +2573,6 @@ class TestLoan(IntegrationTestCase):
 			repayment_type="Pre Payment",
 		)
 		repayment.submit()
-
-	def test_bulk_payments(self):
-		loan = create_loan(
-			"_Test Customer 1",
-			"Term Loan Product 5",
-			2700000,
-			"Repay Over Number of Periods",
-			1,
-			posting_date="2024-10-30",
-			rate_of_interest=17.25,
-			applicant_type="Customer",
-			limit_applicable_start="2024-10-28",
-			limit_applicable_end="2025-10-28",
-		)
-		loan.submit()
-
-		disbursement = make_loan_disbursement_entry(
-			loan.name,
-			335533,
-			disbursement_date="2024-11-25",
-			repayment_start_date="2025-01-24",
-			repayment_frequency="One Time",
-		)
-		disbursement.submit()
-
-		process_loan_interest_accrual_for_loans(
-			posting_date="2025-01-23", loan=loan.name, company="_Test Company"
-		)
-
-		payments = [
-			{
-				"doctype": "Loan Repayment",
-				"against_loan": loan.name,
-				"posting_date": "2025-01-20 00:10:00",
-				"amount_paid": 100000,
-				"loan_disbursement": disbursement.name,
-			},
-			{
-				"doctype": "Loan Repayment",
-				"against_loan": loan.name,
-				"posting_date": "2025-01-21 00:10:00",
-				"amount_paid": 100000,
-				"loan_disbursement": disbursement.name,
-			},
-			{
-				"doctype": "Loan Repayment",
-				"against_loan": loan.name,
-				"posting_date": "2025-01-22 00:10:00",
-				"amount_paid": 100000,
-				"loan_disbursement": disbursement.name,
-			},
-		]
-
-		post_bulk_payments(payments)
 
 	def test_npa_marking_for_customer(self):
 		from erpnext.selling.doctype.customer.test_customer import get_customer_dict

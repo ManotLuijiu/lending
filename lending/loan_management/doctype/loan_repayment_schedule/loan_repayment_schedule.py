@@ -189,7 +189,7 @@ class LoanRepaymentSchedule(Document):
 			self.company,
 			self.rate_of_interest,
 			self.current_principal_amount - principal_balance,
-			last_accrual_date,
+			add_days(last_accrual_date, 1),
 			add_days(self.posting_date, -1),
 		)
 
@@ -597,25 +597,6 @@ class LoanRepaymentSchedule(Document):
 
 				if getdate(first_date) < prev_schedule.repayment_start_date:
 					after_bpi = 1
-
-				if (
-					after_bpi
-					and getdate(self.posting_date) <= getdate(prev_schedule.posting_date)
-					and self.repayment_frequency != "Daily"
-				):
-					row = prev_schedule.get(schedule_field)[0]
-					self.add_repayment_schedule_row(
-						row.payment_date,
-						row.principal_amount,
-						row.interest_amount,
-						row.total_payment,
-						row.balance_loan_amount,
-						row.number_of_days,
-						demand_generated=row.demand_generated,
-						repayment_schedule_field=schedule_field,
-					)
-
-					prev_repayment_date = row.payment_date
 
 				if (
 					getdate(self.repayment_start_date) > getdate(prev_schedule.repayment_start_date) or after_bpi
