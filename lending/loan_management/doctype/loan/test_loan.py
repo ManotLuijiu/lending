@@ -465,8 +465,8 @@ class TestLoan(IntegrationTestCase):
 		last_accrual_date = frappe.db.get_value(
 			"Loan Interest Accrual",
 			{"loan": loan.name, "docstatus": 1},
-			"accrual_date",
-			order_by="accrual_date desc",
+			"posting_date",
+			order_by="posting_date desc",
 		)
 
 		freeze_date = loan.freeze_date
@@ -511,8 +511,8 @@ class TestLoan(IntegrationTestCase):
 		last_accrual_date = frappe.db.get_value(
 			"Loan Interest Accrual",
 			{"loan": loan.name, "docstatus": 1},
-			"accrual_date",
-			order_by="accrual_date desc",
+			"posting_date",
+			order_by="posting_date desc",
 		)
 
 		freeze_date = loan.freeze_date
