@@ -265,6 +265,10 @@ class LoanRepaymentRepost(Document):
 				loan, loan_disbursement=self.loan_disbursement
 			)
 
+			if loan.status == "Written Off" and repayment_doc.is_write_off_waiver:
+				if repayment_doc.repayment_type == "Interest Waiver":
+					repayment_doc.db_set("amount_paid", amounts.get("interest_amount", 0))
+
 			repayment_doc.set("pending_principal_amount", flt(pending_principal_amount, precision))
 			repayment_doc.run_method("before_validate")
 
