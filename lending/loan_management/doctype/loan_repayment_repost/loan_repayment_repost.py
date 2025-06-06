@@ -212,6 +212,19 @@ class LoanRepaymentRepost(Document):
 
 		precision = cint(frappe.db.get_default("currency_precision")) or 2
 
+		is_written_off = frappe.db.get_value(
+			"Loan Write Off",
+			{
+				"loan": self.loan,
+				"docstatus": 1,
+				"is_settlement_write_off": 0,
+				"posting_date": (">=", self.repost_date),
+			},
+		)
+
+		if is_written_off:
+			frappe.db.set_value("Loan", self.loan, "status", "Disbursed")
+
 		for entry in reversed(self.get("repayment_entries", [])):
 			if entry.loan_repayment in entries_to_cancel:
 				continue
@@ -264,6 +277,10 @@ class LoanRepaymentRepost(Document):
 			pending_principal_amount = get_pending_principal_amount(
 				loan, loan_disbursement=self.loan_disbursement
 			)
+
+			if is_written_off and repayment_doc.is_write_off_waiver:
+				if repayment_doc.repayment_type == "Interest Waiver":
+					repayment_doc.db_set("amount_paid", amounts.get("interest_amount", 0))
 
 			repayment_doc.set("pending_principal_amount", flt(pending_principal_amount, precision))
 			repayment_doc.run_method("before_validate")
@@ -328,6 +345,9 @@ class LoanRepaymentRepost(Document):
 
 			repayment_doc.flags.from_repost = False
 			frappe.flags.on_repost = False
+
+		if is_written_off:
+			frappe.db.set_value("Loan", self.loan, "status", "Written Off")
 
 		frappe.get_doc(
 			{
