@@ -302,6 +302,7 @@ class LoanRepayment(AccountsController):
 				self.value_date,
 				demand_type="Penalty",
 				loan_disbursement=self.loan_disbursement,
+				future_demands=True,
 			)
 
 			if reversed_accruals:
