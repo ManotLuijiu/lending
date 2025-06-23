@@ -1299,6 +1299,7 @@ class LoanRepayment(AccountsController):
 			"Full Settlement",
 			"Write Off Settlement",
 			"Partial Settlement",
+			"Write Off Recovery",
 			"Principal Adjustment",
 			"Security Deposit Adjustment",
 			"Interest Waiver",
