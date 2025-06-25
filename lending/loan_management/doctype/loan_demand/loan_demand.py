@@ -89,6 +89,7 @@ class LoanDemand(AccountsController):
 				loan=self.loan,
 				company=self.company,
 				from_demand=True,
+				loan_disbursement=self.loan_disbursement,
 			)
 
 	def update_repayment_schedule(self, cancel=0):

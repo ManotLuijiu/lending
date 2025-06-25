@@ -343,6 +343,7 @@ class LoanRepayment(AccountsController):
 						posting_date=max_date,
 						loan=self.against_loan,
 						loan_product=self.loan_product,
+						loan_disbursement=self.loan_disbursement,
 					)
 					process_daily_loan_demands(posting_date=add_days(max_date, 1), loan=self.against_loan)
 
@@ -351,6 +352,7 @@ class LoanRepayment(AccountsController):
 				posting_date=self.value_date,
 				loan=self.against_loan,
 				loan_product=self.loan_product,
+				loan_disbursement=self.loan_disbursement,
 			)
 			process_daily_loan_demands(
 				posting_date=self.value_date,
@@ -701,6 +703,7 @@ class LoanRepayment(AccountsController):
 					posting_date=max_demand_date,
 					loan=self.against_loan,
 					loan_product=self.loan_product,
+					loan_disbursement=self.loan_disbursement,
 					enqueue_after_commit=True,
 				)
 
