@@ -32,6 +32,7 @@ class LoanWriteOff(AccountsController):
 		is_npa: DF.Check
 		is_settlement_write_off: DF.Check
 		loan: DF.Link
+		loan_disbursement: DF.Link | None
 		loan_product: DF.Link | None
 		posting_date: DF.Date
 		value_date: DF.Date
@@ -60,7 +61,7 @@ class LoanWriteOff(AccountsController):
 	def validate_write_off_amount(self):
 		precision = cint(frappe.db.get_default("currency_precision")) or 2
 
-		loan_details = frappe.get_value(
+		loan_details = frappe.db.get_value(
 			"Loan",
 			self.loan,
 			[
@@ -74,16 +75,19 @@ class LoanWriteOff(AccountsController):
 				"written_off_amount",
 				"disbursed_amount",
 				"status",
+				"repayment_schedule_type",
 			],
 			as_dict=1,
 		)
 
-		pending_principal_amount = flt(get_pending_principal_amount(loan_details), precision)
+		pending_principal_amount = flt(
+			get_pending_principal_amount(loan_details, loan_disbursement=self.loan_disbursement), precision
+		)
 
 		if not self.write_off_amount and not self.is_settlement_write_off:
 			self.write_off_amount = pending_principal_amount
 
-		if self.write_off_amount != pending_principal_amount and not self.is_settlement_write_off:
+		if self.write_off_amount != pending_principal_amount:
 			frappe.throw(_("Write off amount should be equal to pending principal amount"))
 
 	def on_submit(self):
@@ -263,6 +267,8 @@ def make_loan_waivers(loan, posting_date):
 		create_loan_repayment,
 	)
 
+	precision = cint(frappe.db.get_default("currency_precision")) or 2
+
 	amounts = calculate_amounts(loan, posting_date)
 	if amounts.get("penalty_amount") > 0:
 		create_loan_repayment(
@@ -278,7 +284,12 @@ def make_loan_waivers(loan, posting_date):
 			loan,
 			posting_date,
 			"Interest Waiver",
-			amounts.get("interest_amount"),
+			flt(
+				amounts.get("interest_amount", 0)
+				+ amounts.get("unaccrued_interest", 0)
+				+ amounts.get("unbooked_interest", 0),
+				precision,
+			),
 			is_write_off_waiver=1,
 		)
 
