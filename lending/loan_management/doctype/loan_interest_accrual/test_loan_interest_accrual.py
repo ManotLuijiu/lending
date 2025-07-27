@@ -1,6 +1,6 @@
 import frappe
 from frappe.tests import IntegrationTestCase
-from frappe.utils import getdate
+from frappe.utils import date_diff, getdate
 
 from lending.loan_management.doctype.loan_interest_accrual.loan_interest_accrual import (
 	process_interest_accrual_batch,
@@ -126,6 +126,42 @@ class TestLoanInterestAccrual(IntegrationTestCase):
 
 		process_loan_interest_accrual_for_loans(
 			posting_date="2024-12-05", loan=loan.name, company="_Test Company"
+		)
+
+		loan_interest_accrual_1 = frappe.get_all(
+			"Loan Interest Accrual",
+			filters={
+				"loan": loan.name,
+				"loan_disbursement": disbursement_a.name,
+				"docstatus": 1,
+			},
+			fields=["name", "posting_date"],
+			order_by="posting_date asc",
+		)
+
+		loan_interest_accrual_2 = frappe.get_all(
+			"Loan Interest Accrual",
+			filters={
+				"loan": loan.name,
+				"loan_disbursement": disbursement_b.name,
+				"docstatus": 1,
+			},
+			fields=["name", "posting_date"],
+			order_by="posting_date asc",
+		)
+
+		self.assertEqual(
+			len(loan_interest_accrual_1), date_diff("2024-12-05", disbursement_a.disbursement_date) + 1
+		)
+		self.assertEqual(
+			len(loan_interest_accrual_2), date_diff("2024-12-05", disbursement_b.disbursement_date) + 1
+		)
+
+		self.assertEqual(
+			getdate(loan_interest_accrual_1[0].posting_date), getdate(disbursement_a.disbursement_date)
+		)
+		self.assertEqual(
+			getdate(loan_interest_accrual_2[0].posting_date), getdate(disbursement_b.disbursement_date)
 		)
 
 
