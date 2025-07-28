@@ -1304,3 +1304,39 @@ class TestLoanRepayment(IntegrationTestCase):
 
 		loan.load_from_db()
 		self.assertEqual(loan.status, "Settled")
+
+	def test_write_off_recovery_settlement_allocation(self):
+		set_loan_accrual_frequency("Daily")
+
+		loan = create_loan(
+			"_Test Customer 1",
+			"Term Loan Product 4",
+			2500000,
+			"Repay Over Number of Periods",
+			24,
+			"Customer",
+			repayment_start_date="2024-12-01",
+			posting_date="2024-12-01",
+			rate_of_interest=25,
+		)
+		loan.submit()
+
+		make_loan_disbursement_entry(
+			loan.name, loan.loan_amount, disbursement_date="2024-12-01", repayment_start_date="2024-12-01"
+		)
+
+		process_daily_loan_demands(posting_date="2024-12-01", loan=loan.name)
+
+		process_loan_interest_accrual_for_loans(
+			loan=loan.name, posting_date="2024-12-31", company="_Test Company"
+		)
+
+		create_loan_write_off(loan.name, "2024-12-31", write_off_amount=250000)
+
+		process_loan_interest_accrual_for_loans(
+			loan=loan.name, posting_date="2025-05-01", company="_Test Company"
+		)
+
+		create_repayment_entry(
+			loan.name, "2025-01-31", 1000000, repayment_type="Write Off Recovery"
+		).submit()
