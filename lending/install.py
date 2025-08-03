@@ -43,7 +43,7 @@ LOAN_CUSTOM_FIELDS = {
 			"fieldname": "loan_tab",
 			"fieldtype": "Tab Break",
 			"label": "Loan",
-			"insert_after": "default_in_transit_warehouse",
+			"insert_after": "hr_and_payroll_tab",
 		},
 		{
 			"fieldname": "loan_settings",
