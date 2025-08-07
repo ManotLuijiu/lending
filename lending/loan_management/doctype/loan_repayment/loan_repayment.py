@@ -3033,20 +3033,18 @@ def bulk_repost(grouped_by_loan, trace_id):
 		bulk_repayment_log.details = str(rows)
 		bulk_repayment_log.trace_id = trace_id
 
-		# rollback if repayments fail for loan
-		savepoint = random_string(length=10)
-		frappe.db.savepoint(savepoint)
 		try:
 			loan_wise_submit(loan, rows)
 			bulk_repayment_log.status = "Success"
 		except Exception as e:
-			frappe.db.rollback(save_point=savepoint)
+			frappe.db.rollback()
 			traceback_per_loan = traceback.format_exc()
 
 			bulk_repayment_log.traceback = traceback_per_loan
 			bulk_repayment_log.status = "Failure"
 
 		bulk_repayment_log.submit()
+		frappe.db.commit()
 
 
 def loan_wise_submit(loan, rows):
