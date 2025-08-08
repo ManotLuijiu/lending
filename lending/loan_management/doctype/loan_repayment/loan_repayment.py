@@ -1227,6 +1227,8 @@ class LoanRepayment(AccountsController):
 	def get_auto_waiver_type(self, amounts):
 		precision = cint(frappe.db.get_default("currency_precision")) or 2
 
+		waiver_type = None
+
 		if flt(amounts.get("interest_amount", 0), precision) > 0:
 			waiver_type = "Interest Waiver"
 		if flt(amounts.get("penalty_amount", 0), precision) > 0:
@@ -1248,6 +1250,9 @@ class LoanRepayment(AccountsController):
 			)
 
 			waiver_type = self.get_auto_waiver_type(amounts)
+
+			if not waiver_type:
+				return
 
 			precision = cint(frappe.db.get_default("currency_precision")) or 2
 
