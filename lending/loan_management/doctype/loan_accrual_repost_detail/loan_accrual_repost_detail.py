@@ -5,7 +5,7 @@
 from frappe.model.document import Document
 
 
-class BulkRepaymentLog(Document):
+class LoanAccrualRepostDetail(Document):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
 
@@ -14,14 +14,10 @@ class BulkRepaymentLog(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		amended_from: DF.Link | None
-		details: DF.LongText | None
-		failed_repayment: DF.Text | None
 		loan: DF.Link | None
-		status: DF.Data | None
-		timestamp: DF.Datetime | None
-		trace_id: DF.Data | None
-		traceback: DF.LongText | None
+		parent: DF.Data
+		parentfield: DF.Data
+		parenttype: DF.Data
 	# end: auto-generated types
 
 	pass
