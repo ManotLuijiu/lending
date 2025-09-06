@@ -250,6 +250,37 @@ LOAN_CUSTOM_FIELDS = {
 }
 
 
+def fix_column_break_32_position():
+	"""
+	Fix column_break_32 position by ensuring it has proper insert_after property.
+	This addresses the issue where column_break_32 appears in loan_tab instead of stock_tab.
+	"""
+	property_setter = frappe.db.get_value(
+		"Property Setter",
+		filters={
+			"doc_type": "Company",
+			"field_name": "column_break_32",
+			"property": "insert_after",
+		},
+	)
+
+	if property_setter:
+		property_setter_doc = frappe.get_doc("Property Setter", property_setter)
+		
+		if property_setter_doc.value != "default_in_transit_warehouse":
+			property_setter_doc.value = "default_in_transit_warehouse"
+			property_setter_doc.save()
+	else:
+		make_property_setter(
+			"Company",
+			"column_break_32",
+			"insert_after",
+			"default_in_transit_warehouse",
+			"Data",
+			validate_fields_for_doctype=False,
+		)
+
+
 def make_property_setter_for_journal_entry():
 	property_setter = frappe.db.get_value(
 		"Property Setter",
@@ -283,6 +314,7 @@ def make_property_setter_for_journal_entry():
 def after_install():
 	create_custom_fields(LOAN_CUSTOM_FIELDS, ignore_validate=True)
 	make_property_setter_for_journal_entry()
+	fix_column_break_32_position()
 
 
 def before_uninstall():

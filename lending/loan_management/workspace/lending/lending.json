@@ -1,5 +1,4 @@
 {
- "app": "lending",
  "charts": [
   {
    "chart_name": "New Loans",
@@ -562,7 +561,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-05-07 15:23:01.851142",
+ "modified": "2025-08-20 11:50:19.927521",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Lending",
@@ -573,7 +572,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 0.0,
+ "sequence_id": 1.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -602,6 +601,5 @@
    "type": "Dashboard"
   }
  ],
- "title": "Lending",
- "type": "Workspace"
+ "title": "Lending"
 }

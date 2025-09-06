@@ -35,6 +35,9 @@ def generate_demand(self, method=None):
 
 
 def update_waived_amount_in_demand(self, method=None):
+	# Skip if this Sales Invoice is not related to a loan
+	if not hasattr(self, 'loan') or not self.loan:
+		return
 
 	loan_status = frappe.db.get_value("Loan", self.loan, "status")
 
@@ -73,6 +76,10 @@ def update_waived_amount_in_demand(self, method=None):
 
 
 def make_partner_charge_gl_entries(doc, method):
+	# Skip if this Sales Invoice is not related to a loan
+	if not hasattr(doc, 'loan') or not doc.loan:
+		return
+		
 	if doc.get("loan_partner"):
 		accounting_enabled = frappe.db.get_value(
 			"Loan Partner", doc.loan_partner, "enable_partner_accounting"
@@ -118,6 +125,10 @@ def make_partner_charge_gl_entries(doc, method):
 
 
 def make_suspense_gl_entry_for_charges(doc, method):
+	# Skip if this Sales Invoice is not related to a loan
+	if not hasattr(doc, 'loan') or not doc.loan:
+		return
+		
 	from lending.loan_management.doctype.loan.loan import move_receivable_charges_to_suspense_ledger
 
 	is_npa = frappe.db.get_value("Loan", doc.loan, "is_npa")
