@@ -5,3 +5,35 @@
 tags
 node_modules
 dist
+
+
+lending/public/images/local/
+lending/CLAUDE.md
+.serena
+
+dist/
+lending/public/images/local/
+
+# Build artifacts - automatically generated CSS/JS bundles
+lending/public/dist/
+
+# SPA build assets - thai-vat-dashboard build output
+lending/public/frontend/assets/*.js
+lending/public/frontend/assets/*.css
+lending/public/frontend/index.html
+lending/www/frontend.html
+
+# PWA files - auto-generated service workers and workbox
+lending/public/frontend/registerSW.js
+lending/public/frontend/sw.js
+lending/public/frontend/workbox-*.js
+
+# Translation files - auto-generated
+lending/locale/en.po
+lending/locale/km.po
+lending/locale/lo.po
+lending/locale/th.po
+lending/locale/main.pot
+
+lending/public/images/form
+lending/public/images/form-bug
