@@ -5,14 +5,14 @@ from erpnext.selling.doctype.customer.test_customer import get_customer_dict
 from erpnext.setup.setup_wizard.operations.install_fixtures import set_global_defaults
 from erpnext.setup.utils import enable_all_roles_and_domains
 
-from lending.loan_management.doctype.loan_application.loan_application import (
+from lending.lending.doctype.loan_application.loan_application import (
 	create_loan_security_assignment,
 )
-from lending.loan_management.doctype.loan_repayment.loan_repayment import calculate_amounts
-from lending.loan_management.doctype.process_loan_demand.process_loan_demand import (
+from lending.lending.doctype.loan_repayment.loan_repayment import calculate_amounts
+from lending.lending.doctype.process_loan_demand.process_loan_demand import (
 	process_daily_loan_demands,
 )
-from lending.loan_management.doctype.process_loan_interest_accrual.process_loan_interest_accrual import (
+from lending.lending.doctype.process_loan_interest_accrual.process_loan_interest_accrual import (
 	process_loan_interest_accrual_for_loans,
 )
 

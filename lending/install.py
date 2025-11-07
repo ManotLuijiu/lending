@@ -187,7 +187,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Data",
             "insert_after": "is_npa",
             "description": "ID Card Number for the customer",
-            "module": "Lending",
         },
         {
             "fieldname": "ld_custom_contact_address",
@@ -195,7 +194,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Small Text",
             "insert_after": "ld_custom_id_card_number",
             "description": "Contact Address for the customer",
-            "module": "Lending",
         },
         {
             "fieldname": "ld_custom_contact_subdistrict",
@@ -203,7 +201,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Data",
             "insert_after": "ld_custom_contact_address",
             "description": "Contact Subdistrict for the customer",
-            "module": "Lending",
         },
         {
             "fieldname": "loan_details_column_right",
@@ -216,7 +213,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Data",
             "insert_after": "loan_details_column_right",
             "description": "Contact District for the customer",
-            "module": "Lending",
         },
         {
             "fieldname": "ld_custom_contact_province",
@@ -224,7 +220,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Data",
             "insert_after": "ld_custom_contact_district",
             "description": "Contact Province for the customer",
-            "module": "Lending",
         },
         {
             "fieldname": "ld_custom_contact_postal",
@@ -232,7 +227,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Data",
             "insert_after": "ld_custom_contact_province",
             "description": "Contact Postal Code for the customer",
-            "module": "Lending",
         },
         {
             "fieldname": "ld_custom_contact_fax",
@@ -240,7 +234,6 @@ LOAN_CUSTOM_FIELDS = {
             "fieldtype": "Data",
             "insert_after": "ld_custom_contact_postal",
             "description": "Contact Fax for the customer",
-            "module": "Lending",
         },
     ],
     "Item Default": [

@@ -5,7 +5,7 @@ import frappe
 
 
 def execute():
-	frappe.reload_doc("loan_management", "doctype", "loan_repayment_schedule")
+	frappe.reload_doc("lending", "doctype", "loan_repayment_schedule")
 
 	for loan in frappe.get_all("Loan", filters={"is_term_loan": 1}):
 		loan = frappe.get_cached_doc("Loan", loan.name)

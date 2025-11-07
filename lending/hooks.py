@@ -28,7 +28,7 @@ audit_trail_doctypes = [
 	"Loan Write Off",
 ]
 
-voucher_subtypes = "lending.loan_management.doctype.loan.loan.get_voucher_subtypes"
+voucher_subtypes = "lending.lending.doctype.loan.loan.get_voucher_subtypes"
 
 before_tests = "lending.tests.test_utils.before_tests"
 
@@ -173,14 +173,14 @@ repost_allowed_doctypes = [
 
 scheduler_events = {
 	"daily_long": [
-		"lending.loan_management.doctype.process_loan_interest_accrual.process_loan_interest_accrual.schedule_accrual",
-		"lending.loan_management.doctype.process_loan_demand.process_loan_demand.process_daily_loan_demands",
-		"lending.loan_management.doctype.process_loan_security_shortfall.process_loan_security_shortfall.create_process_loan_security_shortfall",
-		"lending.loan_management.doctype.process_loan_classification.process_loan_classification.create_process_loan_classification",
-		"lending.loan_management.doctype.loan.loan.auto_close_loc_loans",
+		"lending.lending.doctype.process_loan_interest_accrual.process_loan_interest_accrual.schedule_accrual",
+		"lending.lending.doctype.process_loan_demand.process_loan_demand.process_daily_loan_demands",
+		"lending.lending.doctype.process_loan_security_shortfall.process_loan_security_shortfall.create_process_loan_security_shortfall",
+		"lending.lending.doctype.process_loan_classification.process_loan_classification.create_process_loan_classification",
+		"lending.lending.doctype.loan.loan.auto_close_loc_loans",
 	],
 	"monthly_long": [
-		"lending.loan_management.doctype.process_loan_restructure_limit.process_loan_restructure_limit.calculate_monthly_restructure_limit",
+		"lending.lending.doctype.process_loan_restructure_limit.process_loan_restructure_limit.calculate_monthly_restructure_limit",
 	],
 }
 
@@ -191,20 +191,20 @@ bank_reconciliation_doctypes = [
 
 # Overriding Methods
 # ------------------------------
-get_matching_queries = "lending.loan_management.utils.get_matching_queries"
+get_matching_queries = "lending.lending.utils.get_matching_queries"
 
-get_amounts_not_reflected_in_system_for_bank_reconciliation_statement = "lending.loan_management.utils.get_amounts_not_reflected_in_system_for_bank_reconciliation_statement"
+get_amounts_not_reflected_in_system_for_bank_reconciliation_statement = "lending.lending.utils.get_amounts_not_reflected_in_system_for_bank_reconciliation_statement"
 
 get_payment_entries_for_bank_clearance = (
-	"lending.loan_management.utils.get_payment_entries_for_bank_clearance"
+	"lending.lending.utils.get_payment_entries_for_bank_clearance"
 )
 
 get_entries_for_bank_clearance_summary = (
-	"lending.loan_management.utils.get_entries_for_bank_clearance_summary"
+	"lending.lending.utils.get_entries_for_bank_clearance_summary"
 )
 
 get_entries_for_bank_reconciliation_statement = (
-	"lending.loan_management.utils.get_entries_for_bank_reconciliation_statement"
+	"lending.lending.utils.get_entries_for_bank_reconciliation_statement"
 )
 
 # ERPNext doctypes for Global Search

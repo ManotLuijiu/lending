@@ -16,7 +16,7 @@ def execute():
 			"Loan IRAC Provisioning Configuration",
 			force=True,
 		)
-		frappe.reload_doc("loan_management", "doctype", "loan_irac_provisioning_configuration")
+		frappe.reload_doc("lending", "doctype", "loan_irac_provisioning_configuration")
 
 	if frappe.db.exists("Custom Field", "Company-irac_provisioning_configuraton"):
 		frappe.delete_doc("Custom Field", "Company-irac_provisioning_configuraton")

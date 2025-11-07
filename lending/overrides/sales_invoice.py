@@ -6,7 +6,7 @@ from frappe.utils import flt
 
 from erpnext.accounts.general_ledger import make_gl_entries
 
-from lending.loan_management.doctype.loan_interest_accrual.loan_interest_accrual import (
+from lending.lending.doctype.loan_interest_accrual.loan_interest_accrual import (
 	create_loan_demand,
 )
 
@@ -129,7 +129,7 @@ def make_suspense_gl_entry_for_charges(doc, method):
 	if not hasattr(doc, 'loan') or not doc.loan:
 		return
 		
-	from lending.loan_management.doctype.loan.loan import move_receivable_charges_to_suspense_ledger
+	from lending.lending.doctype.loan.loan import move_receivable_charges_to_suspense_ledger
 
 	is_npa = frappe.db.get_value("Loan", doc.loan, "is_npa")
 	if is_npa:
