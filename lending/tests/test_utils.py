@@ -29,9 +29,9 @@ def before_tests():
 			{
 				"currency": "INR",
 				"full_name": "Test User",
-				"company_name": "_Test Company",
+				"company_name": "Moo Coding",
 				"timezone": "Asia/Kolkata",
-				"company_abbr": "_TC",
+				"company_abbr": "MC",
 				"industry": "Manufacturing",
 				"country": "India",
 				"fy_start_date": f"{year}-01-01",
@@ -47,7 +47,7 @@ def before_tests():
 	set_global_defaults(
 		{
 			"currency": "INR",
-			"company_name": "_Test Company",
+			"company_name": "Moo Coding",
 			"country": "India",
 		}
 	)
@@ -64,7 +64,7 @@ def before_tests():
 def create_secured_demand_loan(applicant, disbursement_amount=None):
 	pledge = [{"loan_security": "Test Security 1", "qty": 4000.00}]
 
-	loan_application = create_loan_application("_Test Company", applicant, "Demand Loan", pledge)
+	loan_application = create_loan_application("Moo Coding", applicant, "Demand Loan", pledge)
 	create_loan_security_assignment(loan_application)
 
 	loan = create_demand_loan(applicant, "Demand Loan", loan_application, posting_date="2019-10-01")
@@ -84,7 +84,7 @@ def create_secured_demand_loan(applicant, disbursement_amount=None):
 def create_loan_scenario_for_penalty(doc):
 	pledge = [{"loan_security": "Test Security 1", "qty": 4000.00}]
 
-	loan_application = create_loan_application("_Test Company", doc.applicant2, "Demand Loan", pledge)
+	loan_application = create_loan_application("Moo Coding", doc.applicant2, "Demand Loan", pledge)
 	create_loan_security_assignment(loan_application)
 	loan = create_demand_loan(
 		doc.applicant2, "Demand Loan", loan_application, posting_date="2019-10-01"
@@ -110,22 +110,22 @@ def create_loan_scenario_for_penalty(doc):
 def create_loan_accounts():
 	create_account(
 		"Loans and Advances (Assets)",
-		"Current Assets - _TC",
+		"1100-1600 - Current Assets - MC",
 		"Asset",
 		"",
 		"Balance Sheet",
 		is_group=1,
 	)
-	create_account("Loan Account", "Loans and Advances (Assets) - _TC", "Asset", "", "Balance Sheet")
-	create_account("Payment Account", "Bank Accounts - _TC", "Asset", "Bank", "Balance Sheet")
-	create_account("Disbursement Account", "Bank Accounts - _TC", "Asset", "Bank", "Balance Sheet")
+	create_account("Loan Account", "1600 - Loans and Advances (Assets) - MC", "Asset", "", "Balance Sheet")
+	create_account("Payment Account", "1200 - Bank Accounts - MC", "Asset", "Bank", "Balance Sheet")
+	create_account("Disbursement Account", "1200 - Bank Accounts - MC", "Asset", "Bank", "Balance Sheet")
 	create_account(
-		"Interest Income Account", "Direct Income - _TC", "Income", "Income Account", "Profit and Loss"
+		"Interest Income Account", "4100 - Direct Income - MC", "Income", "Income Account", "Profit and Loss"
 	)
 
 	create_account(
 		"Interest Waiver Account",
-		"Direct Expenses - _TC",
+		"5100 - Direct Expenses - MC",
 		"Expense",
 		"Expense Account",
 		"Profit and Loss",
@@ -133,7 +133,7 @@ def create_loan_accounts():
 
 	create_account(
 		"Penalty Waiver Account",
-		"Direct Expenses - _TC",
+		"5100 - Direct Expenses - MC",
 		"Expense",
 		"Expense Account",
 		"Profit and Loss",
@@ -141,7 +141,7 @@ def create_loan_accounts():
 
 	create_account(
 		"Additional Interest Income Account",
-		"Direct Income - _TC",
+		"4100 - Direct Income - MC",
 		"Income",
 		"Income Account",
 		"Profit and Loss",
@@ -149,7 +149,7 @@ def create_loan_accounts():
 
 	create_account(
 		"Additional Interest Accrued Account",
-		"Current Assets - _TC",
+		"1100-1600 - Current Assets - MC",
 		"Asset",
 		"",
 		"Balance Sheet",
@@ -157,56 +157,56 @@ def create_loan_accounts():
 
 	create_account(
 		"Additional Interest Waiver",
-		"Direct Expenses - _TC",
+		"5100 - Direct Expenses - MC",
 		"Expense",
 		"Expense Account",
 		"Profit and Loss",
 	)
 
 	create_account(
-		"Penalty Income Account", "Direct Income - _TC", "Income", "Income Account", "Profit and Loss"
+		"Penalty Income Account", "4100 - Direct Income - MC", "Income", "Income Account", "Profit and Loss"
 	)
 	create_account(
 		"Interest Receivable",
-		"Accounts Receivable - _TC",
+		"1300 - Accounts Receivable - MC",
 		"Asset",
 		"Receivable",
 		"Balance Sheet",
 	)
 	create_account(
-		"Charges Receivable", "Accounts Receivable - _TC", "Asset", "Receivable", "Balance Sheet"
+		"Charges Receivable", "1300 - Accounts Receivable - MC", "Asset", "Receivable", "Balance Sheet"
 	)
 	create_account(
-		"Penalty Receivable", "Accounts Receivable - _TC", "Asset", "Receivable", "Balance Sheet"
+		"Penalty Receivable", "1300 - Accounts Receivable - MC", "Asset", "Receivable", "Balance Sheet"
 	)
 
 	create_account(
 		"Additional Interest Receivable",
-		"Accounts Receivable - _TC",
+		"1300 - Accounts Receivable - MC",
 		"Asset",
 		"Receivable",
 		"Balance Sheet",
 	)
 	create_account(
 		"Suspense Interest Receivable",
-		"Accounts Receivable - _TC",
+		"1300 - Accounts Receivable - MC",
 		"Asset",
 		"Receivable",
 		"Balance Sheet",
 	)
 	create_account(
-		"Suspense Income Account", "Direct Income - _TC", "Income", "Income Account", "Profit and Loss"
+		"Suspense Income Account", "4100 - Direct Income - MC", "Income", "Income Account", "Profit and Loss"
 	)
 
 	create_account(
-		"Suspense Penalty Account", "Direct Income - _TC", "Income", "Income Account", "Profit and Loss"
+		"Suspense Penalty Account", "4100 - Direct Income - MC", "Income", "Income Account", "Profit and Loss"
 	)
 
-	create_account("Interest Accrued Account", "Current Assets - _TC", "Asset", "", "Balance Sheet")
+	create_account("Interest Accrued Account", "1100-1600 - Current Assets - MC", "Asset", "", "Balance Sheet")
 
 	create_account(
 		"Additional Interest Accrued Account",
-		"Current Assets - _TC",
+		"1100-1600 - Current Assets - MC",
 		"Asset",
 		"",
 		"Balance Sheet",
@@ -214,25 +214,25 @@ def create_loan_accounts():
 
 	create_account(
 		"Suspense Interest Accrued Account",
-		"Current Assets - _TC",
+		"1100-1600 - Current Assets - MC",
 		"Asset",
 		"",
 		"Balance Sheet",
 	)
 
-	create_account("Penalty Accrued Account", "Current Assets - _TC", "Asset", "", "Balance Sheet")
+	create_account("Penalty Accrued Account", "1100-1600 - Current Assets - MC", "Asset", "", "Balance Sheet")
 
 	create_account(
-		"Broken Period Interest", "Accounts Receivable - _TC", "Asset", "Receivable", "Profit and Loss"
+		"Broken Period Interest", "1300 - Accounts Receivable - MC", "Asset", "Receivable", "Profit and Loss"
 	)
 
 	create_account(
-		"Write Off Account", "Direct Expenses - _TC", "Expense", "Expense Account", "Profit and Loss"
+		"Write Off Account", "5100 - Direct Expenses - MC", "Expense", "Expense Account", "Profit and Loss"
 	)
 
 	create_account(
 		"Write Off Recovery",
-		"Loans and Advances (Assets) - _TC",
+		"1600 - Loans and Advances (Assets) - MC",
 		"Liability",
 		"Receivable",
 		"Balance Sheet",
@@ -240,7 +240,7 @@ def create_loan_accounts():
 
 	create_account(
 		"Customer Refund Account",
-		"Loans and Advances (Assets) - _TC",
+		"1600 - Loans and Advances (Assets) - MC",
 		"Liability",
 		"Receivable",
 		"Balance Sheet",
@@ -248,7 +248,7 @@ def create_loan_accounts():
 
 	create_account(
 		"Processing Fee Income Account",
-		"Direct Income - _TC",
+		"4100 - Direct Income - MC",
 		"Income",
 		"Income Account",
 		"Profit and Loss",
@@ -256,7 +256,7 @@ def create_loan_accounts():
 
 	create_account(
 		"Processing Fee Receivable Account",
-		"Loans and Advances (Assets) - _TC",
+		"1600 - Loans and Advances (Assets) - MC",
 		"Asset",
 		"Receivable",
 		"Balance Sheet",
@@ -264,14 +264,14 @@ def create_loan_accounts():
 
 	create_account(
 		"Processing Fee Waiver Account",
-		"Direct Expenses - _TC",
+		"5100 - Direct Expenses - MC",
 		"Expense",
 		"Expense Account",
 		"Profit and Loss",
 	)
 	create_account(
 		"Security Deposit Account",
-		"Loans (Liabilities) - _TC",
+		"2400 - Loans (Liabilities) - MC",
 		"Liability",
 		"",
 		"Balance Sheet",
@@ -284,7 +284,7 @@ def create_account(account_name, parent_account, root_type, account_type, report
 			{
 				"doctype": "Account",
 				"account_name": account_name,
-				"company": "_Test Company",
+				"company": "Moo Coding",
 				"root_type": root_type,
 				"report_type": report_type,
 				"currency": "INR",
@@ -295,7 +295,7 @@ def create_account(account_name, parent_account, root_type, account_type, report
 		).insert(ignore_permissions=True)
 	else:
 		account = frappe.get_doc("Account", {"account_name": account_name})
-		account.company = "_Test Company"
+		account.company = "Moo Coding"
 		account.root_type = root_type
 		account.report_type = report_type
 		account.account_currency = "INR"
@@ -314,34 +314,34 @@ def create_loan_product(
 	penalty_interest_rate=None,
 	is_term_loan=1,
 	grace_period_in_days=None,
-	disbursement_account="Disbursement Account - _TC",
-	payment_account="Payment Account - _TC",
-	loan_account="Loan Account - _TC",
-	interest_income_account="Interest Income Account - _TC",
-	penalty_income_account="Penalty Income Account - _TC",
-	penalty_waiver_account="Penalty Waiver Account - _TC",
-	security_deposit_account="Security Deposit Account - _TC",
-	write_off_recovery_account="Write Off Recovery - _TC",
-	interest_receivable_account="Interest Receivable - _TC",
-	penalty_receivable_account="Penalty Receivable - _TC",
-	charges_receivable_account="Charges Receivable - _TC",
-	suspense_interest_income="Suspense Income Account - _TC",
-	interest_waiver_account="Interest Waiver Account - _TC",
-	write_off_account="Write Off Account - _TC",
-	customer_refund_account="Customer Refund Account - _TC",
+	disbursement_account="Disbursement Account - MC",
+	payment_account="Payment Account - MC",
+	loan_account="Loan Account - MC",
+	interest_income_account="Interest Income Account - MC",
+	penalty_income_account="Penalty Income Account - MC",
+	penalty_waiver_account="Penalty Waiver Account - MC",
+	security_deposit_account="Security Deposit Account - MC",
+	write_off_recovery_account="Write Off Recovery - MC",
+	interest_receivable_account="Interest Receivable - MC",
+	penalty_receivable_account="Penalty Receivable - MC",
+	charges_receivable_account="Charges Receivable - MC",
+	suspense_interest_income="Suspense Income Account - MC",
+	interest_waiver_account="Interest Waiver Account - MC",
+	write_off_account="Write Off Account - MC",
+	customer_refund_account="Customer Refund Account - MC",
 	repayment_method=None,
 	repayment_periods=None,
 	repayment_schedule_type="Monthly as per repayment start date",
 	repayment_date_on=None,
 	days_past_due_threshold_for_npa=None,
 	min_days_bw_disbursement_first_repayment=None,
-	interest_accrued_account="Interest Accrued Account - _TC",
-	penalty_accrued_account="Penalty Accrued Account - _TC",
-	broken_period_interest_recovery_account="Broken Period Interest - _TC",
-	additional_interest_income="Additional Interest Income Account - _TC",
-	additional_interest_accrued="Additional Interest Accrued Account - _TC",
-	additional_interest_receivable="Additional Interest Receivable - _TC",
-	additional_interest_waiver="Additional Interest Waiver - _TC",
+	interest_accrued_account="Interest Accrued Account - MC",
+	penalty_accrued_account="Penalty Accrued Account - MC",
+	broken_period_interest_recovery_account="Broken Period Interest - MC",
+	additional_interest_income="Additional Interest Income Account - MC",
+	additional_interest_accrued="Additional Interest Accrued Account - MC",
+	additional_interest_receivable="Additional Interest Receivable - MC",
+	additional_interest_waiver="Additional Interest Waiver - MC",
 	cyclic_day_of_the_month=5,
 	collection_offset_sequence_for_standard_asset=None,
 	collection_offset_sequence_for_sub_standard_asset=None,
@@ -355,7 +355,7 @@ def create_loan_product(
 	else:
 		loan_product_doc = frappe.new_doc("Loan Product")
 
-	loan_product_doc.company = "_Test Company"
+	loan_product_doc.company = "Moo Coding"
 	loan_product_doc.product_code = product_code
 	loan_product_doc.product_name = product_name
 	loan_product_doc.is_term_loan = is_term_loan
@@ -431,7 +431,7 @@ def add_or_update_loan_charges(product_name):
 				"item_code": charge_type,
 				"item_group": "Services",
 				"is_stock_item": 0,
-				"income_account": "Processing Fee Income Account - _TC",
+				"income_account": "Processing Fee Income Account - MC",
 			}
 		).insert()
 
@@ -441,9 +441,9 @@ def add_or_update_loan_charges(product_name):
 		"loan_charges",
 		{
 			"charge_type": charge_type,
-			"income_account": "Processing Fee Income Account - _TC",
-			"receivable_account": "Processing Fee Receivable Account - _TC",
-			"waiver_account": "Processing Fee Waiver Account - _TC",
+			"income_account": "Processing Fee Income Account - MC",
+			"receivable_account": "Processing Fee Receivable Account - MC",
+			"waiver_account": "Processing Fee Waiver Account - MC",
 		},
 	)
 	loan_product.save()
@@ -504,9 +504,9 @@ def make_loan_disbursement_entry(
 		repayment_start_date or disbursement_date or nowdate()
 	)
 	loan_disbursement_entry.repayment_frequency = repayment_frequency
-	loan_disbursement_entry.company = "_Test Company"
+	loan_disbursement_entry.company = "Moo Coding"
 	loan_disbursement_entry.disbursed_amount = amount
-	loan_disbursement_entry.cost_center = "Main - _TC"
+	loan_disbursement_entry.cost_center = "Main - MC"
 	loan_disbursement_entry.withhold_security_deposit = withhold_security_deposit
 
 	if loan_disbursement_charges:
@@ -554,7 +554,7 @@ def create_repayment_entry(
 ):
 	lr = frappe.new_doc("Loan Repayment")
 	lr.against_loan = loan
-	lr.company = "_Test Company"
+	lr.company = "Moo Coding"
 	lr.posting_date = nowdate()
 	lr.value_date = value_date
 	lr.amount_paid = paid_amount
@@ -631,7 +631,7 @@ def create_loan(
 		{
 			"doctype": "Loan",
 			"applicant_type": applicant_type or "Customer",
-			"company": "_Test Company",
+			"company": "Moo Coding",
 			"applicant": applicant,
 			"loan_product": loan_product,
 			"loan_amount": loan_amount,
@@ -668,7 +668,7 @@ def create_loan_with_security(
 	loan = frappe.get_doc(
 		{
 			"doctype": "Loan",
-			"company": "_Test Company",
+			"company": "Moo Coding",
 			"applicant_type": "Customer",
 			"posting_date": posting_date or nowdate(),
 			"loan_application": loan_application,
@@ -679,10 +679,10 @@ def create_loan_with_security(
 			"repayment_method": repayment_method,
 			"repayment_periods": repayment_periods,
 			"repayment_start_date": repayment_start_date or nowdate(),
-			"payment_account": "Payment Account - _TC",
-			"loan_account": "Loan Account - _TC",
-			"interest_income_account": "Interest Income Account - _TC",
-			"penalty_income_account": "Penalty Income Account - _TC",
+			"payment_account": "Payment Account - MC",
+			"loan_account": "Loan Account - MC",
+			"interest_income_account": "Interest Income Account - MC",
+			"penalty_income_account": "Penalty Income Account - MC",
 		}
 	)
 
@@ -693,7 +693,7 @@ def create_loan_with_security(
 
 def create_demand_loan(applicant, loan_product, loan_application, posting_date=None):
 	loan = frappe.new_doc("Loan")
-	loan.company = "_Test Company"
+	loan.company = "Moo Coding"
 	loan.applicant_type = "Customer"
 	loan.applicant = applicant
 	loan.loan_product = loan_product
@@ -701,10 +701,10 @@ def create_demand_loan(applicant, loan_product, loan_application, posting_date=N
 	loan.loan_application = loan_application
 	loan.is_term_loan = 0
 	loan.is_secured_loan = 1
-	loan.payment_account = "Payment Account - _TC"
-	loan.loan_account = "Loan Account - _TC"
-	loan.interest_income_account = "Interest Income Account - _TC"
-	loan.penalty_income_account = "Penalty Income Account - _TC"
+	loan.payment_account = "Payment Account - MC"
+	loan.loan_account = "Loan Account - MC"
+	loan.interest_income_account = "Interest Income Account - MC"
+	loan.penalty_income_account = "Penalty Income Account - MC"
 
 	loan.save()
 
@@ -757,7 +757,7 @@ def create_loan_partner(
 
 def set_loan_settings_in_company(company=None):
 	if not company:
-		company = "_Test Company"
+		company = "Moo Coding"
 	company = frappe.get_doc("Company", company)
 	company.min_days_bw_disbursement_first_repayment = 15
 	company.save()
@@ -765,7 +765,7 @@ def set_loan_settings_in_company(company=None):
 
 def setup_loan_demand_offset_order(company=None):
 	if not company:
-		company = "_Test Company"
+		company = "Moo Coding"
 
 	create_demand_offset_order(
 		"Test Demand Loan Loan Demand Offset Order", ["Penalty", "Interest", "Principal"]
@@ -819,8 +819,8 @@ def create_loan_write_off(loan, posting_date, write_off_amount=None):
 	loan_write_off = frappe.new_doc("Loan Write Off")
 	loan_write_off.loan = loan
 	loan_write_off.value_date = posting_date
-	loan_write_off.company = "_Test Company"
-	loan_write_off.write_off_account = "Write Off Account - _TC"
+	loan_write_off.company = "Moo Coding"
+	loan_write_off.write_off_account = "Write Off Account - MC"
 	loan_write_off.save()
 	loan_write_off.submit()
 
@@ -830,7 +830,7 @@ def create_loan_write_off(loan, posting_date, write_off_amount=None):
 def set_loan_accrual_frequency(loan_accrual_frequency):
 	frappe.db.set_value(
 		"Company",
-		"_Test Company",
+		"Moo Coding",
 		"loan_accrual_frequency",
 		loan_accrual_frequency,
 	)
@@ -961,11 +961,11 @@ def create_loan_refund(
 	doc = frappe.new_doc("Loan Refund")
 	doc.loan = loan
 	doc.value_date = posting_date
-	doc.company = "_Test Company"
+	doc.company = "Moo Coding"
 	doc.is_excess_amount_refund = is_excess_amount_refund
 	doc.is_security_amount_refund = is_security_amount_refund
 	doc.refund_amount = refund_amount
-	doc.refund_account = "Payment Account - _TC"
+	doc.refund_account = "Payment Account - MC"
 	doc.save()
 	doc.submit()
 

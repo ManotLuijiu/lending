@@ -93,6 +93,11 @@ app_include_js = "lending.bundle.js"
 # before_install = "lending.install.before_install"
 after_install = "lending.install.after_install"
 
+# Migration
+# ------------
+
+after_migrate = "lending.install.after_install"
+
 # Uninstallation
 # ------------
 

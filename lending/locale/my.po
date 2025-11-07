@@ -1,4 +1,4 @@
-# Translations template for Lending.
+# Burmese translations for Lending.
 # Copyright (C) 2025 Frappe Technologies Pvt. Ltd.
 # This file is distributed under the same license as the Lending project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
@@ -10,7 +10,9 @@ msgstr ""
 "POT-Creation-Date: 2025-10-20 14:04+0642\n"
 "PO-Revision-Date: 2025-10-20 14:04+0642\n"
 "Last-Translator: contact@frappe.io\n"
+"Language: my\n"
 "Language-Team: contact@frappe.io\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,15 +41,20 @@ msgstr ""
 msgid "ALM Audit Report"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "About"
+msgstr ""
+
 #. Label of a Link field in DocType 'Loan Disbursement Charge'
 #: lending/loan_management/doctype/loan_disbursement_charge/loan_disbursement_charge.json
 msgid "Account"
-msgstr ""
+msgstr "အကောင့်ဖွင့်"
 
 #. Label of a Section Break field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Account Info"
-msgstr ""
+msgstr "အကောင့်အင်ဖို"
 
 #: lending/loan_management/doctype/loan_product/loan_product.py:111
 msgid "Account {0} does not belong to company {1}"
@@ -60,19 +67,19 @@ msgstr ""
 #. Label of a Tab Break field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Accounting"
-msgstr ""
+msgstr "စာရင်းကိုင်"
 
 #. Label of a Section Break field in DocType 'Loan Disbursement'
 #. Label of a Section Break field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Accounting Details"
-msgstr ""
+msgstr "စာရင်းကိုင် Details ကို"
 
 #. Label of a Section Break field in DocType 'Loan Interest Accrual'
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
 msgid "Accounting Dimension"
-msgstr ""
+msgstr "စာရင်းကိုင် Dimension"
 
 #. Label of a Section Break field in DocType 'Loan'
 #. Label of a Section Break field in DocType 'Loan Balance Adjustment'
@@ -89,7 +96,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 msgid "Accounting Dimensions"
-msgstr ""
+msgstr "စာရင်းကိုင်အရွယ်အစား"
 
 #: lending/loan_management/doctype/loan_balance_adjustment/loan_balance_adjustment.js:7
 #: lending/public/js/loan_common.js:12
@@ -99,7 +106,7 @@ msgstr ""
 #. Label of a Section Break field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Accounts"
-msgstr ""
+msgstr "ငွေစာရင်း"
 
 #. Label of a Date field in DocType 'Loan Interest Accrual'
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
@@ -131,7 +138,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Active"
-msgstr ""
+msgstr "active"
 
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.js:6
 msgid "Add Loan Security"
@@ -163,6 +170,11 @@ msgstr ""
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
 #: lending/loan_management/doctype/loan_demand_offset_detail/loan_demand_offset_detail.json
 msgid "Additional Interest"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Additional Interest Accounts"
 msgstr ""
 
 #. Label of a Section Break field in DocType 'Loan Product'
@@ -220,7 +232,7 @@ msgstr ""
 #. Label of a Link field in DocType 'Loan Partner Address'
 #: lending/loan_management/doctype/loan_partner_address/loan_partner_address.json
 msgid "Address"
-msgstr ""
+msgstr "လိပ်စာ"
 
 #. Label of a Section Break field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
@@ -230,7 +242,7 @@ msgstr ""
 #. Label of a HTML field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Address HTML"
-msgstr ""
+msgstr "လိပ်စာက HTML"
 
 #. Label of a Currency field in DocType 'Loan Restructure'
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
@@ -288,12 +300,12 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:26
 msgid "Against Loan"
-msgstr ""
+msgstr "ချေးငွေဆန့်ကျင်"
 
 #. Label of a Link field in DocType 'Loan Disbursement'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 msgid "Against Loan "
-msgstr ""
+msgstr "ချေးငွေဆန့်ကျင်"
 
 #: lending/loan_management/doctype/loan_refund/loan_refund.py:157
 #: lending/loan_management/doctype/loan_refund/loan_refund.py:173
@@ -317,7 +329,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_charge_reference/loan_charge_reference.json
 #: lending/loan_management/doctype/loan_security_deposit/loan_security_deposit.json
 msgid "Allocated Amount"
-msgstr ""
+msgstr "ခွဲဝေပမာဏ"
 
 #. Label of a Date field in DocType 'Loan Security Deposit'
 #: lending/loan_management/doctype/loan_security_deposit/loan_security_deposit.json
@@ -380,13 +392,13 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_restructure_limit/process_loan_restructure_limit.json
 #: lending/loan_management/doctype/process_loan_security_shortfall/process_loan_security_shortfall.json
 msgid "Amended From"
-msgstr ""
+msgstr "မှစ. ပြင်ဆင်"
 
 #. Description of the 'Shortfall Time' (Datetime) field in DocType 'Loan
 #. Security Shortfall'
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 msgid "America/New_York"
-msgstr ""
+msgstr "အမေရိက / နယူးယောက်"
 
 #. Label of a Currency field in DocType 'Loan Adjustment Detail'
 #. Label of a Currency field in DocType 'Loan Balance Adjustment'
@@ -403,12 +415,12 @@ msgstr ""
 #: lending/loan_management/doctype/pledge/pledge.json
 #: lending/loan_management/doctype/proposed_pledge/proposed_pledge.json
 msgid "Amount"
-msgstr ""
+msgstr "ငွေပမာဏ"
 
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Amount Paid"
-msgstr ""
+msgstr "Paid ငွေပမာဏ"
 
 #: lending/loan_management/doctype/loan_balance_adjustment/loan_balance_adjustment.py:51
 msgid "Amount cannot be negative"
@@ -448,7 +460,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:26
 msgid "Amounts"
-msgstr ""
+msgstr "ပမာဏ"
 
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.py:112
 msgid "Another Loan Restructure is already initiated for this Loan"
@@ -487,7 +499,7 @@ msgstr ""
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:25
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Applicant"
-msgstr ""
+msgstr "လြှောကျသူ"
 
 #. Label of a Dynamic Link field in DocType 'Loan Balance Adjustment'
 #. Label of a Dynamic Link field in DocType 'Loan Refund'
@@ -515,7 +527,7 @@ msgstr ""
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:33
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:40
 msgid "Applicant Name"
-msgstr ""
+msgstr "လျှောက်ထားသူအမည်"
 
 #. Label of a Select field in DocType 'Loan'
 #. Label of a Select field in DocType 'Loan Application'
@@ -552,7 +564,7 @@ msgstr ""
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.js:17
 #: lending/loan_management/report/loan_security_status/loan_security_status.js:17
 msgid "Applicant Type"
-msgstr ""
+msgstr "လျှောက်ထားသူအမျိုးအစား"
 
 #. Name of a report
 #. Label of a Link in the Lending Workspace
@@ -568,10 +580,20 @@ msgstr ""
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Approved"
+msgstr "Approved"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Apps"
 msgstr ""
 
 #: lending/loan_management/report/alm_audit_report/alm_audit_report.js:16
 msgid "As on Date"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Auto Write Off Amount"
 msgstr ""
 
 #. Label of a Currency field in DocType 'Loan Product'
@@ -636,7 +658,7 @@ msgstr ""
 #: lending/loan_management/doctype/co_lender_schedule/co_lender_schedule.json
 #: lending/loan_management/doctype/repayment_schedule/repayment_schedule.json
 msgid "Balance Loan Amount"
-msgstr ""
+msgstr "balance ချေးငွေပမာဏ"
 
 #. Label of a Currency field in DocType 'Loan Restructure'
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
@@ -655,7 +677,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Bank Account"
-msgstr ""
+msgstr "ဘဏ်မှအကောင့်"
 
 #. Label of a Card Break in the Lending Workspace
 #: lending/loan_management/workspace/lending/lending.json
@@ -670,7 +692,6 @@ msgstr ""
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Disbursement'
-#. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Repayment Schedule'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
@@ -689,7 +710,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_restructure_limit_log/loan_restructure_limit_log.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Branch"
-msgstr ""
+msgstr "အညွန့"
 
 #. Label of a Section Break field in DocType 'Loan Transfer'
 #: lending/loan_management/doctype/loan_transfer/loan_transfer.json
@@ -720,6 +741,11 @@ msgstr ""
 msgid "Bulk Repayment Log"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Cancel Future Accruals and Demands"
+msgstr ""
+
 #. Label of a Check field in DocType 'Loan Repayment Repost'
 #: lending/loan_management/doctype/loan_repayment_repost/loan_repayment_repost.json
 msgid "Cancel Future Accruals and Demands "
@@ -742,7 +768,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 msgid "Cancelled"
-msgstr ""
+msgstr "ဖျက်သိမ်းခဲ့သည်"
 
 #: lending/loan_management/doctype/loan/loan.py:553
 msgid "Cannot close loan as there is an outstanding of {0}"
@@ -770,9 +796,7 @@ msgstr ""
 #. Option for the 'Penal Treatment' (Select) field in DocType 'Loan
 #. Restructure'
 #. Option for the 'Charges Treatment' (Select) field in DocType 'Loan
-#. Restructure'
 #. Option for the 'Interest Treatment' (Select) field in DocType 'Loan
-#. Restructure'
 #. Option for the 'Unaccrued Interest Treatment' (Select) field in DocType
 #. 'Loan Restructure'
 #: lending/loan_management/doctype/loan/loan.json
@@ -784,10 +808,9 @@ msgstr ""
 #. Option for the 'Penal Treatment' (Select) field in DocType 'Loan
 #. Restructure'
 #. Option for the 'Charges Treatment' (Select) field in DocType 'Loan
-#. Restructure'
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Carry Forward"
-msgstr ""
+msgstr "Forward သယ်"
 
 #. Option for the 'Organization Type' (Select) field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
@@ -852,7 +875,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Charges"
-msgstr ""
+msgstr "စွဲချက်"
 
 #. Option for the 'Loan Repayment Type' (Select) field in DocType 'Loan
 #. Adjustment Detail'
@@ -918,7 +941,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Clearance Date"
-msgstr ""
+msgstr "ရှင်းလင်းရေးနေ့စွဲ"
 
 #: lending/loan_management/doctype/loan/loan.js:107
 msgid "Close Loan"
@@ -931,6 +954,11 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Closed"
+msgstr "ပိတ်ထားသော"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Closed Account Report"
 msgstr ""
 
 #. Label of a Date field in DocType 'Loan'
@@ -1053,7 +1081,7 @@ msgstr ""
 #: lending/loan_management/report/loan_security_status/loan_security_status.js:9
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Company"
-msgstr ""
+msgstr "ကုမ္ပဏီ"
 
 #. Label of a Percent field in DocType 'Loan Partner Shareable'
 #: lending/loan_management/doctype/loan_partner_shareable/loan_partner_shareable.json
@@ -1063,7 +1091,7 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'Loan Security Shortfall'
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 msgid "Completed"
-msgstr ""
+msgstr "ပြီးစီး"
 
 #. Label of a Int field in DocType 'Loan Restructure'
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
@@ -1073,7 +1101,7 @@ msgstr ""
 #. Label of a Table field in DocType 'Loan Demand Offset Order'
 #: lending/loan_management/doctype/loan_demand_offset_order/loan_demand_offset_order.json
 msgid "Components"
-msgstr ""
+msgstr "components"
 
 #. Label of a Tab Break field in DocType 'Loan'
 #. Label of a Tab Break field in DocType 'Loan Disbursement'
@@ -1082,6 +1110,11 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Connections"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Contract Export Report"
 msgstr ""
 
 #. Option for the 'Type of FLDG Applicable' (Select) field in DocType 'Loan
@@ -1107,7 +1140,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 msgid "Cost Center"
-msgstr ""
+msgstr "ကုန်ကျစရိတ် Center က"
 
 #: lending/loan_management/doctype/loan/loan.py:187
 msgid "Cost center is mandatory for loans having rate of interest greater than 0"
@@ -1127,7 +1160,7 @@ msgstr ""
 #. Label of a Link field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Credit Account"
-msgstr ""
+msgstr "ခရက်ဒစ်အကောင့်ကို"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:2095
 msgid "Credit Account is mandatory"
@@ -1148,6 +1181,11 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Credit Adjustment Amount"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Credit Approval Report"
 msgstr ""
 
 #: lending/loan_management/report/applicant_wise_loan_security_exposure/applicant_wise_loan_security_exposure.py:89
@@ -1191,9 +1229,7 @@ msgstr ""
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Restructure'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Assignment'
-#. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Release'
-#. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Shortfall'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Write Off'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Sanctioned Loan
@@ -1212,7 +1248,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "Customer"
-msgstr ""
+msgstr "ဝယ်သူ"
 
 #. Label of a Link field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
@@ -1231,13 +1267,12 @@ msgstr ""
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Disbursement'
-#. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Repayment Schedule'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Daily"
-msgstr ""
+msgstr "နေ့စဉ်"
 
 #. Label of a shortcut in the Lending Workspace
 #: lending/loan_management/workspace/lending/lending.json
@@ -1247,7 +1282,7 @@ msgstr ""
 #. Label of a Date field in DocType 'Loan Restructure Limit Log'
 #: lending/loan_management/doctype/loan_restructure_limit_log/loan_restructure_limit_log.json
 msgid "Date"
-msgstr ""
+msgstr "နေ့စှဲ"
 
 #. Description of the 'Cyclic Day Of the Month' (Int) field in DocType 'Loan
 #. Product'
@@ -1396,14 +1431,14 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Description"
-msgstr ""
+msgstr "ဖေါ်ပြချက်"
 
 #. Label of a Long Text field in DocType 'Bulk Repayment Log'
 #. Label of a Section Break field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/bulk_repayment_log/bulk_repayment_log.json
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Details"
-msgstr ""
+msgstr "အသေးစိတ်အချက်အလက်များကို"
 
 #. Label of a Check field in DocType 'Loan Category'
 #. Label of a Check field in DocType 'Loan Product'
@@ -1416,12 +1451,12 @@ msgstr ""
 #: lending/loan_management/report/applicant_wise_loan_security_exposure/applicant_wise_loan_security_exposure.py:60
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:51
 msgid "Disabled"
-msgstr ""
+msgstr "ချို့ငဲသော"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Disbursed"
-msgstr ""
+msgstr "ထုတ်ချေး"
 
 #. Label of a Currency field in DocType 'Loan'
 #. Label of a Currency field in DocType 'Loan Disbursement'
@@ -1434,7 +1469,7 @@ msgstr ""
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:54
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:57
 msgid "Disbursed Amount"
-msgstr ""
+msgstr "ထုတ်ပေးငွေပမာဏ"
 
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.py:403
 msgid "Disbursed Amount cannot be greater than {0}"
@@ -1479,12 +1514,12 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:51
 msgid "Disbursement Date"
-msgstr ""
+msgstr "ငွေပေးချေနေ့စွဲ"
 
 #. Label of a Section Break field in DocType 'Loan Disbursement'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 msgid "Disbursement Details"
-msgstr ""
+msgstr "ငွေပေးချေမှုအသေးစိတ်"
 
 #. Label of a Section Break field in DocType 'Loan Disbursement'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
@@ -1516,6 +1551,11 @@ msgstr ""
 msgid "Do you really want to release this loan security assignment?"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Documentation"
+msgstr ""
+
 #. Option for the 'Status' (Select) field in DocType 'Loan'
 #. Option for the 'Status' (Select) field in DocType 'Loan Disbursement'
 #. Option for the 'Status' (Select) field in DocType 'Loan Repayment Schedule'
@@ -1523,12 +1563,12 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Draft"
-msgstr ""
+msgstr "မူကြမ်း"
 
 #. Label of a Date field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Due Date"
-msgstr ""
+msgstr "သတ်မှတ်ချိန်းရက်"
 
 #. Option for the 'Moratorium Type' (Select) field in DocType 'Loan'
 #. Option for the 'Demand Type' (Select) field in DocType 'Loan Demand'
@@ -1576,9 +1616,7 @@ msgstr ""
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Restructure'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Assignment'
-#. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Release'
-#. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Shortfall'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Write Off'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Sanctioned Loan
@@ -1597,6 +1635,11 @@ msgstr ""
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "Employee"
+msgstr "လုပ်သား"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Employee Self Service"
 msgstr ""
 
 #. Label of a Check field in DocType 'Loan Partner'
@@ -1627,7 +1670,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_limit_change_log/loan_limit_change_log.json
 #: lending/loan_management/doctype/loan_npa_log/loan_npa_log.json
 msgid "Event"
-msgstr ""
+msgstr "အဖြစ်အပျက်"
 
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
@@ -1724,6 +1767,16 @@ msgstr ""
 msgid "Foreclosure Type"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Frappe School"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Frappe Support"
+msgstr ""
+
 #. Label of a Check field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Freeze Account"
@@ -1746,7 +1799,7 @@ msgstr ""
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.js:41
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.js:46
 msgid "From Date"
-msgstr ""
+msgstr "နေ့စွဲကနေ"
 
 #. Option for the 'Repayment Type' (Select) field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
@@ -1756,14 +1809,14 @@ msgstr ""
 #. Label of a Int field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Grace Period in Days"
-msgstr ""
+msgstr "နေ့ရက်ကာလ၌ကျေးဇူးတော်ရှိစေသတည်းကာလ"
 
 #. Label of a Percent field in DocType 'Unpledge'
 #: lending/loan_management/doctype/unpledge/unpledge.json
 #: lending/loan_management/report/applicant_wise_loan_security_exposure/applicant_wise_loan_security_exposure.py:52
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:43
 msgid "Haircut"
-msgstr ""
+msgstr "ဆံပင်ညှပ်"
 
 #. Label of a Percent field in DocType 'Loan Security'
 #. Label of a Percent field in DocType 'Loan Security Type'
@@ -1774,13 +1827,13 @@ msgstr ""
 #: lending/loan_management/doctype/pledge/pledge.json
 #: lending/loan_management/doctype/proposed_pledge/proposed_pledge.json
 msgid "Haircut %"
-msgstr ""
+msgstr "ဆံပင်ပုံပုံ%"
 
 #. Description of the 'Haircut %' (Percent) field in DocType 'Loan Security
 #. Type'
 #: lending/loan_management/doctype/loan_security_type/loan_security_type.json
 msgid "Haircut percentage is the percentage difference between market value of the Loan Security and the value ascribed to that Loan Security when used as collateral for that loan."
-msgstr ""
+msgstr "ဆံပင်ညှပ်နှုန်းသည်ချေးငွေအာမခံ၏စျေးကွက်တန်ဖိုးနှင့်ချေးငွေအတွက်အပေါင်ပစ္စည်းအဖြစ်အသုံးပြုသောချေးငွေလုံခြုံရေးမှဖော်ပြသောတန်ဖိုးအကြားရာခိုင်နှုန်းကွာခြားချက်ဖြစ်သည်။"
 
 #. Label of a Check field in DocType 'Loan Repayment Repost'
 #: lending/loan_management/doctype/loan_repayment_repost/loan_repayment_repost.json
@@ -1795,7 +1848,7 @@ msgstr ""
 #. Label of a Link field in DocType 'Loan Charges'
 #: lending/loan_management/doctype/loan_charges/loan_charges.json
 msgid "Income Account"
-msgstr ""
+msgstr "ဝင်ငွေခွန်အကောင့်"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:883
 msgid "Incorrect repayment type, please write off the loan first"
@@ -1806,7 +1859,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Initiated"
-msgstr ""
+msgstr "စတင်ခဲ့သည်"
 
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:118
 msgid "Installments Overdue"
@@ -1816,7 +1869,7 @@ msgstr ""
 #. Detail'
 #: lending/loan_management/doctype/loan_demand_offset_detail/loan_demand_offset_detail.json
 msgid "Interest"
-msgstr ""
+msgstr "စိတ်ဝင်စားမှု"
 
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:117
 msgid "Interest %"
@@ -1847,7 +1900,7 @@ msgstr ""
 #: lending/loan_management/report/alm_audit_report/alm_audit_report.py:40
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:42
 msgid "Interest Amount"
-msgstr ""
+msgstr "အကျိုးစီးပွားငွေပမာဏ"
 
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.py:75
 msgid "Interest Amount is mandatory"
@@ -1872,7 +1925,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Interest Income Account"
-msgstr ""
+msgstr "အကျိုးစီးပွားဝင်ငွေခွန်အကောင့်"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:1925
 msgid "Interest Income Account is mandatory"
@@ -1891,7 +1944,7 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Interest Payable"
-msgstr ""
+msgstr "ပေးဆောင်ရမည့်အတိုး"
 
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:136
 msgid "Interest Rate (%)"
@@ -1960,7 +2013,7 @@ msgstr ""
 #. Label of a Date field in DocType 'Loan Demand'
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
 msgid "Invoice Date"
-msgstr ""
+msgstr "ကုန်ပို့လွှာနေ့စွဲ"
 
 #. Label of a Link in the Lending Workspace
 #: lending/loan_management/workspace/lending/lending.json
@@ -1995,7 +2048,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Is Secured Loan"
-msgstr ""
+msgstr "လုံခြုံသောချေးငွေ"
 
 #. Label of a Check field in DocType 'Loan Refund'
 #: lending/loan_management/doctype/loan_refund/loan_refund.json
@@ -2022,7 +2075,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_product/loan_product.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Is Term Loan"
-msgstr ""
+msgstr "Term ချေးငွေ"
 
 #. Label of a Check field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
@@ -2033,6 +2086,11 @@ msgstr ""
 #: lending/loan_management/doctype/loan_classification_range/loan_classification_range.json
 msgid "Is Written Off"
 msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Keyboard Shortcuts"
+msgstr "keyboard Shortcuts"
 
 #. Label of a Date field in DocType 'Loan Interest Accrual'
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
@@ -2138,7 +2196,7 @@ msgstr ""
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:24
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan"
-msgstr ""
+msgstr "ခြေးငှေ"
 
 #. Label of a Link field in DocType 'Loan Security Shortfall'
 #. Label of a Link field in DocType 'Process Loan Classification'
@@ -2147,12 +2205,12 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_classification/process_loan_classification.json
 #: lending/loan_management/doctype/process_loan_interest_accrual/process_loan_interest_accrual.json
 msgid "Loan "
-msgstr ""
+msgstr "ခြေးငှေ"
 
 #. Label of a Section Break field in DocType 'Loan Security Release'
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Loan  Details"
-msgstr ""
+msgstr "ချေးငွေအသေးစိတ်"
 
 #. Label of a Link field in DocType 'Loan'
 #. Label of a Link field in DocType 'Loan Disbursement'
@@ -2163,7 +2221,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_product/loan_product.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Loan Account"
-msgstr ""
+msgstr "ချေးငွေအကောင့်"
 
 #: lending/loan_management/doctype/loan_product/loan_product.py:117
 msgid "Loan Account and Payment Account cannot be same"
@@ -2227,7 +2285,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:42
 msgid "Loan Amount"
-msgstr ""
+msgstr "ချေးငွေပမာဏ"
 
 #. Label of a Section Break field in DocType 'Loan Restructure'
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
@@ -2262,7 +2320,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Application"
-msgstr ""
+msgstr "ချေးငွေလျှောက်လွှာ"
 
 #. Name of a DocType
 #. Label of a Link in the Lending Workspace
@@ -2336,12 +2394,12 @@ msgstr ""
 #: lending/loan_management/doctype/loan_adjustment_detail/loan_adjustment_detail.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Loan Closure"
-msgstr ""
+msgstr "ချေးငွေပိတ်သိမ်း"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Loan Closure Requested"
-msgstr ""
+msgstr "ချေးငွေပိတ်သိမ်းတောင်းဆိုခဲ့သည်"
 
 #. Label of a Section Break field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
@@ -2381,7 +2439,7 @@ msgstr ""
 #. Label of a Section Break field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Loan Details"
-msgstr ""
+msgstr "ချေးငွေအသေးစိတ်"
 
 #. Label of a Link field in DocType 'Days Past Due Log'
 #. Label of a Link field in DocType 'Loan Adjustment'
@@ -2417,7 +2475,7 @@ msgstr ""
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:44
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Disbursement"
-msgstr ""
+msgstr "ချေးငွေထုတ်ပေးမှု"
 
 #. Name of a DocType
 #: lending/loan_management/doctype/loan_disbursement_charge/loan_disbursement_charge.json
@@ -2442,14 +2500,14 @@ msgstr ""
 #. Label of a Section Break field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Loan Info"
-msgstr ""
+msgstr "ချေးငွေအင်ဖို"
 
 #. Name of a DocType
 #. Label of a Link in the Lending Workspace
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Interest Accrual"
-msgstr ""
+msgstr "ချေးငွေအတိုးနှုန်းတိုးပွားလာ"
 
 #. Name of a report
 #. Label of a Link in the Lending Workspace
@@ -2462,6 +2520,11 @@ msgstr ""
 #: lending/loan_management/doctype/loan_limit_change_log/loan_limit_change_log.json
 msgid "Loan Limit Change Log"
 msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Loan Management"
+msgstr "ချေးငွေစီမံခန့်ခွဲမှု"
 
 #. Name of a role
 #: lending/loan_management/doctype/days_past_due_log/days_past_due_log.json
@@ -2494,7 +2557,7 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_security_shortfall/process_loan_security_shortfall.json
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "Loan Manager"
-msgstr ""
+msgstr "ချေးငွေမန်နေဂျာ"
 
 #. Name of a DocType
 #: lending/loan_management/doctype/loan_npa_log/loan_npa_log.json
@@ -2654,7 +2717,7 @@ msgstr ""
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:19
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Repayment"
-msgstr ""
+msgstr "ချေးငွေပြန်ဆပ်"
 
 #. Name of a DocType
 #: lending/loan_management/doctype/loan_repayment_charges/loan_repayment_charges.json
@@ -2664,7 +2727,7 @@ msgstr ""
 #. Name of a DocType
 #: lending/loan_management/doctype/loan_repayment_detail/loan_repayment_detail.json
 msgid "Loan Repayment Detail"
-msgstr ""
+msgstr "ချေးငွေပြန်ဆပ်မှုအသေးစိတ်"
 
 #. Label of a Section Break field in DocType 'Loan Repayment Repost'
 #: lending/loan_management/doctype/loan_repayment_repost/loan_repayment_repost.json
@@ -2712,7 +2775,7 @@ msgstr ""
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Repayment and Closure"
-msgstr ""
+msgstr "ချေးငွေပြန်ဆပ်ခြင်းနှင့်ပိတ်သိမ်းခြင်း"
 
 #. Option for the 'Reference Document Type' (Select) field in DocType 'Loan
 #. Balance Adjustment'
@@ -2772,7 +2835,7 @@ msgstr ""
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:29
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Security"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေး"
 
 #. Name of a DocType
 #. Label of a Link in the Lending Workspace
@@ -2800,7 +2863,7 @@ msgstr ""
 #: lending/loan_management/report/applicant_wise_loan_security_exposure/applicant_wise_loan_security_exposure.py:41
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:32
 msgid "Loan Security Code"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေး Code ကို"
 
 #. Name of a DocType
 #. Label of a Link in the Lending Workspace
@@ -2816,7 +2879,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Loan Security Details"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေးအသေးစိတ်"
 
 #. Name of a report
 #. Label of a Link in the Lending Workspace
@@ -2838,7 +2901,7 @@ msgstr ""
 #: lending/loan_management/report/applicant_wise_loan_security_exposure/applicant_wise_loan_security_exposure.py:47
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:38
 msgid "Loan Security Name"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေးအမည်"
 
 #. Name of a DocType
 #. Label of a Currency field in DocType 'Loan Security Price'
@@ -2851,7 +2914,7 @@ msgstr ""
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:37
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Security Price"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေးစျေးနှုန်း"
 
 #: lending/loan_management/doctype/loan_security_price/loan_security_price.py:50
 msgid "Loan Security Price overlapping with {0}"
@@ -2874,14 +2937,14 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Security Shortfall"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေးလိုအပ်ချက်"
 
 #. Name of a report
 #. Label of a Link in the Lending Workspace
 #: lending/loan_management/report/loan_security_status/loan_security_status.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Security Status"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေးအခြေအနေ"
 
 #. Label of a Link field in DocType 'Loan Security'
 #. Label of a Link field in DocType 'Loan Security Price'
@@ -2899,7 +2962,7 @@ msgstr ""
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:45
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Loan Security Type"
-msgstr ""
+msgstr "ချေးငွေလုံခြုံရေးအမျိုးအစား"
 
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:44
 msgid "Loan Security Value"
@@ -2921,13 +2984,18 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_type/loan_security_type.json
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:129
 msgid "Loan To Value Ratio"
-msgstr ""
+msgstr "အချိုးအစားတန်ဖိုးကိုချေးငွေ"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Loan To Value Ratio expresses the ratio of the loan amount to the value of the security pledged. A loan security shortfall will be triggered if this falls below the specified value for any loan"
+msgstr "ချေးငွေနှင့်တန်ဖိုးအချိုးသည်ချေးငွေပမာဏနှင့်ကတိထားရာလုံခြုံရေးတန်ဖိုးနှင့်ဖော်ပြသည်။ အကယ်၍ ၎င်းသည်မည်သည့်ချေးငွေအတွက်မဆိုသတ်မှတ်ထားသောတန်ဖိုးအောက်ရောက်လျှင်ချေးငွေလုံခြုံရေးပြတ်လပ်မှုဖြစ်ပေါ်လာလိမ့်မည်"
 
 #. Description of the 'Loan To Value Ratio' (Percent) field in DocType 'Loan
 #. Security Type'
 #: lending/loan_management/doctype/loan_security_type/loan_security_type.json
 msgid "Loan To Value Ratio expresses the ratio of the loan amount to the value of the security pledged. A loan security shortfall will be triggered if this falls below the specified value for any loan "
-msgstr ""
+msgstr "ချေးငွေနှင့်တန်ဖိုးအချိုးသည်ချေးငွေပမာဏနှင့်ကတိထားရာလုံခြုံရေးတန်ဖိုးနှင့်ဖော်ပြသည်။ အကယ်၍ ၎င်းသည်မည်သည့်ချေးငွေအတွက်မဆိုသတ်မှတ်ထားသောတန်ဖိုးအောက်ရောက်လျှင်ချေးငွေလုံခြုံရေးပြတ်လပ်မှုဖြစ်ပေါ်လာလိမ့်မည်"
 
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.py:146
 msgid "Loan To Value ratio breach"
@@ -2987,12 +3055,17 @@ msgstr ""
 #: lending/loan_management/doctype/loan_accrual_repost/loan_accrual_repost.json
 #: lending/loan_management/doctype/loan_transfer/loan_transfer.json
 msgid "Loans"
-msgstr ""
+msgstr "ချေးငွေများ"
 
 #. Description of the 'Days Past Due Threshold for NPA' (Int) field in DocType
 #. 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Loans will be marked as NPA when the days past due count exceed this threshold"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Log out"
 msgstr ""
 
 #. Option for the 'Foreclosure Type' (Select) field in DocType 'Loan
@@ -3043,12 +3116,12 @@ msgstr ""
 #: lending/loan_management/doctype/loan_application/loan_application.json
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Maximum Loan Amount"
-msgstr ""
+msgstr "အများဆုံးချေးငွေပမာဏ"
 
 #. Label of a Currency field in DocType 'Loan Security Assignment'
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 msgid "Maximum Loan Value"
-msgstr ""
+msgstr "အများဆုံးချေးငွေတန်ဖိုး"
 
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Application'
@@ -3063,9 +3136,7 @@ msgstr ""
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Restructure'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Assignment'
-#. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Release'
-#. Option for the 'Applicant Type' (Select) field in DocType 'Loan Security
 #. Shortfall'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Loan Write Off'
 #. Option for the 'Applicant Type' (Select) field in DocType 'Sanctioned Loan
@@ -3084,7 +3155,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "Member"
-msgstr ""
+msgstr "အဖှဲ့ဝငျ"
 
 #. Label of a Int field in DocType 'Loan Classification Range'
 #: lending/loan_management/doctype/loan_classification_range/loan_classification_range.json
@@ -3111,18 +3182,17 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Mode Of Payment"
-msgstr ""
+msgstr "ငွေပေးချေမှုရမည့်၏ Mode ကို"
 
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Disbursement'
-#. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Repayment Schedule'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Monthly"
-msgstr ""
+msgstr "လစဉ်"
 
 #. Label of a Currency field in DocType 'Loan'
 #. Label of a Currency field in DocType 'Loan Application'
@@ -3133,7 +3203,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Monthly Repayment Amount"
-msgstr ""
+msgstr "လစဉ်ပြန်ဆပ်ငွေပမာဏ"
 
 #: lending/loan_management/doctype/loan_application/loan_application.py:81
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.py:855
@@ -3178,6 +3248,16 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "More Information"
+msgstr "More Information ကို"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "My Profile"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "My Settings"
 msgstr ""
 
 #. Label of a Check field in DocType 'Loan NPA Log'
@@ -3193,6 +3273,11 @@ msgstr ""
 #. Label of a Link in the Lending Workspace
 #: lending/loan_management/workspace/lending/lending.json
 msgid "NPA Logs"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "NPL Report"
 msgstr ""
 
 #. Label of a Currency field in DocType 'Loan Restructure'
@@ -3251,12 +3336,12 @@ msgstr ""
 #. Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "No. of days from due date until which penalty won't be charged in case of delay in loan repayment"
-msgstr ""
+msgstr "ချေးငွေပြန်ဆပ်ရန်နှောင့်နှေးလျှင်အရေးယူမည့်နေ့အထိရက်အရေအတွက်"
 
 #. Option for the 'Demand Type' (Select) field in DocType 'Loan Demand'
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
 msgid "Normal"
-msgstr ""
+msgstr "သာမန်"
 
 #. Option for the 'Interest Type' (Select) field in DocType 'Loan Interest
 #. Accrual'
@@ -3326,7 +3411,6 @@ msgstr ""
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Disbursement'
-#. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Repayment Schedule'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
@@ -3341,7 +3425,7 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Open"
-msgstr ""
+msgstr "ဖွင့်လှစ်"
 
 #. Label of a Select field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
@@ -3365,7 +3449,7 @@ msgstr ""
 #. Label of a Section Break field in DocType 'Loan Repayment Schedule'
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Other Details"
-msgstr ""
+msgstr "အခြားအသေးစိတ်များ"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Repayment Schedule'
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
@@ -3375,6 +3459,11 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Demand'
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
 msgid "Outstanding Amount"
+msgstr "ထူးချွန်ငွေပမာဏ"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Outstanding Balance Report"
 msgstr ""
 
 #. Option for the 'FLDG Limit Calculation Component' (Select) field in DocType
@@ -3406,7 +3495,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_detail/loan_repayment_detail.json
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:63
 msgid "Paid Amount"
-msgstr ""
+msgstr "paid ငွေပမာဏ"
 
 #. Label of a Data field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
@@ -3421,12 +3510,12 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Partially Disbursed"
-msgstr ""
+msgstr "တစ်စိတ်တစ်ပိုင်းထုတ်ချေး"
 
 #. Label of a Section Break field in DocType 'Bulk Repayment Log'
 #: lending/loan_management/doctype/bulk_repayment_log/bulk_repayment_log.json
 msgid "Particulars"
-msgstr ""
+msgstr "အထူးသဖြင့်"
 
 #. Label of a Percent field in DocType 'Loan Partner'
 #. Label of a Percent field in DocType 'Loan Repayment Schedule'
@@ -3506,7 +3595,7 @@ msgstr ""
 #. Label of a Link field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Payable Account"
-msgstr ""
+msgstr "ပေးဆောင်ရမည့်အကောင့်"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:2097
 msgid "Payable Account is mandatory"
@@ -3516,7 +3605,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:56
 msgid "Payable Amount"
-msgstr ""
+msgstr "ပေးဆောင်ရမည့်ငွေပမာဏ"
 
 #. Label of a Table field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
@@ -3526,14 +3615,14 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Payable Principal Amount"
-msgstr ""
+msgstr "ပေးဆောင်ရမည့်ကျောင်းအုပ်ကြီးပမာဏ"
 
 #. Label of a Link field in DocType 'Loan'
 #. Label of a Link field in DocType 'Loan Adjustment'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_adjustment/loan_adjustment.json
 msgid "Payment Account"
-msgstr ""
+msgstr "ငွေပေးချေမှုရမည့်အကောင့်"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:1927
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:2074
@@ -3546,25 +3635,30 @@ msgstr ""
 #: lending/loan_management/doctype/co_lender_schedule/co_lender_schedule.json
 #: lending/loan_management/doctype/repayment_schedule/repayment_schedule.json
 msgid "Payment Date"
-msgstr ""
+msgstr "ငွေပေးချေသည့်နေ့ရက်"
 
 #. Label of a Section Break field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Payment Details"
-msgstr ""
+msgstr "ငွေပေးချေမှုရမည့်အသေးစိတ်အကြောင်းအရာ"
 
 #. Label of a Link field in DocType 'Process Loan Classification'
 #: lending/loan_management/doctype/process_loan_classification/process_loan_classification.json
 msgid "Payment Reference"
-msgstr ""
+msgstr "ငွေပေးချေမှုရမည့်ကိုးကားစရာ"
 
 #. Label of a Section Break field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Payment References"
-msgstr ""
+msgstr "ငွေပေးချေမှုရမည့်ကိုးကား"
 
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:33
 msgid "Payment Type"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Payroll Payable Account"
 msgstr ""
 
 #. Option for the 'Interest Type' (Select) field in DocType 'Loan Interest
@@ -3602,7 +3696,7 @@ msgstr ""
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:61
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:49
 msgid "Penalty Amount"
-msgstr ""
+msgstr "ပြစ်ဒဏ်ပမာဏ"
 
 #. Option for the 'Loan Repayment Type' (Select) field in DocType 'Loan
 #. Adjustment Detail'
@@ -3627,7 +3721,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_product/loan_product.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Penalty Income Account"
-msgstr ""
+msgstr "ပြစ်ဒဏ်ဝင်ငွေစာရင်း"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:1956
 msgid "Penalty Income Account is mandatory"
@@ -3640,6 +3734,11 @@ msgstr ""
 #. Label of a Percent field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Penalty Interest Rate (%)"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Penalty Interest Rate is levied on the pending amount on a daily basis in case of delayed repayment"
 msgstr ""
 
 #. Description of the 'Penalty Interest Rate (%)' (Percent) field in DocType
@@ -3687,7 +3786,7 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'Loan Security Shortfall'
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 msgid "Pending"
-msgstr ""
+msgstr "လာမည့်"
 
 #. Label of a Currency field in DocType 'Loan Charge Reference'
 #: lending/loan_management/doctype/loan_charge_reference/loan_charge_reference.json
@@ -3699,7 +3798,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Pending Principal Amount"
-msgstr ""
+msgstr "ဆိုင်းငံ့ကျောင်းအုပ်ကြီးငွေပမာဏ"
 
 #: lending/loan_management/doctype/loan/loan.js:132
 msgid "Pending Principal: {0}"
@@ -3716,7 +3815,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_charges/loan_charges.json
 #: lending/loan_management/doctype/loan_partner_adhoc_charges_shared/loan_partner_adhoc_charges_shared.json
 msgid "Percentage"
-msgstr ""
+msgstr "ရာခိုင်နှုန်း"
 
 #: lending/loan_management/doctype/loan_refund/loan_refund.py:136
 msgid "Please add customer refund account in Loan Product"
@@ -3815,7 +3914,7 @@ msgstr ""
 #. Name of a DocType
 #: lending/loan_management/doctype/pledge/pledge.json
 msgid "Pledge"
-msgstr ""
+msgstr "ပေါင်"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Security Assignment'
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
@@ -3830,12 +3929,12 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:27
 msgid "Pledge Time"
-msgstr ""
+msgstr "အချိန်ပေးပါ"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Security Assignment'
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 msgid "Pledged"
-msgstr ""
+msgstr "ကျေးဇူးတင်ပါတယ်"
 
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:80
 msgid "Pledged Applicant Count"
@@ -3846,7 +3945,7 @@ msgstr ""
 #: lending/loan_management/doctype/pledge/pledge.json
 #: lending/loan_management/doctype/proposed_pledge/proposed_pledge.json
 msgid "Post Haircut Amount"
-msgstr ""
+msgstr "ဆံပင်ညှပ်ပမာဏ"
 
 #. Label of a Date field in DocType 'Days Past Due Log'
 #. Label of a Date field in DocType 'Loan'
@@ -3882,7 +3981,7 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_restructure_limit/process_loan_restructure_limit.json
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:17
 msgid "Posting Date"
-msgstr ""
+msgstr "Post date"
 
 #. Label of a Datetime field in DocType 'Loan Interest Accrual'
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
@@ -3930,12 +4029,12 @@ msgstr ""
 #. Label of a Check field in DocType 'Loan Partner Address'
 #: lending/loan_management/doctype/loan_partner_address/loan_partner_address.json
 msgid "Primary"
-msgstr ""
+msgstr "မူလတန်း"
 
 #. Label of a Link field in DocType 'Loan Partner'
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Primary Address"
-msgstr ""
+msgstr "မူလတန်းလိပ်စာ"
 
 #. Option for the 'Moratorium Type' (Select) field in DocType 'Loan'
 #. Option for the 'Demand Type' (Select) field in DocType 'Loan Demand Offset
@@ -3965,14 +4064,14 @@ msgstr ""
 #: lending/loan_management/report/alm_audit_report/alm_audit_report.py:33
 #: lending/loan_management/report/loan_repayment_and_closure/loan_repayment_and_closure.py:35
 msgid "Principal Amount"
-msgstr ""
+msgstr "ကျောင်းအုပ်ကြီးငွေပမာဏ"
 
 #. Label of a Currency field in DocType 'Loan Disbursement'
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Principal Amount Paid"
-msgstr ""
+msgstr "ပေးဆောင်သည့်ငွေပမာဏ"
 
 #. Option for the 'Loan Repayment Type' (Select) field in DocType 'Loan
 #. Adjustment Detail'
@@ -4026,7 +4125,7 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_interest_accrual/process_loan_interest_accrual.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Process Loan Interest Accrual"
-msgstr ""
+msgstr "လုပ်ငန်းစဉ်ချေးငွေအကျိုးစီးပွားတိုးပွားလာ"
 
 #. Name of a DocType
 #: lending/loan_management/doctype/process_loan_restructure_limit/process_loan_restructure_limit.json
@@ -4040,6 +4139,11 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_security_shortfall/process_loan_security_shortfall.json
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Process Loan Security Shortfall"
+msgstr "ချေးငွေလုံခြုံရေးလိုအပ်ချက်"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Process Payroll Accounting Entry based on Employee"
 msgstr ""
 
 #. Label of a Data field in DocType 'Loan Product'
@@ -4055,12 +4159,12 @@ msgstr ""
 #. Name of a DocType
 #: lending/loan_management/doctype/proposed_pledge/proposed_pledge.json
 msgid "Proposed Pledge"
-msgstr ""
+msgstr "အဆိုပြုထားအပေါင်"
 
 #. Label of a Table field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Proposed Pledges"
-msgstr ""
+msgstr "အဆိုပြုထား Pledges"
 
 #: lending/loan_management/doctype/loan_application/loan_application.py:197
 msgid "Proposed Pledges are mandatory for secured Loans"
@@ -4088,18 +4192,17 @@ msgstr ""
 #: lending/loan_management/doctype/unpledge/unpledge.json
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:35
 msgid "Quantity"
-msgstr ""
+msgstr "အရေအတွက်"
 
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Disbursement'
-#. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Repayment Schedule'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Quarterly"
-msgstr ""
+msgstr "သုံးလတစ်ကြိမ်"
 
 #. Label of a Float field in DocType 'Loan Interest Accrual'
 #. Label of a Percent field in DocType 'Loan Repayment'
@@ -4113,17 +4216,17 @@ msgstr ""
 #. Label of a Percent field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Rate of Interest"
-msgstr ""
+msgstr "အကျိုးစီးပွား၏နှုန်းမှာ"
 
 #. Label of a Percent field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Rate of Interest (%) / Year"
-msgstr ""
+msgstr "အကျိုးစီးပွား၏နှုန်းမှာ (%) / တစ်နှစ်တာ"
 
 #. Label of a Percent field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
 msgid "Rate of Interest (%) Yearly"
-msgstr ""
+msgstr "အကျိုးစီးပွား၏နှုန်းမှာ (%) နှစ်အလိုက်"
 
 #. Option for the 'Sharing Parameter' (Select) field in DocType 'Loan Partner
 #. Adhoc Charges Shared'
@@ -4134,7 +4237,7 @@ msgstr ""
 #. Label of a Small Text field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Reason"
-msgstr ""
+msgstr "အကွောငျးရငျး"
 
 #. Label of a Small Text field in DocType 'Loan Freeze Log'
 #: lending/loan_management/doctype/loan_freeze_log/loan_freeze_log.json
@@ -4151,31 +4254,31 @@ msgstr ""
 #: lending/loan_management/doctype/loan_charges/loan_charges.json
 #: lending/loan_management/doctype/loan_partner/loan_partner.json
 msgid "Receivable Account"
-msgstr ""
+msgstr "receiver အကောင့်"
 
 #. Label of a Date field in DocType 'Loan Disbursement'
 #. Label of a Date field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Reference Date"
-msgstr ""
+msgstr "ကိုးကားစရာနေ့စွဲ"
 
 #. Label of a Select field in DocType 'Loan Balance Adjustment'
 #: lending/loan_management/doctype/loan_balance_adjustment/loan_balance_adjustment.json
 msgid "Reference Document Type"
-msgstr ""
+msgstr "ကိုးကားစရာ Document ဖိုင် Type အမျိုးအစား"
 
 #. Label of a Dynamic Link field in DocType 'Loan Balance Adjustment'
 #: lending/loan_management/doctype/loan_balance_adjustment/loan_balance_adjustment.json
 msgid "Reference Name"
-msgstr ""
+msgstr "ကိုးကားစရာအမည်"
 
 #. Label of a Data field in DocType 'Loan Security Assignment'
 #. Label of a Data field in DocType 'Loan Security Release'
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Reference No"
-msgstr ""
+msgstr "ကိုးကားစရာနံပါတ်"
 
 #. Label of a Data field in DocType 'Loan Balance Adjustment'
 #. Label of a Data field in DocType 'Loan Disbursement'
@@ -4186,14 +4289,14 @@ msgstr ""
 #: lending/loan_management/doctype/loan_refund/loan_refund.json
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Reference Number"
-msgstr ""
+msgstr "ကိုးကားစရာနံပါတ်"
 
 #. Label of a Section Break field in DocType 'Loan Demand'
 #. Label of a Section Break field in DocType 'Loan Interest Accrual'
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
 msgid "References"
-msgstr ""
+msgstr "ကိုးကား"
 
 #. Option for the 'Accrual Type' (Select) field in DocType 'Loan Interest
 #. Accrual'
@@ -4248,7 +4351,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
 #: lending/loan_management/doctype/process_loan_interest_accrual/process_loan_interest_accrual.json
 msgid "Regular"
-msgstr ""
+msgstr "ပုံမှန်အစည်းအဝေး"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Application'
 #. Option for the 'Status' (Select) field in DocType 'Loan Repayment Schedule'
@@ -4257,7 +4360,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Rejected"
-msgstr ""
+msgstr "ပယ်ချ"
 
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.js:7
 msgid "Release"
@@ -4278,15 +4381,24 @@ msgstr ""
 msgid "Released"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Reload"
+msgstr "Reload ကို"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Remaining Debtor Report"
+msgstr ""
+
 #. Label of a Data field in DocType 'Loan Balance Adjustment'
 #: lending/loan_management/doctype/loan_balance_adjustment/loan_balance_adjustment.json
 msgid "Remarks"
-msgstr ""
+msgstr "အမှာစကား"
 
 #. Option for the 'Repayment Method' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Method' (Select) field in DocType 'Loan
 #. Application'
-#. Option for the 'Repayment Method' (Select) field in DocType 'Loan
 #. Disbursement'
 #. Option for the 'Repayment Method' (Select) field in DocType 'Loan Repayment
 #. Schedule'
@@ -4298,12 +4410,16 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Repay Fixed Amount per Period"
-msgstr ""
+msgstr "ကာလနှုန်း Fixed ငွေပမာဏပြန်ဆပ်"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Repay From Salary"
+msgstr "လစာထဲကနေပြန်ဆပ်"
 
 #. Option for the 'Repayment Method' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Method' (Select) field in DocType 'Loan
 #. Application'
-#. Option for the 'Repayment Method' (Select) field in DocType 'Loan
 #. Disbursement'
 #. Option for the 'Repayment Method' (Select) field in DocType 'Loan Repayment
 #. Schedule'
@@ -4315,7 +4431,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Repay Over Number of Periods"
-msgstr ""
+msgstr "ကာလနံပါတ်ကျော်ပြန်ဆပ်"
 
 #. Option for the 'Accrual Type' (Select) field in DocType 'Loan Interest
 #. Accrual'
@@ -4349,7 +4465,7 @@ msgstr ""
 #. Label of a Table field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Repayment Details"
-msgstr ""
+msgstr "ပြန်ပေးငွေအသေးစိတ်"
 
 #. Label of a Select field in DocType 'Loan'
 #. Label of a Select field in DocType 'Loan Disbursement'
@@ -4363,7 +4479,7 @@ msgstr ""
 #. Label of a Section Break field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Repayment Info"
-msgstr ""
+msgstr "ပြန်ဆပ်အင်ဖို"
 
 #. Label of a Select field in DocType 'Loan'
 #. Label of a Select field in DocType 'Loan Application'
@@ -4376,7 +4492,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 msgid "Repayment Method"
-msgstr ""
+msgstr "ပြန်ဆပ် Method ကို"
 
 #. Label of a Int field in DocType 'Loan Repayment Schedule'
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
@@ -4386,7 +4502,7 @@ msgstr ""
 #. Label of a Int field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Repayment Period in Months"
-msgstr ""
+msgstr "လထဲမှာပြန်ဆပ်ကာလ"
 
 #. Label of a Int field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
@@ -4399,7 +4515,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 #: lending/loan_management/doctype/repayment_schedule/repayment_schedule.json
 msgid "Repayment Schedule"
-msgstr ""
+msgstr "ပြန်ဆပ်ဇယား"
 
 #. Label of a Data field in DocType 'Loan Demand'
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
@@ -4428,7 +4544,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Repayment Start Date"
-msgstr ""
+msgstr "ပြန်ဆပ်ဖို့ Start နေ့စွဲ"
 
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.py:382
 msgid "Repayment Start Date cannot be before Disbursement Date"
@@ -4455,6 +4571,11 @@ msgstr ""
 msgid "Repayment type can only be Write Off Recovery or Write Off Settlement"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Report an Issue"
+msgstr ""
+
 #. Label of a Card Break in the Lending Workspace
 #: lending/loan_management/workspace/lending/lending.json
 msgid "Reports"
@@ -4477,7 +4598,7 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'Loan Security Release'
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Requested"
-msgstr ""
+msgstr "မေတ္တာရပ်ခံ"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Repayment Schedule'
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
@@ -4544,7 +4665,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_demand/loan_demand.json
 #: lending/loan_management/doctype/loan_repayment_detail/loan_repayment_detail.json
 msgid "Sales Invoice"
-msgstr ""
+msgstr "အရောင်းပြေစာ"
 
 #. Label of a Check field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
@@ -4554,7 +4675,7 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Sanctioned"
-msgstr ""
+msgstr "ဒဏ်ခတ်အရေးယူ"
 
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:47
 msgid "Sanctioned Amount"
@@ -4563,7 +4684,7 @@ msgstr ""
 #. Label of a Currency field in DocType 'Sanctioned Loan Amount'
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "Sanctioned Amount Limit"
-msgstr ""
+msgstr "ငွေပမာဏကန့်သတ်"
 
 #: lending/loan_management/doctype/loan/loan.py:351
 #: lending/loan_management/doctype/loan_application/loan_application.py:129
@@ -4575,7 +4696,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "Sanctioned Loan Amount"
-msgstr ""
+msgstr "ခွင့်ပြုထားသောချေးငွေပမာဏ"
 
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.py:32
 msgid "Sanctioned Loan Amount already exists for {0} against company {1}"
@@ -4592,7 +4713,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Securities"
-msgstr ""
+msgstr "လုံခြုံရေး"
 
 #. Label of a Link field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
@@ -4612,10 +4733,15 @@ msgstr ""
 msgid "Security Type"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Security Value"
+msgstr "လုံခြုံရေးတန်ဖိုး"
+
 #. Label of a Currency field in DocType 'Loan Security Shortfall'
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 msgid "Security Value "
-msgstr ""
+msgstr "လုံခြုံရေးတန်ဖိုး"
 
 #. Description of the 'Repayment Date On' (Select) field in DocType 'Loan
 #. Product'
@@ -4639,10 +4765,15 @@ msgstr ""
 msgid "Servicer Fee"
 msgstr ""
 
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Session Defaults"
+msgstr "session Defaults ကို"
+
 #. Option for the 'Status' (Select) field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Settled"
-msgstr ""
+msgstr "အခြေချ"
 
 #. Label of a Date field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
@@ -4676,7 +4807,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 msgid "Shortfall Amount"
-msgstr ""
+msgstr "လိုအပ်ချက်ပမာဏ"
 
 #. Label of a Percent field in DocType 'Loan Security Shortfall'
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
@@ -4686,12 +4817,12 @@ msgstr ""
 #. Label of a Datetime field in DocType 'Loan Security Shortfall'
 #: lending/loan_management/doctype/loan_security_shortfall/loan_security_shortfall.json
 msgid "Shortfall Time"
-msgstr ""
+msgstr "အချိန်တို"
 
 #. Label of a Datetime field in DocType 'Loan Interest Accrual'
 #: lending/loan_management/doctype/loan_interest_accrual/loan_interest_accrual.json
 msgid "Start Date"
-msgstr ""
+msgstr "စတင်သည့်ရက်စွဲ"
 
 #. Option for the 'Repayment Date On' (Select) field in DocType 'Loan Product'
 #. Option for the 'Repayment Date On' (Select) field in DocType 'Loan Repayment
@@ -4725,12 +4856,12 @@ msgstr ""
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:141
 #: lending/loan_management/report/loan_security_status/loan_security_status.py:26
 msgid "Status"
-msgstr ""
+msgstr "အဆင့်အတန်း"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Disbursement'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 msgid "Submitted"
-msgstr ""
+msgstr "Submitted"
 
 #. Label of a Link field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
@@ -4796,7 +4927,7 @@ msgstr ""
 #: lending/loan_management/doctype/process_loan_security_shortfall/process_loan_security_shortfall.json
 #: lending/loan_management/doctype/sanctioned_loan_amount/sanctioned_loan_amount.json
 msgid "System Manager"
-msgstr ""
+msgstr "system Manager က"
 
 #. Label of a Link in the Lending Workspace
 #: lending/loan_management/workspace/lending/lending.json
@@ -4824,7 +4955,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Term Details"
-msgstr ""
+msgstr "သက်တမ်းအသေးစိတ်ကို"
 
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.py:919
 msgid "The Loan Disbursement {0} has been closed."
@@ -4851,12 +4982,12 @@ msgstr ""
 #. Label of a Datetime field in DocType 'Bulk Repayment Log'
 #: lending/loan_management/doctype/bulk_repayment_log/bulk_repayment_log.json
 msgid "Timestamp"
-msgstr ""
+msgstr "Timestamp"
 
 #. Label of a Data field in DocType 'Loan Demand Offset Order'
 #: lending/loan_management/doctype/loan_demand_offset_order/loan_demand_offset_order.json
 msgid "Title"
-msgstr ""
+msgstr "ဘှဲ့"
 
 #. Label of a Link field in DocType 'Loan Transfer'
 #: lending/loan_management/doctype/loan_transfer/loan_transfer.json
@@ -4866,6 +4997,16 @@ msgstr ""
 #. Label of a Date field in DocType 'Loan Accrual Repost'
 #: lending/loan_management/doctype/loan_accrual_repost/loan_accrual_repost.json
 msgid "To Date"
+msgstr "ယနေ့အထိ"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Toggle Full Width"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Toggle Theme"
 msgstr ""
 
 #: lending/loan_management/report/alm_audit_report/alm_audit_report.py:54
@@ -4878,7 +5019,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:82
 msgid "Total Amount Paid"
-msgstr ""
+msgstr "စုစုပေါင်းငွေပမာဏ Paid"
 
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
@@ -4888,6 +5029,11 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
 msgid "Total Charges Payable"
+msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "Total Installments Overdue"
 msgstr ""
 
 #. Label of a Int field in DocType 'Loan Repayment Schedule'
@@ -4914,7 +5060,7 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan'
 #: lending/loan_management/doctype/loan/loan.json
 msgid "Total Interest Payable"
-msgstr ""
+msgstr "စုစုပေါင်းအကျိုးစီးပွားပေးရန်"
 
 #: lending/loan_management/report/loan_interest_report/loan_interest_report.py:103
 msgid "Total Outstanding"
@@ -4940,19 +5086,19 @@ msgstr ""
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Total Payable Amount"
-msgstr ""
+msgstr "စုစုပေါင်းပေးရန်ငွေပမာဏ"
 
 #. Label of a Currency field in DocType 'Loan Application'
 #: lending/loan_management/doctype/loan_application/loan_application.json
 msgid "Total Payable Interest"
-msgstr ""
+msgstr "စုစုပေါင်းပေးရန်စိတ်ဝင်စားမှု"
 
 #. Label of a Currency field in DocType 'Co-Lender Schedule'
 #. Label of a Currency field in DocType 'Repayment Schedule'
 #: lending/loan_management/doctype/co_lender_schedule/co_lender_schedule.json
 #: lending/loan_management/doctype/repayment_schedule/repayment_schedule.json
 msgid "Total Payment"
-msgstr ""
+msgstr "စုစုပေါင်းငွေပေးချေမှုရမည့်"
 
 #. Label of a Currency field in DocType 'Loan Repayment'
 #: lending/loan_management/doctype/loan_repayment/loan_repayment.json
@@ -4965,7 +5111,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
 #: lending/loan_management/report/loan_outstanding_report/loan_outstanding_report.py:70
 msgid "Total Principal Paid"
-msgstr ""
+msgstr "စုစုပေါင်းကျောင်းအုပ်ကြီး Paid"
 
 #: lending/loan_management/report/applicant_wise_loan_security_exposure/applicant_wise_loan_security_exposure.py:61
 #: lending/loan_management/report/loan_security_exposure/loan_security_exposure.py:52
@@ -4979,7 +5125,7 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Security Assignment'
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 msgid "Total Security Value"
-msgstr ""
+msgstr "စုစုပေါင်းလုံခြုံရေးတန်ဖိုး"
 
 #. Label of a Section Break field in DocType 'Loan'
 #. Label of a Tab Break field in DocType 'Loan'
@@ -4987,7 +5133,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 msgid "Totals"
-msgstr ""
+msgstr "စုစုပေါင်း"
 
 #. Label of a Data field in DocType 'Bulk Repayment Log'
 #: lending/loan_management/doctype/bulk_repayment_log/bulk_repayment_log.json
@@ -4997,12 +5143,12 @@ msgstr ""
 #. Label of a Long Text field in DocType 'Bulk Repayment Log'
 #: lending/loan_management/doctype/bulk_repayment_log/bulk_repayment_log.json
 msgid "Traceback"
-msgstr ""
+msgstr "Traceback"
 
 #. Label of a Date field in DocType 'Loan Transfer'
 #: lending/loan_management/doctype/loan_transfer/loan_transfer.json
 msgid "Transfer Date"
-msgstr ""
+msgstr "လွှဲပြောင်းနေ့စွဲ"
 
 #. Label of a Select field in DocType 'Loan Repayment Schedule'
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
@@ -5067,17 +5213,17 @@ msgstr ""
 #. Name of a DocType
 #: lending/loan_management/doctype/unpledge/unpledge.json
 msgid "Unpledge"
-msgstr ""
+msgstr "မင်္ဂလာပါ"
 
 #. Label of a Datetime field in DocType 'Loan Security Release'
 #: lending/loan_management/doctype/loan_security_release/loan_security_release.json
 msgid "Unpledge Time"
-msgstr ""
+msgstr "Unpledge အချိန်"
 
 #. Option for the 'Status' (Select) field in DocType 'Loan Security Assignment'
 #: lending/loan_management/doctype/loan_security_assignment/loan_security_assignment.json
 msgid "Unpledged"
-msgstr ""
+msgstr "မင်္ဂလာပါ"
 
 #. Option for the 'Security Type' (Select) field in DocType 'Loan IRAC
 #. Provisioning Configuration'
@@ -5088,6 +5234,11 @@ msgstr ""
 #. Label of a Datetime field in DocType 'Process Loan Security Shortfall'
 #: lending/loan_management/doctype/process_loan_security_shortfall/process_loan_security_shortfall.json
 msgid "Update Time"
+msgstr "အချိန်အသစ်ပြောင်းပါ"
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "User Forum"
 msgstr ""
 
 #. Label of a Currency field in DocType 'Loan Restructure Limit Log'
@@ -5111,7 +5262,7 @@ msgstr ""
 #. Label of a Datetime field in DocType 'Loan Security Price'
 #: lending/loan_management/doctype/loan_security_price/loan_security_price.json
 msgid "Valid From"
-msgstr ""
+msgstr "မှဖြစ်သည်"
 
 #: lending/loan_management/doctype/loan_security_price/loan_security_price.py:34
 msgid "Valid From Time must be lesser than Valid Upto Time."
@@ -5120,7 +5271,7 @@ msgstr ""
 #. Label of a Datetime field in DocType 'Loan Security Price'
 #: lending/loan_management/doctype/loan_security_price/loan_security_price.json
 msgid "Valid Upto"
-msgstr ""
+msgstr "သက်တမ်းရှိ Upto"
 
 #. Label of a Check field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
@@ -5130,7 +5281,7 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Limit Change Log'
 #: lending/loan_management/doctype/loan_limit_change_log/loan_limit_change_log.json
 msgid "Value Change"
-msgstr ""
+msgstr "Value တစ်ခုပြောင်းရန်"
 
 #. Label of a Date field in DocType 'Loan Refund'
 #. Label of a Datetime field in DocType 'Loan Repayment'
@@ -5150,6 +5301,11 @@ msgstr ""
 #: lending/public/js/loan_common.js:22
 msgid "View"
 msgstr ""
+
+#. Extracted from SPA (React/TypeScript) files
+#: SPA
+msgid "View Website"
+msgstr "view ဝက်ဘ်ဆိုက်"
 
 #. Label of a Check field in DocType 'Loan Restructure'
 #: lending/loan_management/doctype/loan_restructure/loan_restructure.json
@@ -5191,13 +5347,12 @@ msgstr ""
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan'
 #. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Disbursement'
-#. Option for the 'Repayment Frequency' (Select) field in DocType 'Loan
 #. Repayment Schedule'
 #: lending/loan_management/doctype/loan/loan.json
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
 #: lending/loan_management/doctype/loan_repayment_schedule/loan_repayment_schedule.json
 msgid "Weekly"
-msgstr ""
+msgstr "ရက်သတ္တပတ်တကြိမ်ဖြစ်သော"
 
 #. Label of a Check field in DocType 'Loan Disbursement'
 #: lending/loan_management/doctype/loan_disbursement/loan_disbursement.json
@@ -5211,7 +5366,7 @@ msgstr ""
 #: lending/loan_management/doctype/loan_product/loan_product.json
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 msgid "Write Off Account"
-msgstr ""
+msgstr "အကောင့်ပိတ်ရေးထား"
 
 #. Label of a Section Break field in DocType 'Loan Product'
 #: lending/loan_management/doctype/loan_product/loan_product.json
@@ -5221,7 +5376,7 @@ msgstr ""
 #. Label of a Currency field in DocType 'Loan Write Off'
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json
 msgid "Write Off Amount"
-msgstr ""
+msgstr "ချွတ်ပမာဏကိုရေးပါ"
 
 #. Label of a Section Break field in DocType 'Loan Write Off'
 #: lending/loan_management/doctype/loan_write_off/loan_write_off.json

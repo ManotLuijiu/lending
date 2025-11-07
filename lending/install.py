@@ -3,328 +3,414 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 from frappe.custom.doctype.property_setter.property_setter import make_property_setter
 
 LOAN_CUSTOM_FIELDS = {
-	"Sales Invoice": [
-		{
-			"fieldname": "loan",
-			"label": "Loan",
-			"fieldtype": "Link",
-			"options": "Loan",
-			"insert_after": "customer",
-			"print_hide": 1,
-		},
-		{
-			"fieldname": "loan_disbursement",
-			"label": "Loan Disbursement",
-			"fieldtype": "Link",
-			"options": "Loan Disbursement",
-			"insert_after": "loan",
-			"read_only": 1,
-			"print_hide": 1,
-		},
-		{
-			"fieldname": "loan_repayment",
-			"label": "Loan Repayment",
-			"fieldtype": "Link",
-			"options": "Loan Repayment",
-			"insert_after": "loan_disbursement",
-			"read_only": 1,
-			"print_hide": 1,
-		},
-		{
-			"fieldname": "value_date",
-			"fieldtype": "Date",
-			"label": "Value Date",
-			"insert_after": "posting_date",
-			"search_index": 1,
-		},
-	],
-	"Company": [
-		{
-			"fieldname": "loan_tab",
-			"fieldtype": "Tab Break",
-			"label": "Loan",
-			"insert_after": "hr_and_payroll_tab",
-		},
-		{
-			"fieldname": "loan_settings",
-			"label": "Loan Settings",
-			"fieldtype": "Section Break",
-			"insert_after": "loan_tab",
-		},
-		{
-			"fieldname": "loan_restructure_limit",
-			"label": "Restructure Limit % (Overall)",
-			"fieldtype": "Percent",
-			"insert_after": "loan_settings",
-		},
-		{
-			"fieldname": "watch_period_post_loan_restructure_in_days",
-			"label": "Watch Period Post Loan Restructure (In Days)",
-			"fieldtype": "Int",
-			"insert_after": "loan_restructure_limit",
-		},
-		{
-			"fieldname": "interest_day_count_convention",
-			"label": "Interest Day-Count Convention",
-			"fieldtype": "Select",
-			"options": "Actual/365\nActual/Actual\n30/365\n30/360\nActual/360",
-			"insert_after": "watch_period_post_loan_restructure_in_days",
-		},
-		{
-			"fieldname": "min_days_bw_disbursement_first_repayment",
-			"label": "Minimum days between Disbursement date and first Repayment date",
-			"fieldtype": "Int",
-			"insert_after": "interest_day_count_convention",
-			"non_negative": 1,
-		},
-		{
-			"fieldname": "loan_accrual_frequency",
-			"label": "Loan Accrual Frequency",
-			"fieldtype": "Select",
-			"options": "Daily\nWeekly\nMonthly",
-			"insert_after": "min_days_bw_disbursement_first_repayment",
-		},
-		{
-			"fieldname": "loan_column_break",
-			"fieldtype": "Column Break",
-			"insert_after": "min_days_bw_disbursement_first_repayment",
-		},
-		{
-			"fieldname": "collection_offset_logic_based_on",
-			"label": "Collection Offset Logic Based On",
-			"fieldtype": "Select",
-			"options": "NPA Flag\nDays Past Due",
-			"insert_after": "loan_column_break",
-		},
-		{
-			"fieldname": "days_past_due_threshold",
-			"label": "Days Past Due Threshold",
-			"fieldtype": "Int",
-			"insert_after": "collection_offset_logic_based_on",
-			"non_negative": 1,
-		},
-		{
-			"fieldname": "days_past_due_threshold_for_auto_write_off",
-			"label": "Days Past Due Threshold For Auto Write Off",
-			"fieldtype": "Int",
-			"insert_after": "days_past_due_threshold",
-			"non_negative": 1,
-		},
-		{
-			"fieldname": "collection_offset_sequence_for_sub_standard_asset",
-			"label": "Collection Offset Sequence for Sub Standard Asset",
-			"fieldtype": "Link",
-			"options": "Loan Demand Offset Order",
-			"insert_after": "days_past_due_threshold",
-		},
-		{
-			"fieldname": "collection_offset_sequence_for_standard_asset",
-			"label": "Collection Offset Sequence for Standard Asset",
-			"fieldtype": "Link",
-			"options": "Loan Demand Offset Order",
-			"insert_after": "collection_offset_sequence_for_sub_standard_asset",
-		},
-		{
-			"fieldname": "collection_offset_sequence_for_written_off_asset",
-			"label": "Collection Offset Sequence for Written Off Asset",
-			"fieldtype": "Link",
-			"options": "Loan Demand Offset Order",
-			"insert_after": "collection_offset_sequence_for_standard_asset",
-		},
-		{
-			"fieldname": "collection_offset_sequence_for_settlement_collection",
-			"label": "Collection Offset Sequence for Settlement Collection",
-			"fieldtype": "Link",
-			"options": "Loan Demand Offset Order",
-			"insert_after": "collection_offset_sequence_for_written_off_asset",
-		},
-		{
-			"fieldname": "loan_section_break_2",
-			"fieldtype": "Section Break",
-			"insert_after": "collection_offset_sequence_for_settlement_collection",
-		},
-		{
-			"fieldname": "loan_classification_ranges",
-			"label": "Loan Classification Ranges",
-			"fieldtype": "Table",
-			"options": "Loan Classification Range",
-			"insert_after": "loan_section_break_2",
-		},
-		{
-			"fieldname": "irac_provisioning_configuration",
-			"label": "IRAC Provisioning Configuration",
-			"fieldtype": "Table",
-			"options": "Loan IRAC Provisioning Configuration",
-			"insert_after": "loan_classification_ranges",
-		},
-	],
-	"Customer": [
-		{
-			"fieldname": "loan_details_tab",
-			"label": "Loan Details",
-			"fieldtype": "Tab Break",
-			"insert_after": "email_id",
-		},
-		{
-			"fieldname": "is_npa",
-			"label": "Is NPA",
-			"fieldtype": "Check",
-			"insert_after": "loan_details_tab",
-		},
-	],
-	"Item Default": [
-		{
-			"fieldname": "loan_defaults_section",
-			"fieldtype": "Section Break",
-			"label": "Loan Defaults",
-			"insert_after": "deferred_revenue_account",
-		},
-		{
-			"fieldname": "default_receivable_account",
-			"fieldtype": "Link",
-			"label": "Default Receivable Account",
-			"options": "Account",
-			"insert_after": "loan_defaults_section",
-		},
-		{
-			"fieldname": "default_waiver_account",
-			"fieldtype": "Link",
-			"label": "Default Waiver Account",
-			"options": "Account",
-			"insert_after": "default_receivable_account",
-		},
-		{
-			"fieldname": "column_break_yajs",
-			"fieldtype": "Column Break",
-			"insert_after": "default_waiver_account",
-		},
-		{
-			"fieldname": "default_write_off_account",
-			"fieldtype": "Link",
-			"label": "Default Write Off Account",
-			"options": "Account",
-			"insert_after": "column_break_yajs",
-		},
-		{
-			"fieldname": "default_suspense_account",
-			"fieldtype": "Link",
-			"label": "Default Suspense Account",
-			"options": "Account",
-			"insert_after": "default_write_off_account",
-		},
-	],
-	"Journal Entry": [
-		{
-			"fieldname": "loan_transfer",
-			"fieldtype": "Link",
-			"label": "Loan Transfer",
-			"insert_after": "naming_series",
-			"options": "Loan Transfer",
-			"search_index": 1,
-		},
-		{
-			"fieldname": "loan",
-			"fieldtype": "Link",
-			"label": "Loan",
-			"insert_after": "loan_transfer",
-			"options": "Loan",
-			"search_index": 1,
-		},
-		{
-			"fieldname": "value_date",
-			"fieldtype": "Date",
-			"label": "Value Date",
-			"insert_after": "posting_date",
-			"search_index": 1,
-		},
-	],
-	"GL Entry": [
-		{
-			"fieldname": "value_date",
-			"fieldtype": "Date",
-			"label": "Value Date",
-			"insert_after": "posting_date",
-			"search_index": 1,
-		},
-	],
+    "Sales Invoice": [
+        {
+            "fieldname": "loan",
+            "label": "Loan",
+            "fieldtype": "Link",
+            "options": "Loan",
+            "insert_after": "customer",
+            "print_hide": 1,
+        },
+        {
+            "fieldname": "loan_disbursement",
+            "label": "Loan Disbursement",
+            "fieldtype": "Link",
+            "options": "Loan Disbursement",
+            "insert_after": "loan",
+            "read_only": 1,
+            "print_hide": 1,
+        },
+        {
+            "fieldname": "loan_repayment",
+            "label": "Loan Repayment",
+            "fieldtype": "Link",
+            "options": "Loan Repayment",
+            "insert_after": "loan_disbursement",
+            "read_only": 1,
+            "print_hide": 1,
+        },
+        {
+            "fieldname": "value_date",
+            "fieldtype": "Date",
+            "label": "Value Date",
+            "insert_after": "posting_date",
+            "search_index": 1,
+        },
+    ],
+    "Company": [
+        {
+            "fieldname": "loan_tab",
+            "fieldtype": "Tab Break",
+            "label": "Loan",
+            "insert_after": "hr_and_payroll_tab",
+        },
+        {
+            "fieldname": "loan_settings",
+            "label": "Loan Settings",
+            "fieldtype": "Section Break",
+            "insert_after": "loan_tab",
+        },
+        {
+            "fieldname": "loan_restructure_limit",
+            "label": "Restructure Limit % (Overall)",
+            "fieldtype": "Percent",
+            "insert_after": "loan_settings",
+        },
+        {
+            "fieldname": "watch_period_post_loan_restructure_in_days",
+            "label": "Watch Period Post Loan Restructure (In Days)",
+            "fieldtype": "Int",
+            "insert_after": "loan_restructure_limit",
+        },
+        {
+            "fieldname": "interest_day_count_convention",
+            "label": "Interest Day-Count Convention",
+            "fieldtype": "Select",
+            "options": "Actual/365\nActual/Actual\n30/365\n30/360\nActual/360",
+            "insert_after": "watch_period_post_loan_restructure_in_days",
+        },
+        {
+            "fieldname": "min_days_bw_disbursement_first_repayment",
+            "label": "Minimum days between Disbursement date and first Repayment date",
+            "fieldtype": "Int",
+            "insert_after": "interest_day_count_convention",
+            "non_negative": 1,
+        },
+        {
+            "fieldname": "loan_accrual_frequency",
+            "label": "Loan Accrual Frequency",
+            "fieldtype": "Select",
+            "options": "Daily\nWeekly\nMonthly",
+            "insert_after": "min_days_bw_disbursement_first_repayment",
+        },
+        {
+            "fieldname": "loan_column_break",
+            "fieldtype": "Column Break",
+            "insert_after": "min_days_bw_disbursement_first_repayment",
+        },
+        {
+            "fieldname": "collection_offset_logic_based_on",
+            "label": "Collection Offset Logic Based On",
+            "fieldtype": "Select",
+            "options": "NPA Flag\nDays Past Due",
+            "insert_after": "loan_column_break",
+        },
+        {
+            "fieldname": "days_past_due_threshold",
+            "label": "Days Past Due Threshold",
+            "fieldtype": "Int",
+            "insert_after": "collection_offset_logic_based_on",
+            "non_negative": 1,
+        },
+        {
+            "fieldname": "days_past_due_threshold_for_auto_write_off",
+            "label": "Days Past Due Threshold For Auto Write Off",
+            "fieldtype": "Int",
+            "insert_after": "days_past_due_threshold",
+            "non_negative": 1,
+        },
+        {
+            "fieldname": "collection_offset_sequence_for_sub_standard_asset",
+            "label": "Collection Offset Sequence for Sub Standard Asset",
+            "fieldtype": "Link",
+            "options": "Loan Demand Offset Order",
+            "insert_after": "days_past_due_threshold",
+        },
+        {
+            "fieldname": "collection_offset_sequence_for_standard_asset",
+            "label": "Collection Offset Sequence for Standard Asset",
+            "fieldtype": "Link",
+            "options": "Loan Demand Offset Order",
+            "insert_after": "collection_offset_sequence_for_sub_standard_asset",
+        },
+        {
+            "fieldname": "collection_offset_sequence_for_written_off_asset",
+            "label": "Collection Offset Sequence for Written Off Asset",
+            "fieldtype": "Link",
+            "options": "Loan Demand Offset Order",
+            "insert_after": "collection_offset_sequence_for_standard_asset",
+        },
+        {
+            "fieldname": "collection_offset_sequence_for_settlement_collection",
+            "label": "Collection Offset Sequence for Settlement Collection",
+            "fieldtype": "Link",
+            "options": "Loan Demand Offset Order",
+            "insert_after": "collection_offset_sequence_for_written_off_asset",
+        },
+        {
+            "fieldname": "loan_section_break_2",
+            "fieldtype": "Section Break",
+            "insert_after": "collection_offset_sequence_for_settlement_collection",
+        },
+        {
+            "fieldname": "loan_classification_ranges",
+            "label": "Loan Classification Ranges",
+            "fieldtype": "Table",
+            "options": "Loan Classification Range",
+            "insert_after": "loan_section_break_2",
+        },
+        {
+            "fieldname": "irac_provisioning_configuration",
+            "label": "IRAC Provisioning Configuration",
+            "fieldtype": "Table",
+            "options": "Loan IRAC Provisioning Configuration",
+            "insert_after": "loan_classification_ranges",
+        },
+    ],
+    "Customer": [
+        {
+            "fieldname": "loan_details_tab",
+            "label": "Loan Details",
+            "fieldtype": "Tab Break",
+            "insert_after": "email_id",
+        },
+        {
+            "fieldname": "loan_details_section",
+            "fieldtype": "Section Break",
+            "insert_after": "loan_details_tab",
+        },
+        {
+            "fieldname": "loan_details_column_left",
+            "fieldtype": "Column Break",
+            "insert_after": "loan_details_section",
+        },
+        {
+            "fieldname": "is_npa",
+            "label": "Is NPA",
+            "fieldtype": "Check",
+            "insert_after": "loan_details_column_left",
+        },
+        {
+            "fieldname": "ld_custom_id_card_number",
+            "label": "ID Card Number",
+            "fieldtype": "Data",
+            "insert_after": "is_npa",
+            "description": "ID Card Number for the customer",
+            "module": "Lending",
+        },
+        {
+            "fieldname": "ld_custom_contact_address",
+            "label": "Contact Address",
+            "fieldtype": "Small Text",
+            "insert_after": "ld_custom_id_card_number",
+            "description": "Contact Address for the customer",
+            "module": "Lending",
+        },
+        {
+            "fieldname": "ld_custom_contact_subdistrict",
+            "label": "Contact Subdistrict",
+            "fieldtype": "Data",
+            "insert_after": "ld_custom_contact_address",
+            "description": "Contact Subdistrict for the customer",
+            "module": "Lending",
+        },
+        {
+            "fieldname": "loan_details_column_right",
+            "fieldtype": "Column Break",
+            "insert_after": "ld_custom_contact_subdistrict",
+        },
+        {
+            "fieldname": "ld_custom_contact_district",
+            "label": "Contact District",
+            "fieldtype": "Data",
+            "insert_after": "loan_details_column_right",
+            "description": "Contact District for the customer",
+            "module": "Lending",
+        },
+        {
+            "fieldname": "ld_custom_contact_province",
+            "label": "Contact Province",
+            "fieldtype": "Data",
+            "insert_after": "ld_custom_contact_district",
+            "description": "Contact Province for the customer",
+            "module": "Lending",
+        },
+        {
+            "fieldname": "ld_custom_contact_postal",
+            "label": "Contact Postal Code",
+            "fieldtype": "Data",
+            "insert_after": "ld_custom_contact_province",
+            "description": "Contact Postal Code for the customer",
+            "module": "Lending",
+        },
+        {
+            "fieldname": "ld_custom_contact_fax",
+            "label": "Contact Fax",
+            "fieldtype": "Data",
+            "insert_after": "ld_custom_contact_postal",
+            "description": "Contact Fax for the customer",
+            "module": "Lending",
+        },
+    ],
+    "Item Default": [
+        {
+            "fieldname": "loan_defaults_section",
+            "fieldtype": "Section Break",
+            "label": "Loan Defaults",
+            "insert_after": "deferred_revenue_account",
+        },
+        {
+            "fieldname": "default_receivable_account",
+            "fieldtype": "Link",
+            "label": "Default Receivable Account",
+            "options": "Account",
+            "insert_after": "loan_defaults_section",
+        },
+        {
+            "fieldname": "default_waiver_account",
+            "fieldtype": "Link",
+            "label": "Default Waiver Account",
+            "options": "Account",
+            "insert_after": "default_receivable_account",
+        },
+        {
+            "fieldname": "column_break_yajs",
+            "fieldtype": "Column Break",
+            "insert_after": "default_waiver_account",
+        },
+        {
+            "fieldname": "default_write_off_account",
+            "fieldtype": "Link",
+            "label": "Default Write Off Account",
+            "options": "Account",
+            "insert_after": "column_break_yajs",
+        },
+        {
+            "fieldname": "default_suspense_account",
+            "fieldtype": "Link",
+            "label": "Default Suspense Account",
+            "options": "Account",
+            "insert_after": "default_write_off_account",
+        },
+    ],
+    "Journal Entry": [
+        {
+            "fieldname": "loan_transfer",
+            "fieldtype": "Link",
+            "label": "Loan Transfer",
+            "insert_after": "naming_series",
+            "options": "Loan Transfer",
+            "search_index": 1,
+        },
+        {
+            "fieldname": "loan",
+            "fieldtype": "Link",
+            "label": "Loan",
+            "insert_after": "loan_transfer",
+            "options": "Loan",
+            "search_index": 1,
+        },
+        {
+            "fieldname": "value_date",
+            "fieldtype": "Date",
+            "label": "Value Date",
+            "insert_after": "posting_date",
+            "search_index": 1,
+        },
+    ],
+    "GL Entry": [
+        {
+            "fieldname": "value_date",
+            "fieldtype": "Date",
+            "label": "Value Date",
+            "insert_after": "posting_date",
+            "search_index": 1,
+        },
+    ],
 }
 
 
 def fix_column_break_32_position():
-	"""
-	Fix column_break_32 position by ensuring it has proper insert_after property.
-	This addresses the issue where column_break_32 appears in loan_tab instead of stock_tab.
-	"""
-	property_setter = frappe.db.get_value(
-		"Property Setter",
-		filters={
-			"doc_type": "Company",
-			"field_name": "column_break_32",
-			"property": "insert_after",
-		},
-	)
+    """
+    Fix column_break_32 position by ensuring it has proper insert_after property.
+    This addresses the issue where column_break_32 appears in loan_tab instead of stock_tab.
+    """
+    property_setter = frappe.db.get_value(
+        "Property Setter",
+        filters={
+            "doc_type": "Company",
+            "field_name": "column_break_32",
+            "property": "insert_after",
+        },
+    )
 
-	if property_setter:
-		property_setter_doc = frappe.get_doc("Property Setter", property_setter)
-		
-		if property_setter_doc.value != "default_in_transit_warehouse":
-			property_setter_doc.value = "default_in_transit_warehouse"
-			property_setter_doc.save()
-	else:
-		make_property_setter(
-			"Company",
-			"column_break_32",
-			"insert_after",
-			"default_in_transit_warehouse",
-			"Data",
-			validate_fields_for_doctype=False,
-		)
+    if property_setter:
+        property_setter_doc = frappe.get_doc("Property Setter", property_setter)
+
+        if property_setter_doc.value != "default_in_transit_warehouse":
+            property_setter_doc.value = "default_in_transit_warehouse"
+            property_setter_doc.save()
+    else:
+        make_property_setter(
+            "Company",
+            "column_break_32",
+            "insert_after",
+            "default_in_transit_warehouse",
+            "Data",
+            validate_fields_for_doctype=False,
+        )
 
 
 def make_property_setter_for_journal_entry():
-	property_setter = frappe.db.get_value(
-		"Property Setter",
-		filters={
-			"doc_type": "Journal Entry Account",
-			"field_name": "reference_type",
-			"property": "options",
-		},
-	)
+    property_setter = frappe.db.get_value(
+        "Property Setter",
+        filters={
+            "doc_type": "Journal Entry Account",
+            "field_name": "reference_type",
+            "property": "options",
+        },
+    )
 
-	if property_setter:
-		property_setter_doc = frappe.get_doc("Property Setter", property_setter)
+    if property_setter:
+        property_setter_doc = frappe.get_doc("Property Setter", property_setter)
 
-		if "Loan Interest Accrual" not in property_setter_doc.value.split("\n"):
-			property_setter_doc.value += "\n" + "Loan Interest Accrual"
-			property_setter_doc.save()
-	else:
-		options = frappe.get_meta("Journal Entry Account").get_field("reference_type").options
-		options += "\n" + "Loan Interest Accrual"
+        if "Loan Interest Accrual" not in property_setter_doc.value.split("\n"):
+            property_setter_doc.value += "\n" + "Loan Interest Accrual"
+            property_setter_doc.save()
+    else:
+        options = frappe.get_meta("Journal Entry Account").get_field("reference_type").options
+        options += "\n" + "Loan Interest Accrual"
 
-		make_property_setter(
-			"Journal Entry Account",
-			"reference_type",
-			"options",
-			options,
-			"Text",
-			validate_fields_for_doctype=False,
-		)
+        make_property_setter(
+            "Journal Entry Account",
+            "reference_type",
+            "options",
+            options,
+            "Text",
+            validate_fields_for_doctype=False,
+        )
 
 
 def after_install():
-	create_custom_fields(LOAN_CUSTOM_FIELDS, ignore_validate=True)
-	make_property_setter_for_journal_entry()
-	fix_column_break_32_position()
+    create_custom_fields(LOAN_CUSTOM_FIELDS, ignore_validate=True)
+    make_property_setter_for_journal_entry()
+    fix_column_break_32_position()
 
 
 def before_uninstall():
-	delete_custom_fields(LOAN_CUSTOM_FIELDS)
+	"""Clean up custom fields and property setters before uninstalling lending app"""
+	try:
+		frappe.logger().info("Running Lending app pre-uninstallation cleanup...")
+
+		# Remove custom fields
+		delete_custom_fields(LOAN_CUSTOM_FIELDS)
+
+		# Clean up property setters
+		cleanup_property_setters()
+
+		frappe.logger().info("Lending app pre-uninstallation cleanup completed successfully")
+	except Exception as e:
+		frappe.logger().error(f"Error during Lending app pre-uninstallation cleanup: {e}")
+		# Don't raise - allow uninstall to continue even if cleanup fails
 
 
 def delete_custom_fields(custom_fields):
 	"""
+	Delete custom fields for lending app
 	:param custom_fields: a dict like `{'Customer': [{fieldname: 'test', ...}]}`
 	"""
+	deleted_count = 0
 
 	for doctypes, fields in custom_fields.items():
 		if isinstance(fields, dict):
@@ -336,12 +422,61 @@ def delete_custom_fields(custom_fields):
 			doctypes = (doctypes,)
 
 		for doctype in doctypes:
-			frappe.db.delete(
-				"Custom Field",
-				{
-					"fieldname": ("in", [field["fieldname"] for field in fields]),
-					"dt": doctype,
-				},
-			)
+			fieldnames = [field["fieldname"] for field in fields]
 
-			frappe.clear_cache(doctype=doctype)
+			# Delete custom fields (bulk delete for efficiency)
+			try:
+				frappe.db.delete(
+					"Custom Field",
+					{
+						"fieldname": ("in", fieldnames),
+						"dt": doctype,
+					},
+				)
+
+				deleted_count += len(fieldnames)
+				frappe.logger().info(f"Removed {len(fieldnames)} custom fields from {doctype}")
+
+			except Exception as e:
+				frappe.logger().error(f"Error deleting custom fields from {doctype}: {str(e)}")
+
+			finally:
+				frappe.clear_cache(doctype=doctype)
+
+	# Commit the changes
+	frappe.db.commit()
+	frappe.logger().info(f"Total custom fields deleted: {deleted_count}")
+
+
+def cleanup_property_setters():
+	"""Clean up property setters created by lending app"""
+	try:
+		# Clean up Journal Entry Account reference_type property setter
+		# Remove "Loan Interest Accrual" from the options
+		property_setter = frappe.db.get_value(
+			"Property Setter",
+			filters={
+				"doc_type": "Journal Entry Account",
+				"field_name": "reference_type",
+				"property": "options",
+			},
+		)
+
+		if property_setter:
+			property_setter_doc = frappe.get_doc("Property Setter", property_setter)
+
+			if "Loan Interest Accrual" in property_setter_doc.value:
+				# Remove "Loan Interest Accrual" from options
+				options_list = property_setter_doc.value.split("\n")
+				options_list = [opt for opt in options_list if opt != "Loan Interest Accrual"]
+				property_setter_doc.value = "\n".join(options_list)
+				property_setter_doc.save()
+				frappe.logger().info("Removed 'Loan Interest Accrual' from Journal Entry Account reference_type options")
+
+		# Note: We intentionally do NOT revert fix_column_break_32_position()
+		# as it fixes a core ERPNext bug and reverting it could break other apps
+
+		frappe.db.commit()
+
+	except Exception as e:
+		frappe.logger().error(f"Error cleaning up property setters: {str(e)}")
