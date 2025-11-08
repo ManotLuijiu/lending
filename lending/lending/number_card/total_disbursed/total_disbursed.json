@@ -13,7 +13,7 @@
  "label": "Total Disbursed Amount",
  "modified": "2021-02-06 17:29:38.453870",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Total Disbursed",
  "owner": "Administrator",
  "report_function": "Sum",

@@ -13,7 +13,7 @@
  "label": "Open Loan Applications",
  "modified": "2021-02-06 17:29:09.761011",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Open Loan Applications",
  "owner": "Administrator",
  "report_function": "Sum",

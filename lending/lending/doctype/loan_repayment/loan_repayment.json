@@ -550,7 +550,7 @@
  "links": [],
  "modified": "2025-05-04 15:15:46.848626",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Loan Repayment",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",

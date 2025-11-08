@@ -11,7 +11,7 @@
  "method": "lending.lending.doctype.loan.loan.get_shortfall_applicants",
  "modified": "2021-02-07 21:46:27.369795",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Applicants With Unpaid Shortfall",
  "owner": "Administrator",
  "report_function": "Sum",

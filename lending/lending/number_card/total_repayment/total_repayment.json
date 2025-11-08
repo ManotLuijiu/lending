@@ -14,7 +14,7 @@
  "label": "Total Repayment",
  "modified": "2021-02-21 19:34:59.656546",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Total Repayment",
  "owner": "Administrator",
  "report_function": "Sum",

@@ -13,7 +13,7 @@
  "label": "New Loan Applications",
  "modified": "2021-02-06 17:59:21.880979",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "New Loan Applications",
  "owner": "Administrator",
  "report_function": "Sum",

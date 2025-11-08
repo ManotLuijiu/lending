@@ -13,7 +13,7 @@
  "label": "Closed Loans",
  "modified": "2021-02-21 19:51:54.087903",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Closed Loans",
  "owner": "Administrator",
  "report_function": "Sum",

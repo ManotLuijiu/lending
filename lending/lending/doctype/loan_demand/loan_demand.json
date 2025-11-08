@@ -291,7 +291,7 @@
  "links": [],
  "modified": "2025-04-07 20:02:40.062137",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Loan Demand",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",

@@ -159,7 +159,7 @@
  "links": [],
  "modified": "2025-07-05 18:45:57.713027",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Loan Write Off",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",

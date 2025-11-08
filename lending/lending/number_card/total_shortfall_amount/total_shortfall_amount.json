@@ -13,7 +13,7 @@
  "label": "Total Unpaid Shortfall Amount",
  "modified": "2021-02-09 08:09:00.355547",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Total Shortfall Amount",
  "owner": "Administrator",
  "report_function": "Sum",

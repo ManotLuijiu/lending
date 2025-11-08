@@ -290,7 +290,7 @@
  "links": [],
  "modified": "2025-03-23 17:52:40.723839",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Loan Interest Accrual",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",

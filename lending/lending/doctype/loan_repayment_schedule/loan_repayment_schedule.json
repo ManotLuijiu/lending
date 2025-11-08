@@ -383,7 +383,7 @@
  "links": [],
  "modified": "2025-03-19 11:46:44.282572",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Loan Repayment Schedule",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",

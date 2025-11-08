@@ -31,7 +31,7 @@
  "links": [],
  "modified": "2025-03-19 11:46:43.265725",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Process Loan Restructure Limit",
  "owner": "Administrator",
  "permissions": [

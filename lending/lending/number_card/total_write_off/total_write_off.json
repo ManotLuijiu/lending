@@ -14,7 +14,7 @@
  "label": "Total Write Off",
  "modified": "2021-02-21 19:48:58.604159",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Total Write Off",
  "owner": "Administrator",
  "report_function": "Sum",

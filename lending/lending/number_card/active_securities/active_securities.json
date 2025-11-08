@@ -13,7 +13,7 @@
  "label": "Active Securities",
  "modified": "2021-02-06 19:07:26.671516",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Active Securities",
  "owner": "Administrator",
  "report_function": "Sum",

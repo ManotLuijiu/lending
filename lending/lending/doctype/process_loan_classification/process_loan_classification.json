@@ -82,7 +82,7 @@
  "links": [],
  "modified": "2025-03-19 11:46:44.995103",
  "modified_by": "Administrator",
- "module": "Loan Management",
+ "module": "Lending",
  "name": "Process Loan Classification",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
