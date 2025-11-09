@@ -17,26 +17,26 @@
     "product_config_section",
     "rate_of_interest",
     "loan_category",
-    "mcap_section",
-    "mcap_product_code",
-    "mcap_parent_product",
-    "mcap_product_column",
-    "mcap_is_sub_product",
-    "mcap_collateral_column",
-    "mcap_allowed_collateral_types",
-    "mcap_limits_section",
-    "mcap_max_vehicle_age",
-    "mcap_min_ltv_ratio",
-    "mcap_max_ltv_ratio",
-    "mcap_requirements_section",
-    "mcap_guarantor_required",
-    "mcap_min_guarantors",
-    "mcap_requirements_column",
-    "mcap_income_verification_required",
-    "mcap_field_verification_required",
-    "mcap_ownership_transfer_required",
-    "mcap_special_conditions_section",
-    "mcap_special_conditions",
+    "custom_section",
+    "custom_product_code",
+    "custom_parent_product",
+    "custom_product_column",
+    "custom_is_sub_product",
+    "custom_collateral_column",
+    "custom_allowed_collateral_types",
+    "custom_limits_section",
+    "custom_max_vehicle_age",
+    "custom_min_ltv_ratio",
+    "custom_max_ltv_ratio",
+    "custom_requirements_section",
+    "custom_guarantor_required",
+    "custom_min_guarantors",
+    "custom_requirements_column",
+    "custom_income_verification_required",
+    "custom_field_verification_required",
+    "custom_ownership_transfer_required",
+    "custom_special_conditions_section",
+    "custom_special_conditions",
     "maximum_loan_amount",
     "min_loan_amount",
     "penalty_interest_rate",
@@ -480,31 +480,31 @@
       "options": "Loan Category"
     },
     {
-      "fieldname": "mcap_section",
+      "fieldname": "custom_section",
       "fieldtype": "Section Break",
-      "label": "M Capital Product Settings",
+      "label": "Custom Product Settings",
       "collapsible": 1,
-      "description": "M Capital specific product categorization and requirements"
+      "description": "Custom product categorization and requirements"
     },
     {
-      "fieldname": "mcap_product_code",
+      "fieldname": "custom_product_code",
       "fieldtype": "Data",
-      "label": "M Capital Product Code",
-      "description": "M Capital product code (M, N, O, MC, L, H, RE, One Time) or sub-product code (e.g., M-01, N-02). Main products: M=Minimal, N=Normal, O=Over, MC=Motor, L=Land, H=Home, RE=Refinance, One Time=Agricultural"
+      "label": "Custom Product Code",
+      "description": "Custom product code (M, N, O, MC, L, H, RE, One Time) or sub-product code (e.g., M-01, N-02). Main products: M=Minimal, N=Normal, O=Over, MC=Motor, L=Land, H=Home, RE=Refinance, One Time=Agricultural"
     },
     {
-      "fieldname": "mcap_parent_product",
+      "fieldname": "custom_parent_product",
       "fieldtype": "Link",
       "label": "Parent Product",
       "options": "Loan Product",
       "description": "Link to parent product if this is a sub-product. Leave blank for main products."
     },
     {
-      "fieldname": "mcap_product_column",
+      "fieldname": "custom_product_column",
       "fieldtype": "Column Break"
     },
     {
-      "fieldname": "mcap_is_sub_product",
+      "fieldname": "custom_is_sub_product",
       "fieldtype": "Check",
       "label": "Is Sub-Product",
       "read_only": 1,
@@ -512,96 +512,96 @@
       "description": "Automatically set based on parent product. Sub-products inherit approval limits from parent."
     },
     {
-      "fieldname": "mcap_collateral_column",
+      "fieldname": "custom_collateral_column",
       "fieldtype": "Column Break"
     },
     {
-      "fieldname": "mcap_allowed_collateral_types",
+      "fieldname": "custom_allowed_collateral_types",
       "fieldtype": "Table",
       "label": "Allowed Collateral Types",
-      "options": "M Capital Collateral Type",
+      "options": "Custom Collateral Type",
       "description": "Vehicle/land types allowed for this product"
     },
     {
-      "fieldname": "mcap_limits_section",
+      "fieldname": "custom_limits_section",
       "fieldtype": "Section Break",
-      "label": "M Capital Limits"
+      "label": "Custom Limits"
     },
     {
-      "fieldname": "mcap_max_vehicle_age",
+      "fieldname": "custom_max_vehicle_age",
       "fieldtype": "Int",
       "label": "Maximum Vehicle Age (years)",
       "description": "Maximum vehicle age allowed (leave blank for no limit)",
       "non_negative": 1
     },
     {
-      "fieldname": "mcap_min_ltv_ratio",
+      "fieldname": "custom_min_ltv_ratio",
       "fieldtype": "Percent",
       "label": "Minimum LTV Ratio (%)",
       "description": "Minimum loan-to-value ratio",
       "precision": 2
     },
     {
-      "fieldname": "mcap_max_ltv_ratio",
+      "fieldname": "custom_max_ltv_ratio",
       "fieldtype": "Percent",
       "label": "Maximum LTV Ratio (%)",
       "description": "Maximum loan-to-value ratio (leave blank for no limit)",
       "precision": 2
     },
     {
-      "fieldname": "mcap_requirements_section",
+      "fieldname": "custom_requirements_section",
       "fieldtype": "Section Break",
-      "label": "M Capital Requirements"
+      "label": "Custom Requirements"
     },
     {
-      "fieldname": "mcap_guarantor_required",
+      "fieldname": "custom_guarantor_required",
       "fieldtype": "Check",
       "label": "Guarantor Required",
       "default": "1",
       "description": "Check if guarantor is required for this product"
     },
     {
-      "fieldname": "mcap_min_guarantors",
+      "fieldname": "custom_min_guarantors",
       "fieldtype": "Int",
       "label": "Minimum Guarantors",
       "default": "1",
-      "depends_on": "mcap_guarantor_required",
+      "depends_on": "custom_guarantor_required",
       "description": "Minimum number of guarantors required",
       "non_negative": 1
     },
     {
-      "fieldname": "mcap_requirements_column",
+      "fieldname": "custom_requirements_column",
       "fieldtype": "Column Break"
     },
     {
-      "fieldname": "mcap_income_verification_required",
+      "fieldname": "custom_income_verification_required",
       "fieldtype": "Check",
       "label": "Income Verification Required",
       "default": "1",
       "description": "Check if income verification is required"
     },
     {
-      "fieldname": "mcap_field_verification_required",
+      "fieldname": "custom_field_verification_required",
       "fieldtype": "Check",
       "label": "Field Verification Required",
       "default": "1",
       "description": "Check if field verification is required"
     },
     {
-      "fieldname": "mcap_ownership_transfer_required",
+      "fieldname": "custom_ownership_transfer_required",
       "fieldtype": "Check",
       "label": "Ownership Transfer Required",
       "default": "0",
       "description": "Check if ownership transfer is required"
     },
     {
-      "fieldname": "mcap_special_conditions_section",
+      "fieldname": "custom_special_conditions_section",
       "fieldtype": "Section Break",
       "label": "Special Conditions",
       "collapsible": 1
     },
     {
-      "fieldname": "mcap_special_conditions",
+      "fieldname": "custom_special_conditions",
       "fieldtype": "Text Editor",
       "label": "Special Conditions",
       "description": "Product-specific special requirements and conditions"
