@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 21:29:46.629290",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type",
+  "column_break_1",
+  "is_mandatory",
+  "section_break_details",
+  "document_name_th",
+  "document_name_en",
+  "section_break_applicability",
+  "applies_to_amount_min",
+  "column_break_2",
+  "applies_to_amount_max",
+  "section_break_requirements",
+  "quantity",
+  "column_break_3",
+  "validity_months",
+  "section_break_description",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type",
+   "label": "Document Type",
+   "fieldtype": "Select",
+   "options": "ID Card\nHouse Registration\nSalary Slip\nBank Statement\nVehicle Registration\nLand Title Deed\nProperty Deed\nCollateral Photo\nUtility Bill\nTax Return\nBusiness Registration\nFinancial Statement\nOther",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_mandatory",
+   "label": "Is Mandatory",
+   "fieldtype": "Check",
+   "default": "1",
+   "in_list_view": 1,
+   "description": "Required for loan application"
+  },
+  {
+   "fieldname": "section_break_details",
+   "label": "Document Details",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "document_name_th",
+   "label": "Document Name (Thai)",
+   "fieldtype": "Data",
+   "translatable": 1
+  },
+  {
+   "fieldname": "document_name_en",
+   "label": "Document Name (English)",
+   "fieldtype": "Data",
+   "translatable": 1
+  },
+  {
+   "fieldname": "section_break_applicability",
+   "label": "Applicability Range",
+   "fieldtype": "Section Break",
+   "description": "Specify loan amount range where this document is required",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "applies_to_amount_min",
+   "label": "Applies to Loan Amount (Min)",
+   "fieldtype": "Currency",
+   "precision": "2",
+   "description": "Leave blank if applies to all amounts"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "applies_to_amount_max",
+   "label": "Applies to Loan Amount (Max)",
+   "fieldtype": "Currency",
+   "precision": "2",
+   "description": "Leave blank if no upper limit"
+  },
+  {
+   "fieldname": "section_break_requirements",
+   "label": "Additional Requirements",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "quantity",
+   "label": "Quantity Required",
+   "fieldtype": "Int",
+   "default": "1",
+   "description": "Number of copies or instances required (e.g., 3 for salary slips)"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "validity_months",
+   "label": "Validity Period (Months)",
+   "fieldtype": "Int",
+   "description": "How recent the document must be (e.g., 3 for salary slips)"
+  },
+  {
+   "fieldname": "section_break_description",
+   "label": "Description",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "description",
+   "label": "Description",
+   "fieldtype": "Small Text",
+   "description": "Additional details or special instructions"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-09 21:29:46.629290",
+ "modified_by": "Administrator",
+ "module": "Lending",
+ "name": "Loan Product Document Requirement",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

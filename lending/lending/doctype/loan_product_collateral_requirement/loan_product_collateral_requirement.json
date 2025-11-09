@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 21:29:23.609357",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "loan_amount_range",
+  "min_amount",
+  "max_amount",
+  "section_break_collateral",
+  "collateral_type",
+  "column_break_1",
+  "num_guarantors_required",
+  "section_break_ltv",
+  "ltv_ratio_min",
+  "column_break_2",
+  "ltv_ratio_max",
+  "section_break_description",
+  "description_th",
+  "description_en",
+  "section_break_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "loan_amount_range",
+   "label": "Loan Amount Range",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "min_amount",
+   "label": "Minimum Loan Amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "reqd": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "max_amount",
+   "label": "Maximum Loan Amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "precision": "2",
+   "description": "Leave blank for unlimited"
+  },
+  {
+   "fieldname": "section_break_collateral",
+   "label": "Collateral Requirements",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "collateral_type",
+   "label": "Collateral Type",
+   "fieldtype": "Select",
+   "options": "Vehicle\nLand\nProperty\nVehicle + Land\nVehicle + Property\nLand + Property\nAny Collateral\nOther",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_guarantors_required",
+   "label": "Number of Guarantors Required",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "section_break_ltv",
+   "label": "LTV Ratio (Loan-to-Value)",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "ltv_ratio_min",
+   "label": "Minimum LTV Ratio (%)",
+   "fieldtype": "Percent",
+   "precision": "2",
+   "description": "Minimum loan-to-value ratio required"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ltv_ratio_max",
+   "label": "Maximum LTV Ratio (%)",
+   "fieldtype": "Percent",
+   "precision": "2",
+   "description": "Maximum loan-to-value ratio allowed"
+  },
+  {
+   "fieldname": "section_break_description",
+   "label": "Description",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "description_th",
+   "label": "Description (Thai)",
+   "fieldtype": "Small Text",
+   "translatable": 1
+  },
+  {
+   "fieldname": "description_en",
+   "label": "Description (English)",
+   "fieldtype": "Small Text",
+   "translatable": 1
+  },
+  {
+   "fieldname": "section_break_notes",
+   "label": "Additional Information",
+   "fieldtype": "Section Break",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "notes",
+   "label": "Notes",
+   "fieldtype": "Text",
+   "description": "Additional requirements or special conditions"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-09 21:29:23.609357",
+ "modified_by": "Administrator",
+ "module": "Lending",
+ "name": "Loan Product Collateral Requirement",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

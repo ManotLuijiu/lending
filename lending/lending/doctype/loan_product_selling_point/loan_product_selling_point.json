@@ -1,0 +1,115 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "creation": "2025-11-09 21:30:09.151962",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "point_th",
+    "point_en",
+    "section_break_display",
+    "icon",
+    "column_break_1",
+    "sort_order",
+    "section_break_highlight",
+    "highlight",
+    "column_break_2",
+    "highlight_color",
+    "section_break_description",
+    "description"
+  ],
+  "fields": [
+    {
+      "fieldname": "point_th",
+      "label": "Selling Point (TH)",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "reqd": 1,
+      "translatable": 1,
+      "description": "Marketing point in Thai language"
+    },
+    {
+      "fieldname": "point_en",
+      "label": "Selling Point (English)",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "translatable": 1,
+      "description": "Marketing point in English language"
+    },
+    {
+      "fieldname": "section_break_display",
+      "label": "Display Settings",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "icon",
+      "label": "Icon",
+      "fieldtype": "Data",
+      "description": "Icon name (e.g., clock, dollar-sign, check-circle) for display"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "sort_order",
+      "label": "Sort Order",
+      "fieldtype": "Int",
+      "default": "0",
+      "in_list_view": 1,
+      "description": "Display order (lower number shows first)"
+    },
+    {
+      "fieldname": "section_break_highlight",
+      "label": "Highlight Settings",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "highlight",
+      "label": "Highlight This Point",
+      "fieldtype": "Check",
+      "default": "0",
+      "description": "Feature this selling point prominently"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "highlight_color",
+      "label": "Highlight Color",
+      "fieldtype": "Select",
+      "options": "\nPrimary\nSuccess\nWarning\nDanger\nInfo",
+      "depends_on": "eval:doc.highlight==1",
+      "description": "Color theme for highlighted point"
+    },
+    {
+      "fieldname": "section_break_description",
+      "label": "Additional Information",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "description",
+      "label": "Description",
+      "fieldtype": "Small Text",
+      "description": "Detailed explanation of this selling point"
+    }
+  ],
+  "grid_page_length": 50,
+  "index_web_pages_for_search": 1,
+  "istable": 1,
+  "links": [],
+  "modified": "2025-11-09 21:30:09.151962",
+  "modified_by": "Administrator",
+  "module": "Lending",
+  "name": "Loan Product Selling Point",
+  "owner": "Administrator",
+  "permissions": [],
+  "row_format": "Dynamic",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
