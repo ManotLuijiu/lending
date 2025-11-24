@@ -519,7 +519,7 @@
       "fieldname": "custom_allowed_collateral_types",
       "fieldtype": "Table",
       "label": "Allowed Collateral Types",
-      "options": "Custom Collateral Type",
+      "options": "Loan Product Collateral Requirement",
       "description": "Vehicle/land types allowed for this product"
     },
     {
