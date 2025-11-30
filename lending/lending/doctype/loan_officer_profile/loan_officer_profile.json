@@ -1,0 +1,270 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:officer_name",
+ "creation": "2025-11-30 16:49:23.217188",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "employee",
+  "officer_name",
+  "user",
+  "column_break_basic",
+  "department",
+  "designation",
+  "status",
+  "capacity_section",
+  "max_leads_per_day",
+  "max_active_deals",
+  "column_break_capacity",
+  "current_lead_count",
+  "current_deal_count",
+  "performance_section",
+  "total_leads_assigned",
+  "total_deals_closed",
+  "conversion_rate",
+  "column_break_performance",
+  "total_disbursement",
+  "average_deal_value",
+  "performance_rating",
+  "territories_tab",
+  "territories_section",
+  "territories",
+  "products_tab",
+  "products_section",
+  "products"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "officer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Officer Name",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation",
+   "read_only": 1
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nBusy\nOn Leave\nInactive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity_section",
+   "fieldtype": "Section Break",
+   "label": "Capacity Management"
+  },
+  {
+   "default": "10",
+   "fieldname": "max_leads_per_day",
+   "fieldtype": "Int",
+   "label": "Max Leads Per Day",
+   "non_negative": 1
+  },
+  {
+   "default": "20",
+   "fieldname": "max_active_deals",
+   "fieldtype": "Int",
+   "label": "Max Active Deals",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_capacity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "current_lead_count",
+   "fieldtype": "Int",
+   "label": "Current Lead Count",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "current_deal_count",
+   "fieldtype": "Int",
+   "label": "Current Deal Count",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Metrics"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_leads_assigned",
+   "fieldtype": "Int",
+   "label": "Total Leads Assigned",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_deals_closed",
+   "fieldtype": "Int",
+   "label": "Total Deals Closed",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "conversion_rate",
+   "fieldtype": "Percent",
+   "label": "Conversion Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_performance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_disbursement",
+   "fieldtype": "Currency",
+   "label": "Total Disbursement",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "average_deal_value",
+   "fieldtype": "Currency",
+   "label": "Average Deal Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "performance_rating",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Performance Rating",
+   "options": "\nA\nB\nC\nD\nE"
+  },
+  {
+   "fieldname": "territories_tab",
+   "fieldtype": "Tab Break",
+   "label": "Territories"
+  },
+  {
+   "fieldname": "territories_section",
+   "fieldtype": "Section Break",
+   "label": "Assigned Territories"
+  },
+  {
+   "fieldname": "territories",
+   "fieldtype": "Table",
+   "label": "Territories",
+   "options": "Loan Officer Territory"
+  },
+  {
+   "fieldname": "products_tab",
+   "fieldtype": "Tab Break",
+   "label": "Products"
+  },
+  {
+   "fieldname": "products_section",
+   "fieldtype": "Section Break",
+   "label": "Product Specializations"
+  },
+  {
+   "fieldname": "products",
+   "fieldtype": "Table",
+   "label": "Products",
+   "options": "Loan Officer Product"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-30 16:49:23.217188",
+ "modified_by": "Administrator",
+ "module": "Lending",
+ "name": "Loan Officer Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Loan Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

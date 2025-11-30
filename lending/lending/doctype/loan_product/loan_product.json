@@ -7,27 +7,29 @@
   "editable_grid": 1,
   "engine": "InnoDB",
   "field_order": [
+    "product_name_section",
     "product_code",
     "product_name",
+    "sort_index",
     "product_name_th",
     "product_name_en",
+    "custom_product_name_column_02",
+    "custom_max_vehicle_age",
+    "custom_min_ltv_ratio",
+    "custom_max_ltv_ratio",
+    "product_config_column_03",
+    "rate_of_interest",
+    "loan_category",
     "description_section",
     "description_th",
     "description_en",
-    "product_config_section",
-    "rate_of_interest",
-    "loan_category",
     "custom_section",
     "custom_product_code",
     "custom_parent_product",
     "custom_product_column",
     "custom_is_sub_product",
-    "custom_collateral_column",
+    "custom_collateral_section",
     "custom_allowed_collateral_types",
-    "custom_limits_section",
-    "custom_max_vehicle_age",
-    "custom_min_ltv_ratio",
-    "custom_max_ltv_ratio",
     "custom_requirements_section",
     "custom_guarantor_required",
     "custom_min_guarantors",
@@ -349,6 +351,14 @@
       "unique": 1
     },
     {
+      "fieldname": "sort_index",
+      "fieldtype": "Int",
+      "label": "Sort Index",
+      "default": "0",
+      "description": "Lower number appears first. Use 1, 2, 3, etc. to control display order.",
+      "in_list_view": 1
+    },
+    {
       "fieldname": "min_days_bw_disbursement_first_repayment",
       "fieldtype": "Int",
       "label": "Minimum days between Disbursement date and first Repayment date",
@@ -512,8 +522,8 @@
       "description": "Automatically set based on parent product. Sub-products inherit approval limits from parent."
     },
     {
-      "fieldname": "custom_collateral_column",
-      "fieldtype": "Column Break"
+      "fieldname": "custom_collateral_section",
+      "fieldtype": "Section Break"
     },
     {
       "fieldname": "custom_allowed_collateral_types",
@@ -521,32 +531,6 @@
       "label": "Allowed Collateral Types",
       "options": "Loan Product Collateral Requirement",
       "description": "Vehicle/land types allowed for this product"
-    },
-    {
-      "fieldname": "custom_limits_section",
-      "fieldtype": "Section Break",
-      "label": "Custom Limits"
-    },
-    {
-      "fieldname": "custom_max_vehicle_age",
-      "fieldtype": "Int",
-      "label": "Maximum Vehicle Age (years)",
-      "description": "Maximum vehicle age allowed (leave blank for no limit)",
-      "non_negative": 1
-    },
-    {
-      "fieldname": "custom_min_ltv_ratio",
-      "fieldtype": "Percent",
-      "label": "Minimum LTV Ratio (%)",
-      "description": "Minimum loan-to-value ratio",
-      "precision": 2
-    },
-    {
-      "fieldname": "custom_max_ltv_ratio",
-      "fieldtype": "Percent",
-      "label": "Maximum LTV Ratio (%)",
-      "description": "Maximum loan-to-value ratio (leave blank for no limit)",
-      "precision": 2
     },
     {
       "fieldname": "custom_requirements_section",
@@ -597,8 +581,7 @@
     {
       "fieldname": "custom_special_conditions_section",
       "fieldtype": "Section Break",
-      "label": "Special Conditions",
-      "collapsible": 1
+      "label": "Special Conditions"
     },
     {
       "fieldname": "custom_special_conditions",
@@ -705,6 +688,36 @@
       "description": "Product name in English language"
     },
     {
+      "fieldname": "custom_product_name_column_02",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "custom_max_vehicle_age",
+      "fieldtype": "Int",
+      "label": "Maximum Vehicle Age (years)",
+      "description": "Maximum vehicle age allowed (leave blank for no limit)",
+      "non_negative": 1
+    },
+    {
+      "fieldname": "custom_min_ltv_ratio",
+      "fieldtype": "Percent",
+      "label": "Minimum LTV Ratio (%)",
+      "description": "Minimum loan-to-value ratio",
+      "precision": 2
+    },
+    {
+      "fieldname": "custom_max_ltv_ratio",
+      "fieldtype": "Percent",
+      "label": "Maximum LTV Ratio (%)",
+      "description": "Maximum loan-to-value ratio (leave blank for no limit)",
+      "precision": 2
+    },
+    {
+      "fieldname": "product_name_section",
+      "label": "Product Name",
+      "fieldtype": "Section Break"
+    },
+    {
       "fieldname": "description_section",
       "label": "Product Description",
       "fieldtype": "Section Break",
@@ -723,9 +736,8 @@
       "translatable": 1
     },
     {
-      "fieldname": "product_config_section",
-      "label": "Product Configuration",
-      "fieldtype": "Section Break"
+      "fieldname": "product_config_column_03",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "min_loan_amount",
@@ -835,7 +847,7 @@
   ],
   "index_web_pages_for_search": 1,
   "links": [],
-  "modified": "2025-03-19 11:46:51.211110",
+  "modified": "2025-11-30 10:45:00.000000",
   "modified_by": "Administrator",
   "module": "Lending",
   "name": "Loan Product",
@@ -855,8 +867,8 @@
       "write": 1
     }
   ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
+  "sort_field": "sort_index",
+  "sort_order": "ASC",
   "states": [],
   "track_changes": 1
 }
