@@ -29,6 +29,7 @@
     "custom_product_column",
     "custom_is_sub_product",
     "custom_collateral_section",
+    "custom_collateral_category",
     "custom_allowed_collateral_types",
     "custom_requirements_section",
     "custom_guarantor_required",
@@ -523,7 +524,17 @@
     },
     {
       "fieldname": "custom_collateral_section",
-      "fieldtype": "Section Break"
+      "fieldtype": "Section Break",
+      "label": "Collateral Settings"
+    },
+    {
+      "fieldname": "custom_collateral_category",
+      "fieldtype": "Select",
+      "label": "Collateral Category",
+      "options": "\nVehicle\nLand\nProperty",
+      "description": "Primary collateral type for this loan product. Vehicle = cars, motorcycles, trucks. Land = vacant land with title deed. Property = land with buildings/structures.",
+      "in_list_view": 1,
+      "in_standard_filter": 1
     },
     {
       "fieldname": "custom_allowed_collateral_types",

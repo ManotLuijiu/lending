@@ -186,7 +186,7 @@ LOAN_CUSTOM_FIELDS = {
             "fieldname": "ld_custom_first_created",
             "label": "First Created",
             "fieldtype": "Link",
-            "options": "Vehicle Loan Application",
+            "options": "M Loan Application",
             "insert_after": "is_npa",
         },
         {
