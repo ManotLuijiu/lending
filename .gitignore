@@ -35,6 +35,7 @@ lending/locale/lo.po
 lending/locale/th.po
 lending/locale/main.pot
 lending/locale/
+lending/translations/
 
 lending/public/images/form
 lending/public/images/form-bug

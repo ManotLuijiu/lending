@@ -531,8 +531,8 @@
       "fieldname": "custom_collateral_category",
       "fieldtype": "Select",
       "label": "Collateral Category",
-      "options": "\nVehicle\nLand\nProperty",
-      "description": "Primary collateral type for this loan product. Vehicle = cars, motorcycles, trucks. Land = vacant land with title deed. Property = land with buildings/structures.",
+      "options": "\nVehicle\nLand\nProperty\nGeneral",
+      "description": "Primary collateral type for this loan product. Vehicle = cars, motorcycles, trucks. Land = vacant land with title deed. Property = land with buildings/structures. General = E-Bikes, electronics, equipment without registration.",
       "in_list_view": 1,
       "in_standard_filter": 1
     },
