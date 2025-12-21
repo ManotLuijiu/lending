@@ -96,6 +96,7 @@
  ],
  "fields": [
   {
+   "default": "Customer",
    "fieldname": "applicant_type",
    "fieldtype": "Select",
    "label": "Applicant Type",
