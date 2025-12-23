@@ -32,7 +32,7 @@ frappe.ui.form.on('Loan Security Assignment', {
 				args: {
 					"loan_security_assignment": frm.doc.name,
 				},
-				method: "lending.loan_management.doctype.loan_security_assignment.loan_security_assignment.release_loan_security_assignment",
+				method: "lending.lending.doctype.loan_security_assignment.loan_security_assignment.release_loan_security_assignment",
 				callback: function(r) {
 					frm.reload_doc();
 				}
@@ -47,7 +47,7 @@ frappe.ui.form.on("Pledge", {
 
 		if (row.loan_security) {
 			frappe.call({
-				method: "lending.loan_management.doctype.loan_security.loan_security.get_loan_security_price_or_value",
+				method: "lending.lending.doctype.loan_security.loan_security.get_loan_security_price_or_value",
 				args: {
 					loan_security: row.loan_security
 				},

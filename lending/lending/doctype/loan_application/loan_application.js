@@ -70,7 +70,7 @@ frappe.ui.form.on('Loan Application', {
 		}
 
 		frappe.model.open_mapped_doc({
-			method: 'lending.loan_management.doctype.loan_application.loan_application.create_loan',
+			method: 'lending.lending.doctype.loan_application.loan_application.create_loan',
 			frm: frm
 		});
 	},
@@ -81,7 +81,7 @@ frappe.ui.form.on('Loan Application', {
 		}
 
 		frappe.call({
-			method: "lending.loan_management.doctype.loan_application.loan_application.create_loan_security_assignment",
+			method: "lending.lending.doctype.loan_application.loan_application.create_loan_security_assignment",
 			args: {
 				loan_application: frm.doc.name
 			},
@@ -121,7 +121,7 @@ frappe.ui.form.on("Proposed Pledge", {
 
 		if (row.loan_security) {
 			frappe.call({
-				method: "lending.loan_management.doctype.loan_security_price.loan_security_price.get_loan_security_price",
+				method: "lending.lending.doctype.loan_security_price.loan_security_price.get_loan_security_price",
 				args: {
 					loan_security: row.loan_security
 				},

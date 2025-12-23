@@ -169,7 +169,7 @@ frappe.ui.form.on('Loan', {
 				"repayment_frequency": frm.doc.repayment_frequency,
 				"is_term_loan": frm.doc.is_term_loan
 			},
-			method: "lending.loan_management.doctype.loan.loan.make_loan_disbursement",
+			method: "lending.lending.doctype.loan.loan.make_loan_disbursement",
 			callback: function (r) {
 				if (r.message)
 					var doc = frappe.model.sync(r.message)[0];
@@ -188,7 +188,7 @@ frappe.ui.form.on('Loan', {
 				"company": frm.doc.company,
 				"as_dict": 1
 			},
-			method: "lending.loan_management.doctype.loan.loan.make_repayment_entry",
+			method: "lending.lending.doctype.loan.loan.make_repayment_entry",
 			callback: function (r) {
 				if (r.message)
 					var doc = frappe.model.sync(r.message)[0];
@@ -204,7 +204,7 @@ frappe.ui.form.on('Loan', {
 				"company": frm.doc.company,
 				"as_dict": 1
 			},
-			method: "lending.loan_management.doctype.loan.loan.make_loan_write_off",
+			method: "lending.lending.doctype.loan.loan.make_loan_write_off",
 			callback: function (r) {
 				if (r.message)
 					var doc = frappe.model.sync(r.message)[0];
@@ -218,7 +218,7 @@ frappe.ui.form.on('Loan', {
 			args: {
 				"loan": frm.doc.name
 			},
-			method: "lending.loan_management.doctype.loan.loan.make_refund_jv",
+			method: "lending.lending.doctype.loan.loan.make_refund_jv",
 			callback: function (r) {
 				if (r.message) {
 					let doc = frappe.model.sync(r.message)[0];
@@ -233,7 +233,7 @@ frappe.ui.form.on('Loan', {
 			args: {
 				"loan": frm.doc.name
 			},
-			method: "lending.loan_management.doctype.loan.loan.close_unsecured_term_loan",
+			method: "lending.lending.doctype.loan.loan.close_unsecured_term_loan",
 			callback: function () {
 				frm.refresh();
 			}
@@ -247,7 +247,7 @@ frappe.ui.form.on('Loan', {
 					args: {
 						'loan': frm.doc.name
 					},
-					method: "lending.loan_management.doctype.loan.loan.request_loan_closure",
+					method: "lending.lending.doctype.loan.loan.request_loan_closure",
 					callback: function() {
 						frm.reload_doc();
 					}
@@ -258,7 +258,7 @@ frappe.ui.form.on('Loan', {
 
 	create_loan_security_release: function(frm) {
 		frappe.call({
-			method: "lending.loan_management.doctype.loan.loan.unpledge_security",
+			method: "lending.lending.doctype.loan.loan.unpledge_security",
 			args : {
 				"loan": frm.doc.name,
 				"as_dict": 1
@@ -274,7 +274,7 @@ frappe.ui.form.on('Loan', {
 	loan_application: function (frm) {
 		if(frm.doc.loan_application){
 			return frappe.call({
-				method: "lending.loan_management.doctype.loan.loan.get_loan_application",
+				method: "lending.lending.doctype.loan.loan.get_loan_application",
 				args: {
 					"loan_application": frm.doc.loan_application
 				},

@@ -71,7 +71,7 @@ frappe.ui.form.on('Loan Repayment', {
 
 	calculate_repayment_amounts: function(frm) {
 		frappe.call({
-			method: 'lending.loan_management.doctype.loan_repayment.loan_repayment.calculate_amounts',
+			method: 'lending.lending.doctype.loan_repayment.loan_repayment.calculate_amounts',
 			args: {
 				'against_loan': frm.doc.against_loan,
 				'posting_date': frm.doc.value_date,

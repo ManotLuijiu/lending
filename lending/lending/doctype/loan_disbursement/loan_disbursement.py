@@ -327,11 +327,13 @@ class LoanDisbursement(AccountsController):
 			self.disbursement_account = frappe.db.get_value("Bank Account", self.bank_account, "account")
 
 		if self.mode_of_payment:
-			self.disbursement_account = frappe.db.get_value(
+			mop_account = frappe.db.get_value(
 				"Mode of Payment Account",
 				{"parent": self.mode_of_payment, "company": self.company},
 				"default_account",
 			)
+			if mop_account:
+				self.disbursement_account = mop_account
 
 		if self.repayment_method == "Repay Fixed Amount per Period":
 			self.monthly_repayment_amount = frappe.db.get_value(

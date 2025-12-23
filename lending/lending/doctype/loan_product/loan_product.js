@@ -59,7 +59,7 @@ frappe.ui.form.on('Loan Charges', {
 			return;
 
 		frappe.call({
-			method: "lending.loan_management.doctype.loan_product.loan_product.get_default_charge_accounts",
+			method: "lending.lending.doctype.loan_product.loan_product.get_default_charge_accounts",
 			args: {
 				charge_type: row.charge_type,
 				company: frm.doc.company,

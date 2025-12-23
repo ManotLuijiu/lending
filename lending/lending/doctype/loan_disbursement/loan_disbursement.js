@@ -34,7 +34,7 @@ frappe.ui.form.on('Loan Disbursement', {
 				"loan_disbursement": frm.doc.name,
 				"as_dict": 1
 			},
-			method: "lending.loan_management.doctype.loan.loan.make_repayment_entry",
+			method: "lending.lending.doctype.loan.loan.make_repayment_entry",
 			callback: function (r) {
 				if (r.message)
 					var doc = frappe.model.sync(r.message)[0];
