@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "loan_category_code",
+  "abbr",
   "loan_category_name",
   "disabled"
  ],
@@ -26,6 +27,15 @@
    "label": "Loan Category Code",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "abbr",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Abbreviation",
+   "reqd": 1,
+   "unique": 1,
+   "length": 1
   },
   {
    "default": "0",
