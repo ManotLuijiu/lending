@@ -1,0 +1,28 @@
+{
+  "name": "lending",
+  "version": "0.3.1",
+  "description": "Loan Management and Accounting for ERPNext",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "release": "standard-version",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:dry": "standard-version --dry-run",
+    "release:first": "standard-version --first-release",
+    "release:publish": "standard-version && git push --follow-tags origin develop && gh release create v$(node -p \"require('./package.json').version\") --generate-notes",
+    "release:publish:patch": "standard-version --release-as patch && git push --follow-tags origin develop && gh release create v$(node -p \"require('./package.json').version\") --generate-notes",
+    "release:publish:minor": "standard-version --release-as minor && git push --follow-tags origin develop && gh release create v$(node -p \"require('./package.json').version\") --generate-notes",
+    "release:publish:major": "standard-version --release-as major && git push --follow-tags origin develop && gh release create v$(node -p \"require('./package.json').version\") --generate-notes"
+  },
+  "author": "Manot L.",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^20.3.1",
+    "@commitlint/config-conventional": "^20.3.1",
+    "husky": "^9.1.7",
+    "standard-version": "^9.5.0"
+  }
+}
