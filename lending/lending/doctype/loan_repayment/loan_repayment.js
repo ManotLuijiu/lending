@@ -35,6 +35,78 @@ frappe.ui.form.on('Loan Repayment', {
 		}
 	},
 
+	refresh: function(frm) {
+		// GL Preview/View buttons
+		// Draft (docstatus=0): Preview button → shows GL entries that will be created
+		// Submitted (docstatus=1): View button → opens actual GL entries in General Ledger
+		if (!frm.is_new()) {
+			if (frm.doc.docstatus == 0) {
+				// Draft: Preview button
+				frm.add_custom_button(__("Accounting Ledger"), function() {
+					frappe.call({
+						type: "GET",
+						method: "lending.lending.doctype.loan_repayment.loan_repayment.show_accounting_ledger_preview",
+						args: {
+							company: frm.doc.company,
+							doctype: frm.doc.doctype,
+							docname: frm.doc.name,
+						},
+						callback: function(response) {
+							if (response.message.gl_data.length === 0) {
+								frappe.msgprint(__("<strong>No Impact on Accounting Ledger</strong>"));
+							} else {
+								frm.events.show_gl_preview_dialog(frm, response.message);
+							}
+						},
+					});
+				}, __("Preview"));
+			} else if (frm.doc.docstatus == 1) {
+				// Submitted: View button
+				frm.add_custom_button(__("Accounting Ledger"), function() {
+					frappe.route_options = {
+						voucher_type: frm.doc.doctype,
+						voucher_no: frm.doc.name
+					};
+					frappe.set_route("query-report", "General Ledger");
+				}, __("View"));
+			}
+		}
+	},
+
+	show_gl_preview_dialog: function(frm, data) {
+		let dialog = new frappe.ui.Dialog({
+			size: "extra-large",
+			title: __("Accounting Ledger Preview"),
+			fields: [{
+				fieldtype: "HTML",
+				fieldname: "gl_preview_html",
+			}],
+		});
+
+		// Format columns for frappe.DataTable
+		// id = fieldname for data mapping, content = header text
+		let columns = data.gl_columns.map(col => ({
+			id: col.fieldname,
+			content: col.label,
+			width: col.width || 150,
+			format: col.fieldtype === "Currency" ? (value) => format_currency(value) : undefined,
+		}));
+
+		// Build datatable
+		let datatable_options = {
+			columns: columns,
+			data: data.gl_data,
+			dynamicRowHeight: true,
+			checkboxColumn: false,
+			inlineFilters: true,
+		};
+
+		setTimeout(() => {
+			new frappe.DataTable(dialog.get_field("gl_preview_html").wrapper, datatable_options);
+		}, 200);
+
+		dialog.show();
+	},
 	value_date : function(frm) {
 		frm.trigger('calculate_repayment_amounts');
 	},

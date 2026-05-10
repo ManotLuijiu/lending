@@ -41,6 +41,7 @@
   "column_break_16",
   "loan_account",
   "bank_account",
+  "liability_account",
   "accounting_dimensions_section",
   "cost_center",
   "charges_section",
@@ -153,6 +154,13 @@
    "fieldtype": "Link",
    "label": "Bank Account",
    "options": "Bank Account"
+  },
+  {
+   "fieldname": "liability_account",
+   "fieldtype": "Link",
+   "label": "Liability Account (Accrual Reversal)",
+   "options": "Account",
+   "description": "Thai accounting: Account to reverse accrual (e.g., 2123010 - เจ้าหนี้อื่นๆ - บุคคลภายนอก)"
   },
   {
    "fieldname": "column_break_8",

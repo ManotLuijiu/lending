@@ -40,6 +40,64 @@ from lending.lending.doctype.process_loan_interest_accrual.process_loan_interest
 )
 
 
+@frappe.whitelist()
+def show_accounting_ledger_preview(company, doctype, docname):
+	"""Show GL preview for Loan Disbursement - mirrors erpnext stock_controller pattern"""
+	filters = frappe._dict(company=company, include_dimensions=1)
+	doc = frappe.get_lazy_doc(doctype, docname)
+	doc.run_method("before_gl_preview")
+
+	gl_columns, gl_data = get_accounting_ledger_preview(doc, filters)
+
+	frappe.db.rollback()
+
+	return {"gl_columns": gl_columns, "gl_data": gl_data}
+
+
+def get_accounting_ledger_preview(doc, filters):
+	"""Build GL preview data for Loan Disbursement"""
+	from erpnext.accounts.report.general_ledger.general_ledger import get_columns as get_gl_columns
+
+	gl_columns, gl_data = [], []
+	fields = [
+		"posting_date",
+		"account",
+		"debit",
+		"credit",
+		"against",
+		"party_type",
+		"party",
+		"cost_center",
+		"against_voucher_type",
+		"against_voucher",
+	]
+
+	doc.docstatus = 1
+	doc.make_gl_entries()
+	
+	# Get GL entries for this document
+	gl_entries = frappe.db.get_all(
+		"GL Entry",
+		filters={"voucher_type": doc.doctype, "voucher_no": doc.name},
+		fields=fields,
+		order_by="debit DESC, posting_date ASC"
+	)
+
+	# Build columns (simple labels, no translation)
+	columns = [
+		{"label": "Posting Date", "fieldtype": "Date", "fieldname": "posting_date", "width": 100},
+		{"label": "Account", "fieldtype": "Link", "fieldname": "account", "options": "Account", "width": 180},
+		{"label": "Debit", "fieldtype": "Currency", "fieldname": "debit", "width": 120},
+		{"label": "Credit", "fieldtype": "Currency", "fieldname": "credit", "width": 120},
+		{"label": "Against", "fieldtype": "Data", "fieldname": "against", "width": 150},
+		{"label": "Party Type", "fieldtype": "Data", "fieldname": "party_type", "width": 100},
+		{"label": "Party", "fieldtype": "Dynamic Link", "fieldname": "party", "options": "party_type", "width": 150},
+		{"label": "Cost Center", "fieldtype": "Link", "fieldname": "cost_center", "options": "Cost Center", "width": 120},
+	]
+
+	return columns, gl_entries
+
+
 # nosemgrep
 class LoanDisbursement(AccountsController):
 	# begin: auto-generated types
@@ -74,6 +132,7 @@ class LoanDisbursement(AccountsController):
 		is_term_loan: DF.Check
 		loan_account: DF.Link | None
 		loan_disbursement_charges: DF.Table[LoanDisbursementCharge]
+		liability_account: DF.Link | None
 		loan_partner: DF.Link | None
 		loan_product: DF.Link | None
 		mode_of_payment: DF.Link | None
@@ -647,7 +706,14 @@ class LoanDisbursement(AccountsController):
 		else:
 			bank_account = self.disbursement_account
 
-		self.add_gl_entry(gle_map, self.loan_account, bank_account, self.disbursed_amount, remarks)
+		# GL Entry: Debit loan_account, Credit bank_account
+		# Note: For Thai accounting accrual reversal (Dr. 2123010 / Cr. bank), 
+		# set liability_account field to override loan_account debit
+		debit_account = self.loan_account
+		if self.get("liability_account"):
+			debit_account = self.liability_account
+
+		self.add_gl_entry(gle_map, debit_account, bank_account, self.disbursed_amount, remarks)
 
 		if self.withhold_security_deposit:
 			security_deposit_account = frappe.db.get_value(

@@ -65,6 +65,7 @@
   "column_break_36",
   "loan_account",
   "bank_account",
+  "contra_account",
   "co_lending_tab",
   "loan_partner_details_section",
   "total_partner_interest_share",
@@ -410,6 +411,13 @@
    "fieldtype": "Link",
    "label": "Bank Account",
    "options": "Bank Account"
+  },
+  {
+   "fieldname": "contra_account",
+   "fieldtype": "Link",
+   "label": "Contra Account",
+   "options": "Account",
+   "description": "HO/Branch reconciliation account (1111020 - เงินสดในมือ)"
   },
   {
    "collapsible": 1,

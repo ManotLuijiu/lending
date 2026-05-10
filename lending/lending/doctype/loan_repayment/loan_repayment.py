@@ -2326,6 +2326,54 @@ class LoanRepayment(AccountsController):
 					)
 
 
+@frappe.whitelist()
+def show_accounting_ledger_preview(company, doctype, docname):
+	"""
+	Show GL preview for Loan Repayment - mirrors loan_disbursement pattern.
+	Used by JS Preview button on draft documents.
+
+	Returns gl_columns and gl_data for frappe.DataTable.
+	"""
+	# Apply M Capital HO/Branch patch if available
+	# This ensures get_gl_map() uses the correct accounting pattern
+	from m_capital.overrides.loan_repayment_gl import patch_class_methods
+	patch_class_methods(None, None)
+
+	frappe.flags.ignore_accounting_dimensions = False
+	doc = frappe.get_doc("Loan Repayment", docname)
+
+	# Get GL map (this will use HO/Branch pattern if contra_account is set)
+	gl_map = doc.get_gl_map()
+
+	# Define columns for DataTable
+	# Using fieldname as id to match data keys
+	gl_columns = [
+		{"fieldname": "account", "label": _("Account"), "width": 250},
+		{"fieldname": "debit", "label": _("Debit (THB)"), "fieldtype": "Currency", "width": 130},
+		{"fieldname": "credit", "label": _("Credit (THB)"), "fieldtype": "Currency", "width": 130},
+		{"fieldname": "against", "label": _("Against"), "width": 200},
+		{"fieldname": "remarks", "label": _("Remarks"), "width": 250},
+	]
+
+	# Transform gl_map to table format
+	gl_data = []
+	for entry in gl_map:
+		gl_data.append({
+			"account": entry.get("account", ""),
+			"debit": entry.get("debit") or 0,
+			"credit": entry.get("credit") or 0,
+			"against": entry.get("against") or entry.get("against_account") or "",
+			"remarks": entry.get("remarks") or entry.get("user_remark") or "",
+		})
+
+	frappe.db.rollback()
+
+	return {
+		"gl_columns": gl_columns,
+		"gl_data": gl_data,
+	}
+
+
 def create_repayment_entry(
 	loan,
 	applicant,
